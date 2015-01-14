@@ -1,0 +1,12 @@
+p#notice = notice
+
+p
+   strong Name:
+   = @workpost.name
+p
+   strong Contacts:
+   = uni_info @workpost, "contacts"
+
+= link_to 'Edit', edit_workpost_path(@workpost)
+'|
+= link_to 'Back', workposts_path

@@ -1,0 +1,21 @@
+= simple_nested_form_for(@student) do |f|
+  = f.error_notification
+
+  .form-inputs
+      = uni_input f, "name"
+      = uni_ref_input f, @student, "contact_data", @student.contact_data || @student.build_contact_data
+      = uni_ref_input f, @student, "organization", @student.organization || @student.build_organization
+      = uni_ref_input f, @student, "skills", @student.skills || @student.build_skills
+      = uni_ref_input f, @student, "workpost", @student.workpost || @student.build_workpost
+      = uni_ref_input f, @student, "industries", @student.industries || @student.build_industries
+      = uni_ref_input f, @student, "equips", @student.equips || @student.build_equips
+      = uni_input f, "enter_year"
+      = uni_ref_input f, @student, "university", @student.university || @student.build_university
+      = uni_ref_input f, @student, "faculty", @student.faculty || @student.build_faculty
+      = uni_ref_input f, @student, "specialty", @student.specialty || @student.build_specialty
+      = uni_ref_input f, @student, "team_projects", @student.team_projects || @student.build_team_projects
+      = uni_ref_input f, @student, "chief_projects", @student.chief_projects || @student.build_chief_projects
+      = uni_ref_input f, @student, "expert_projects", @student.expert_projects || @student.build_expert_projects
+
+  .form-actions
+    = f.button :submit

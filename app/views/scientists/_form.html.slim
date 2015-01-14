@@ -1,0 +1,21 @@
+= simple_nested_form_for(@scientist) do |f|
+  = f.error_notification
+
+  .form-inputs
+      = uni_input f, "name"
+      = uni_ref_input f, @scientist, "contact_data", @scientist.contact_data || @scientist.build_contact_data
+      = uni_ref_input f, @scientist, "organization", @scientist.organization || @scientist.build_organization
+      = uni_ref_input f, @scientist, "skills", @scientist.skills || @scientist.build_skills
+      = uni_ref_input f, @scientist, "workpost", @scientist.workpost || @scientist.build_workpost
+      = uni_ref_input f, @scientist, "industries", @scientist.industries || @scientist.build_industries
+      = uni_ref_input f, @scientist, "equips", @scientist.equips || @scientist.build_equips
+      = uni_ref_input f, @scientist, "degree", @scientist.degree || @scientist.build_degree
+      = uni_ref_input f, @scientist, "rank", @scientist.rank || @scientist.build_rank
+      = uni_ref_input f, @scientist, "papers", @scientist.papers || @scientist.build_papers
+      = uni_ref_input f, @scientist, "thesis", @scientist.thesis || @scientist.build_thesis
+      = uni_ref_input f, @scientist, "team_projects", @scientist.team_projects || @scientist.build_team_projects
+      = uni_ref_input f, @scientist, "chief_projects", @scientist.chief_projects || @scientist.build_chief_projects
+      = uni_ref_input f, @scientist, "expert_projects", @scientist.expert_projects || @scientist.build_expert_projects
+
+  .form-actions
+    = f.button :submit

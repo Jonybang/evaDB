@@ -1,0 +1,22 @@
+h1 projectstatuses
+
+table class="table table-hover table-condensed"
+  thead
+    tr
+      th Name
+      th Projects
+      th
+
+  tbody
+    - @projectstatuses.each do |projectstatus|
+      tr
+        td = link_to projectstatus.name, projectstatus
+        td = uni_info projectstatus, "projects"
+        td
+          = link_to 'Edit', edit_projectstatus_path(projectstatus)
+          br
+          = link_to 'Destroy', projectstatus, data: {:confirm => 'Are you sure?'}, :method => :delete
+
+br
+
+= link_to 'New Projectstatus', new_projectstatus_path

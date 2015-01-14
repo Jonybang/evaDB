@@ -1,0 +1,2 @@
+module EquipstatusesHelper
+end

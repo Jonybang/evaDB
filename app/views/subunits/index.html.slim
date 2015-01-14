@@ -1,0 +1,27 @@
+h1 subunits
+
+table class="table table-hover table-condensed"
+  thead
+    tr
+      th Name
+      th Organization
+      th Rooms
+      th Equips
+      th
+      th
+      th
+
+  tbody
+    - @subunits.each do |subunit|
+      tr
+        td = subunit.name
+        td = uni_info subunit, "organization"
+        td = uni_info subunit, "rooms"
+        td = uni_info subunit, "equips"
+        td = link_to 'Show', subunit
+        td = link_to 'Edit', edit_subunit_path(subunit)
+        td = link_to 'Destroy', subunit, data: {:confirm => 'Are you sure?'}, :method => :delete
+
+br
+
+= link_to 'New Subunit', new_subunit_path

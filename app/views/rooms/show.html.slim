@@ -1,0 +1,15 @@
+p#notice = notice
+
+p
+   strong Name:
+   = @room.name
+p
+   strong Subunit:
+   = uni_info @room, "subunit"
+p
+   strong Equips:
+   = uni_info @room, "equips"
+
+= link_to 'Edit', edit_room_path(@room)
+'|
+= link_to 'Back', rooms_path

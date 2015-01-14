@@ -1,0 +1,10 @@
+= simple_form_for(@link) do |f|
+  = f.error_notification
+
+  .form-inputs
+    = f.input :url
+    = f.input :note
+    = f.association :link_parent
+
+  .form-actions
+    = f.button :submit

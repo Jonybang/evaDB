@@ -1,0 +1,18 @@
+p#notice = notice
+
+p
+   strong Name:
+   = @subunit.name
+p
+   strong Organization:
+   = uni_info @subunit, "organization"
+p
+   strong Rooms:
+   = uni_info @subunit, "rooms"
+p
+   strong Equips:
+   = uni_info @subunit, "equips"
+
+= link_to 'Edit', edit_subunit_path(@subunit)
+'|
+= link_to 'Back', subunits_path

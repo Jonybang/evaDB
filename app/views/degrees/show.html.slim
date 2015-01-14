@@ -1,0 +1,12 @@
+p#notice = notice
+
+p
+   strong Name:
+   = @degree.name
+p
+   strong Scientists:
+   = uni_info @degree, "scientists"
+
+= link_to 'Edit', edit_degree_path(@degree)
+'|
+= link_to 'Back', degrees_path

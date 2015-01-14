@@ -1,0 +1,36 @@
+h1 intelectprops
+
+table class="table table-hover table-condensed"
+  thead
+    tr
+      th Name
+      th Indnumber
+      th Description
+      th Formula
+      th Regdate
+      th Enddate
+      th Doclink
+      th Intelecttype
+      th Authors
+      th
+
+  tbody
+    - @intelectprops.each do |intelectprop|
+      tr
+        td = link_to intelectprop.name, intelectprop
+        td = beauty_string intelectprop, "indnumber", "min"
+        td = beauty_string intelectprop, "description", "min"
+        td = beauty_string intelectprop, "formula", "min"
+        td = beauty_string intelectprop, "regdate", "min"
+        td = beauty_string intelectprop, "enddate", "min"
+        td = beauty_string intelectprop, "doclink", "min"
+        td = uni_info intelectprop, "intelecttype"
+        td = uni_info intelectprop, "authors"
+        td
+          = link_to 'Edit', edit_intelectprop_path(intelectprop)
+          br
+          = link_to 'Destroy', intelectprop, data: {:confirm => 'Are you sure?'}, :method => :delete
+
+br
+
+= link_to 'New Intelectprop', new_intelectprop_path

@@ -1,0 +1,36 @@
+p#notice = notice
+
+p
+   strong Name:&nbsp;
+   = beauty_string @project, "name"
+p
+   strong Projectstatus:&nbsp;
+   = uni_info @project, "projectstatus"
+p
+   strong Description:&nbsp;
+   = beauty_string @project, "description"
+p
+   strong Result:&nbsp;
+   = beauty_string @project, "result"
+p
+   strong Projectdirection:&nbsp;
+   = uni_info @project, "projectdirection"
+p
+   strong Chief:&nbsp;
+   = uni_info @project, "chief"
+p
+   strong Intelectprops:&nbsp;
+   = uni_info @project, "intelectprops"
+p
+   strong Team:&nbsp;
+   = uni_info @project, "team"
+p
+   strong Experts:&nbsp;
+   = uni_info @project, "experts"
+p
+   strong Project tasks:&nbsp;
+   = uni_info @project, "project_tasks"
+
+= link_to 'Edit', edit_project_path(@project)
+'|
+= link_to 'Back', projects_path

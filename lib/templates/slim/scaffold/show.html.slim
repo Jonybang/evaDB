@@ -1,0 +1,15 @@
+p#notice = notice
+
+<% attributes.each do |attribute| -%>
+p
+   strong <%= attribute.human_name %>:&nbsp;
+<%- if attribute.reference? -%>
+   = uni_info @<%= singular_table_name %>, "<%= attribute.name %>"
+<%- else -%>
+   = beauty_string @<%= singular_table_name %>, "<%= attribute.name %>"
+<%- end -%>
+<% end -%>
+
+= link_to 'Edit', edit_<%= singular_table_name %>_path(@<%= singular_table_name %>)
+'|
+= link_to 'Back', <%= index_helper %>_path

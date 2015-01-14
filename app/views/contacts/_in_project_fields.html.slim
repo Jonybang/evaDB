@@ -1,0 +1,6 @@
+  = f.error_notification
+
+  .form-inputs
+    = uni_ref_input f, f.object, "projects", f.object.projects || f.object.build_projects
+    = uni_ref_input f, f.object, "asTeamMember", f.object.asTeamMember || f.object.build_asTeamMember
+    = uni_ref_input f, f.object, "asExpert", f.object.asExpert || f.object.build_asExpert

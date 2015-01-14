@@ -1,0 +1,2 @@
+module WorkpostsHelper
+end

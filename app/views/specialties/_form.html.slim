@@ -1,0 +1,12 @@
+= simple_nested_form_for(@specialty) do |f|
+  = f.error_notification
+
+  .form-inputs
+      = uni_input f, "name"
+      = uni_ref_input f, @specialty, "contact_data", @specialty.contact_data || @specialty.build_contact_data
+      = uni_ref_input f, @specialty, "link", @specialty.link || @specialty.build_link
+      = uni_ref_input f, @specialty, "faculty", @specialty.faculty || @specialty.build_faculty
+      = uni_ref_input f, @specialty, "students", @specialty.students || @specialty.build_students
+
+  .form-actions
+    = f.button :submit

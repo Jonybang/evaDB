@@ -1,0 +1,36 @@
+h1 equips
+
+table class="table table-hover table-condensed"
+  thead
+    tr
+      th Name
+      th Model
+      th Description
+      th Parametres
+      th Responsible
+      th Organization
+      th Subunit
+      th Room
+      th Equipstatus
+      th
+
+  tbody
+    - @equips.each do |equip|
+      tr
+        td = link_to equip.name, equip
+        td = beauty_string equip, "model", "min"
+        td = beauty_string equip, "description", "min"
+        td = beauty_string equip, "parametres", "min"
+        td = uni_info equip, "responsible"
+        td = uni_info equip, "organization"
+        td = uni_info equip, "subunit"
+        td = uni_info equip, "room"
+        td = uni_info equip, "equipstatus"
+        td
+          = link_to 'Edit', edit_equip_path(equip)
+          br
+          = link_to 'Destroy', equip, data: {:confirm => 'Are you sure?'}, :method => :delete
+
+br
+
+= link_to 'New Equip', new_equip_path

@@ -1,0 +1,11 @@
+= simple_form_for(@contact_data) do |f|
+  = f.error_notification
+
+  .form-inputs
+    = f.input :phone
+    = f.input :email
+    = f.input :addres
+    = f.input :cdata_parent_id,:collection => Organization.all,:label_method => :name,:value_method => :id,:label => "Organization" ,:include_blank => false
+
+  .form-actions
+    = f.button :submit

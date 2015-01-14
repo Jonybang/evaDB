@@ -1,0 +1,23 @@
+h1 workposts
+
+table class="table table-hover table-condensed"
+  thead
+    tr
+      th Name
+      th Contacts
+      th
+      th
+      th
+
+  tbody
+    - @workposts.each do |workpost|
+      tr
+        td = workpost.name
+        td = uni_info workpost, "contacts"
+        td = link_to 'Show', workpost
+        td = link_to 'Edit', edit_workpost_path(workpost)
+        td = link_to 'Destroy', workpost, data: {:confirm => 'Are you sure?'}, :method => :delete
+
+br
+
+= link_to 'New Workpost', new_workpost_path

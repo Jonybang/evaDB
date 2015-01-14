@@ -1,0 +1,48 @@
+p#notice = notice
+
+p
+   strong Name:&nbsp;
+   = beauty_string @scientist, "name"
+p
+   strong Contact data:&nbsp;
+   = uni_info @scientist, "contact_data"
+p
+   strong Organization:&nbsp;
+   = uni_info @scientist, "organization"
+p
+   strong Skills:&nbsp;
+   = uni_info @scientist, "skills"
+p
+   strong Workpost:&nbsp;
+   = uni_info @scientist, "workpost"
+p
+   strong Industries:&nbsp;
+   = uni_info @scientist, "industries"
+p
+   strong Equips:&nbsp;
+   = uni_info @scientist, "equips"
+p
+   strong Degree:&nbsp;
+   = uni_info @scientist, "degree"
+p
+   strong Rank:&nbsp;
+   = uni_info @scientist, "rank"
+p
+   strong Papers:&nbsp;
+   = uni_info @scientist, "papers"
+p
+   strong Thesis:&nbsp;
+   = uni_info @scientist, "thesis"
+p
+   strong Team projects:&nbsp;
+   = uni_info @scientist, "team_projects"
+p
+   strong Chief projects:&nbsp;
+   = uni_info @scientist, "chief_projects"
+p
+   strong Expert projects:&nbsp;
+   = uni_info @scientist, "expert_projects"
+
+= link_to 'Edit', edit_scientist_path(@scientist)
+'|
+= link_to 'Back', scientists_path

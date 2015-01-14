@@ -1,0 +1,24 @@
+p#notice = notice
+
+p
+   strong Name:
+   = @organization.name
+p
+   strong Requisites:
+   = @organization.requisites
+p
+   strong Contact data:
+   = uni_info @organization, "contact_data"
+p
+   strong Link:
+   = uni_info @organization, "link"
+p
+   strong Contacts:
+   = uni_info @organization, "contacts"
+p
+   strong Equips:
+   = uni_info @organization, "equips"
+
+= link_to 'Edit', edit_organization_path(@organization)
+'|
+= link_to 'Back', organizations_path

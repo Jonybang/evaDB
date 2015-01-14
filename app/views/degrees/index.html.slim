@@ -1,0 +1,23 @@
+h1 degrees
+
+table class="table table-hover table-condensed"
+  thead
+    tr
+      th Name
+      th Scientists
+      th
+      th
+      th
+
+  tbody
+    - @degrees.each do |degree|
+      tr
+        td = degree.name
+        td = uni_info degree, "scientists"
+        td = link_to 'Show', degree
+        td = link_to 'Edit', edit_degree_path(degree)
+        td = link_to 'Destroy', degree, data: {:confirm => 'Are you sure?'}, :method => :delete
+
+br
+
+= link_to 'New Degree', new_degree_path

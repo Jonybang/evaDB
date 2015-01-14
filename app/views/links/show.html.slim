@@ -1,0 +1,15 @@
+p#notice = notice
+
+p
+   strong Url:
+   = @link.url
+p
+   strong Note:
+   = @link.note
+p
+   strong Link parent:
+   = uni_link link, "link_parent"
+
+= link_to 'Edit', edit_link_path(@link)
+'|
+= link_to 'Back', links_path

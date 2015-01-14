@@ -1,0 +1,17 @@
+= simple_nested_form_for(@project) do |f|
+  = f.error_notification
+
+  .form-inputs
+      = uni_input f, "name"
+      = uni_ref_input f, @project, "projectstatus", @project.projectstatus || @project.build_projectstatus
+      = uni_input f, "description"
+      = uni_input f, "result"
+      = uni_ref_input f, @project, "projectdirection", @project.projectdirection || @project.build_projectdirection
+      = uni_ref_input f, @project, "chief", @project.chief || @project.build_chief
+      = uni_ref_input f, @project, "intelectprops", @project.intelectprops || @project.build_intelectprops
+      = uni_ref_input f, @project, "team", @project.team || @project.build_team
+      = uni_ref_input f, @project, "experts", @project.experts || @project.build_experts
+      = uni_ref_input f, @project, "project_tasks", @project.project_tasks || @project.build_project_tasks
+
+  .form-actions
+    = f.button :submit

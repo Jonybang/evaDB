@@ -1,0 +1,23 @@
+h1 papers
+
+table class="table table-hover table-condensed"
+  thead
+    tr
+      th Name
+      th Scientist
+      th
+      th
+      th
+
+  tbody
+    - @papers.each do |paper|
+      tr
+        td = paper.name
+        td = uni_info paper, "scientist"
+        td = link_to 'Show', paper
+        td = link_to 'Edit', edit_paper_path(paper)
+        td = link_to 'Destroy', paper, data: {:confirm => 'Are you sure?'}, :method => :delete
+
+br
+
+= link_to 'New Paper', new_paper_path

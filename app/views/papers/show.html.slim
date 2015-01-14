@@ -1,0 +1,12 @@
+p#notice = notice
+
+p
+   strong Name:
+   = @paper.name
+p
+   strong Scientist:
+   = uni_info @paper, "scientist"
+
+= link_to 'Edit', edit_paper_path(@paper)
+'|
+= link_to 'Back', papers_path

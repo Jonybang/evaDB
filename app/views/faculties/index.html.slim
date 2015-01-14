@@ -1,0 +1,31 @@
+h1 faculties
+
+table class="table table-hover table-condensed"
+  thead
+    tr
+      th Name
+      th Contact data
+      th Link
+      th University
+      th Specialties
+      th Students
+      th
+      th
+      th
+
+  tbody
+    - @faculties.each do |faculty|
+      tr
+        td = faculty.name
+        td = uni_info faculty, "contact_data"
+        td = uni_info faculty, "link"
+        td = uni_info faculty, "university"
+        td = uni_info faculty, "specialties"
+        td = uni_info faculty, "students"
+        td = link_to 'Show', faculty
+        td = link_to 'Edit', edit_faculty_path(faculty)
+        td = link_to 'Destroy', faculty, data: {:confirm => 'Are you sure?'}, :method => :delete
+
+br
+
+= link_to 'New Faculty', new_faculty_path

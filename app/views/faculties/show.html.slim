@@ -1,0 +1,24 @@
+p#notice = notice
+
+p
+   strong Name:
+   = @faculty.name
+p
+   strong Contact data:
+   = uni_info @faculty, "contact_data"
+p
+   strong Link:
+   = uni_info @faculty, "link"
+p
+   strong University:
+   = uni_info @faculty, "university"
+p
+   strong Specialties:
+   = uni_info @faculty, "specialties"
+p
+   strong Students:
+   = uni_info @faculty, "students"
+
+= link_to 'Edit', edit_faculty_path(@faculty)
+'|
+= link_to 'Back', faculties_path

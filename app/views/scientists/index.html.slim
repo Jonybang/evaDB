@@ -1,0 +1,46 @@
+h1 scientists
+
+table class="table table-hover table-condensed"
+  thead
+    tr
+      th Name
+      th Contact data
+      th Organization
+      th Skills
+      th Workpost
+      th Industries
+      th Equips
+      th Degree
+      th Rank
+      th Papers
+      th Thesis
+      th Team projects
+      th Chief projects
+      th Expert projects
+      th
+
+  tbody
+    - @scientists.each do |scientist|
+      tr
+        td = link_to scientist.name, scientist
+        td = uni_info scientist, "contact_data"
+        td = uni_info scientist, "organization"
+        td = uni_info scientist, "skills"
+        td = uni_info scientist, "workpost"
+        td = uni_info scientist, "industries"
+        td = uni_info scientist, "equips"
+        td = uni_info scientist, "degree"
+        td = uni_info scientist, "rank"
+        td = uni_info scientist, "papers"
+        td = uni_info scientist, "thesis"
+        td = uni_info scientist, "team_projects"
+        td = uni_info scientist, "chief_projects"
+        td = uni_info scientist, "expert_projects"
+        td
+          = link_to 'Edit', edit_scientist_path(scientist)
+          br
+          = link_to 'Destroy', scientist, data: {:confirm => 'Are you sure?'}, :method => :delete
+
+br
+
+= link_to 'New Scientist', new_scientist_path

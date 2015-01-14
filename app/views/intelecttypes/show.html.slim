@@ -1,0 +1,12 @@
+p#notice = notice
+
+p
+   strong Name:&nbsp;
+   = @intelecttype.name
+p
+   strong Intelectprops:&nbsp;
+   = uni_info @intelecttype, "intelectprops"
+
+= link_to 'Edit', edit_intelecttype_path(@intelecttype)
+'|
+= link_to 'Back', intelecttypes_path

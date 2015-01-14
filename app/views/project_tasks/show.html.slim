@@ -1,0 +1,27 @@
+p#notice = notice
+
+p
+   strong Name:&nbsp;
+   = beauty_string @project_task, "name"
+p
+   strong Number:&nbsp;
+   = beauty_string @project_task, "number"
+p
+   strong Begin date:&nbsp;
+   = beauty_string @project_task, "begin_date"
+p
+   strong End date:&nbsp;
+   = beauty_string @project_task, "end_date"
+p
+   strong Projectstatus:&nbsp;
+   = uni_info @project_task, "projectstatus"
+p
+   strong Tehnical task:&nbsp;
+   = beauty_string @project_task, "tehnical_task"
+p
+   strong Project:&nbsp;
+   = uni_info @project_task, "project"
+
+= link_to 'Edit', edit_project_task_path(@project_task)
+'|
+= link_to 'Back', project_tasks_path
