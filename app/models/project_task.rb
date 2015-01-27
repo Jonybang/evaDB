@@ -10,5 +10,5 @@ class ProjectTask
 
   belongs_to :project
   belongs_to :projectstatus
-  #belongs_to :responsible, class_name: "Contact", inverse_of: :project_tasks
+  belongs_to :responsible, class_name: "Contact", inverse_of: :project_tasks
 end

@@ -16,6 +16,7 @@
       = uni_ref_input f, @student, "team_projects", @student.team_projects || @student.build_team_projects
       = uni_ref_input f, @student, "chief_projects", @student.chief_projects || @student.build_chief_projects
       = uni_ref_input f, @student, "expert_projects", @student.expert_projects || @student.build_expert_projects
+      = uni_ref_input f, @student, "project_tasks", @student.project_tasks || @student.build_project_tasks
 
   .form-actions
     = f.button :submit

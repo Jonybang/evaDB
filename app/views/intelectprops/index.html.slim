@@ -12,6 +12,7 @@ table class="table table-hover table-condensed"
       th Doclink
       th Intelecttype
       th Authors
+      th Projects
       th
 
   tbody
@@ -26,6 +27,7 @@ table class="table table-hover table-condensed"
         td = beauty_string intelectprop, "doclink", "min"
         td = uni_info intelectprop, "intelecttype"
         td = uni_info intelectprop, "authors"
+        td = uni_info intelectprop, "projects"
         td
           = link_to 'Edit', edit_intelectprop_path(intelectprop)
           br

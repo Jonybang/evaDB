@@ -8,7 +8,7 @@ if [ $1 = "link" ]
 fi
 
 if [ $1 = "contact" ]
-        then rails g slim:scaffold contact name contact_data:references organization:references skills:references workpost:references industries:references equips:references intelectprops:references team_projects:references chief_projects:references expert_projects:references #project_tasks:references
+        then rails g slim:scaffold contact name contact_data:references organization:references skills:references workpost:references industries:references equips:references intelectprops:references team_projects:references chief_projects:references expert_projects:references project_tasks:references
 fi
 
 #if [ $1 = "in_project" ]
@@ -16,15 +16,15 @@ fi
 #fi
 
 if [ $1 = "student" ]
-        then rails g slim:scaffold student name contact_data:references organization:references skills:references workpost:references industries:references equips:references enter_year:date university:references faculty:references specialty:references team_projects:references chief_projects:references expert_projects:references #project_tasks:references
+        then rails g slim:scaffold student name contact_data:references organization:references skills:references workpost:references industries:references equips:references enter_year:date university:references faculty:references specialty:references team_projects:references chief_projects:references expert_projects:references project_tasks:references
 fi
 
 if [ $1 = "scientist" ]
-        then rails g slim:scaffold scientist name contact_data:references organization:references skills:references workpost:references industries:references equips:references degree:references rank:references papers:references thesis:references team_projects:references chief_projects:references expert_projects:references #project_tasks:references
+        then rails g slim:scaffold scientist name contact_data:references organization:references skills:references workpost:references industries:references equips:references degree:references rank:references papers:references thesis:references team_projects:references chief_projects:references expert_projects:references project_tasks:references
 fi
 
 if [ $1 = "intelectprop" ]
-        then rails g slim:scaffold intelectprop name indnumber description:text formula regdate:date enddate:date doclink intelecttype:references authors:references
+        then rails g slim:scaffold intelectprop name indnumber description:text formula regdate:date enddate:date doclink intelecttype:references authors:references projects:references
 fi
 
 if [ $1 = "intelecttype" ]
@@ -96,7 +96,7 @@ if [ $1 = "project" ]
 fi
 
 if [ $1 = "project_task" ]
-        then rails g slim:scaffold project_task name number:int begin_date:date end_date:date projectstatus:references tehnical_task:text project:references #responsible:references
+        then rails g slim:scaffold project_task name number:int begin_date:date end_date:date projectstatus:references tehnical_task:text project:references responsible:references
 fi
 
 if [ $1 = "projectstatus" ]

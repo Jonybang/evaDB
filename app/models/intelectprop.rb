@@ -10,4 +10,5 @@ class Intelectprop
 
   belongs_to :intelecttype
   has_and_belongs_to_many :authors, class_name: "Contact"
+  has_and_belongs_to_many :projects, class_name: "Project"
 end

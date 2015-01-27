@@ -10,6 +10,7 @@ table class="table table-hover table-condensed"
       th Projectstatus
       th Tehnical task
       th Project
+      th Responsible
       th
 
   tbody
@@ -22,6 +23,7 @@ table class="table table-hover table-condensed"
         td = uni_info project_task, "projectstatus"
         td = beauty_string project_task, "tehnical_task", "min"
         td = uni_info project_task, "project"
+        td = uni_info project_task, "responsible"
         td
           = link_to 'Edit', edit_project_task_path(project_task)
           br

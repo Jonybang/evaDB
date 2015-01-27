@@ -9,6 +9,7 @@
       = uni_ref_input f, @project_task, "projectstatus", @project_task.projectstatus || @project_task.build_projectstatus
       = uni_input f, "tehnical_task"
       = uni_ref_input f, @project_task, "project", @project_task.project || @project_task.build_project
+      = uni_ref_input f, @project_task, "responsible", @project_task.responsible || @project_task.build_responsible
 
   .form-actions
     = f.button :submit
