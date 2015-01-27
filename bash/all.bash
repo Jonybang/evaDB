@@ -76,7 +76,7 @@ if [ $1 = "industry" ]
 fi
 
 if [ $1 = "equip" ]
-        then rails g slim:scaffold equip name model description:text parametres responsible:references organization:references subunit:references room:references equipstatus:references
+        then rails g slim:scaffold equip name model description:text parametres responsible:references organization:references subunit:references room:references equipstatus:references project_tasks:references
 fi
 
 if [ $1 = "equipstatus" ]
@@ -96,7 +96,7 @@ if [ $1 = "project" ]
 fi
 
 if [ $1 = "project_task" ]
-        then rails g slim:scaffold project_task name number:int begin_date:date end_date:date projectstatus:references tehnical_task:text project:references responsible:references
+        then rails g slim:scaffold project_task name number:int begin_date:date end_date:date projectstatus:references tehnical_task:text project:references responsible:references equips:references
 fi
 
 if [ $1 = "projectstatus" ]

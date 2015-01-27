@@ -10,4 +10,6 @@ class Equip
   belongs_to :subunit
   belongs_to :room
   belongs_to :equipstatus
+
+  has_and_belongs_to_many :project_tasks, class_name: "ProjectTask"
 end

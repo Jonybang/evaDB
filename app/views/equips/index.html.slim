@@ -12,6 +12,7 @@ table class="table table-hover table-condensed"
       th Subunit
       th Room
       th Equipstatus
+      th Project tasks
       th
 
   tbody
@@ -26,6 +27,7 @@ table class="table table-hover table-condensed"
         td = uni_info equip, "subunit"
         td = uni_info equip, "room"
         td = uni_info equip, "equipstatus"
+        td = uni_info equip, "project_tasks"
         td
           = link_to 'Edit', edit_equip_path(equip)
           br
