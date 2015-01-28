@@ -1,9 +1,0 @@
-= simple_nested_form_for(@intelecttype) do |f|
-  = f.error_notification
-
-  .form-inputs
-      = uni_input f, "name"
-      = uni_ref_input f, "intelectprops", @intelecttype.intelectprops || @intelecttype.build_intelectprops
-
-  .form-actions
-    = f.button :submit
