@@ -3,7 +3,7 @@
 
   .form-inputs
       = uni_input f, "name"
-      = uni_ref_input f, @intelecttype, "intelectprops", @intelecttype.intelectprops || @intelecttype.build_intelectprops
+      = uni_ref_input f, "intelectprops", @intelecttype.intelectprops || @intelecttype.build_intelectprops
 
   .form-actions
     = f.button :submit

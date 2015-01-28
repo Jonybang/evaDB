@@ -6,17 +6,16 @@ table class="table table-hover table-condensed"
       th Name
       th Scientist
       th
-      th
-      th
 
   tbody
     - @theses.each do |thesis|
       tr
-        td = thesis.name
+        td = link_to thesis.name, thesis
         td = uni_info thesis, "scientist"
-        td = link_to 'Show', thesis
-        td = link_to 'Edit', edit_thesis_path(thesis)
-        td = link_to 'Destroy', thesis, data: {:confirm => 'Are you sure?'}, :method => :delete
+        td
+          = link_to 'Edit', edit_thesis_path(thesis)
+          br
+          = link_to 'Destroy', thesis, data: {:confirm => 'Are you sure?'}, :method => :delete
 
 br
 

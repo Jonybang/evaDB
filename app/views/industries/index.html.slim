@@ -6,17 +6,16 @@ table class="table table-hover table-condensed"
       th Name
       th Contacts
       th
-      th
-      th
 
   tbody
     - @industries.each do |industry|
       tr
-        td = industry.name
+        td = link_to industry.name, industry
         td = uni_info industry, "contacts"
-        td = link_to 'Show', industry
-        td = link_to 'Edit', edit_industry_path(industry)
-        td = link_to 'Destroy', industry, data: {:confirm => 'Are you sure?'}, :method => :delete
+        td
+          = link_to 'Edit', edit_industry_path(industry)
+          br
+          = link_to 'Destroy', industry, data: {:confirm => 'Are you sure?'}, :method => :delete
 
 br
 

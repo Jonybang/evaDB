@@ -1,10 +1,10 @@
 p#notice = notice
 
 p
-   strong Name:
-   = @rank.name
+   strong Name:&nbsp;
+   = beauty_string @rank, "name"
 p
-   strong Scientists:
+   strong Scientists:&nbsp;
    = uni_info @rank, "scientists"
 
 = link_to 'Edit', edit_rank_path(@rank)

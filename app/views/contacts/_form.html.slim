@@ -3,17 +3,18 @@
 
   .form-inputs
       = uni_input f, "name"
-      = uni_ref_input f, @contact, "contact_data", @contact.contact_data || @contact.build_contact_data
-      = uni_ref_input f, @contact, "organization", @contact.organization || @contact.build_organization
-      = uni_ref_input f, @contact, "skills", @contact.skills || @contact.build_skills
-      = uni_ref_input f, @contact, "workpost", @contact.workpost || @contact.build_workpost
-      = uni_ref_input f, @contact, "industries", @contact.industries || @contact.build_industries
-      = uni_ref_input f, @contact, "equips", @contact.equips || @contact.build_equips
-      = uni_ref_input f, @contact, "intelectprops", @contact.intelectprops || @contact.build_intelectprops
-      = uni_ref_input f, @contact, "team_projects", @contact.team_projects || @contact.build_team_projects
-      = uni_ref_input f, @contact, "chief_projects", @contact.chief_projects || @contact.build_chief_projects
-      = uni_ref_input f, @contact, "expert_projects", @contact.expert_projects || @contact.build_expert_projects
-      = uni_ref_input f, @contact, "project_tasks", @contact.project_tasks || @contact.build_project_tasks
+      = uni_ref_input f, "contact_data", @contact.contact_data || @contact.build_contact_data
+      = uni_ref_input f, "socnet_links", @contact.socnet_links || @contact.build_socnet_links
+      = uni_ref_input f, "organization", @contact.organization || @contact.build_organization
+      = uni_ref_input f, "skills", @contact.skills || @contact.build_skills
+      = uni_ref_input f, "workpost", @contact.workpost || @contact.build_workpost
+      = uni_ref_input f, "industries", @contact.industries || @contact.build_industries
+      = uni_ref_input f, "equips", @contact.equips || @contact.build_equips
+      = uni_ref_input f, "intelectprops", @contact.intelectprops || @contact.build_intelectprops
+      = uni_ref_input f, "team_projects", @contact.team_projects || @contact.build_team_projects
+      = uni_ref_input f, "chief_projects", @contact.chief_projects || @contact.build_chief_projects
+      = uni_ref_input f, "expert_projects", @contact.expert_projects || @contact.build_expert_projects
+      = uni_ref_input f, "project_tasks", @contact.project_tasks || @contact.build_project_tasks
 
   .form-actions
     = f.button :submit

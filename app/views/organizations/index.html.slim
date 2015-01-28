@@ -10,21 +10,20 @@ table class="table table-hover table-condensed"
       th Contacts
       th Equips
       th
-      th
-      th
 
   tbody
     - @organizations.each do |organization|
       tr
-        td = organization.name
-        td = organization.requisites
+        td = link_to organization.name, organization
+        td = beauty_string organization, "requisites", "min"
         td = uni_info organization, "contact_data"
         td = uni_info organization, "link"
         td = uni_info organization, "contacts"
         td = uni_info organization, "equips"
-        td = link_to 'Show', organization
-        td = link_to 'Edit', edit_organization_path(organization)
-        td = link_to 'Destroy', organization, data: {:confirm => 'Are you sure?'}, :method => :delete
+        td
+          = link_to 'Edit', edit_organization_path(organization)
+          br
+          = link_to 'Destroy', organization, data: {:confirm => 'Are you sure?'}, :method => :delete
 
 br
 

@@ -1,20 +1,17 @@
 p#notice = notice
 
 p
-   strong Phone:
-   = @contact_data.phone
+   strong Phone:&nbsp;
+   = beauty_string @contact_data, "phone"
 p
-   strong Email:
-   = @contact_data.email
+   strong Email:&nbsp;
+   = beauty_string @contact_data, "email"
 p
-   strong Addres:
-   = @contact_data.addres
+   strong Addres:&nbsp;
+   = beauty_string @contact_data, "addres"
 p
-   strong Cdata parent:
-
-- @cdata_parent_reference = ContactData.reflect_on_association(:cdata_parent).macro.to_s
-  - if (@cdata_parent_reference == 'has_one') || (@cdata_parent_reference == 'belongs_to')
-   = (@contact_data.cdata_parent ? (link_to @contact_data.cdata_parent.name, @contact_data.cdata_parent) : '')
+   strong Cdata parent:&nbsp;
+   = uni_info @contact_data, "cdata_parent"
 
 = link_to 'Edit', edit_contact_data_path(@contact_data)
 '|

@@ -1,13 +1,13 @@
 p#notice = notice
 
 p
-   strong Name:
-   = @room.name
+   strong Name:&nbsp;
+   = beauty_string @room, "name"
 p
-   strong Subunit:
+   strong Subunit:&nbsp;
    = uni_info @room, "subunit"
 p
-   strong Equips:
+   strong Equips:&nbsp;
    = uni_info @room, "equips"
 
 = link_to 'Edit', edit_room_path(@room)

@@ -3,10 +3,10 @@
 
   .form-inputs
       = uni_input f, "name"
-      = uni_ref_input f, @university, "contact_data", @university.contact_data || @university.build_contact_data
-      = uni_ref_input f, @university, "link", @university.link || @university.build_link
-      = uni_ref_input f, @university, "faculties", @university.faculties || @university.build_faculties
-      = uni_ref_input f, @university, "students", @university.students || @university.build_students
+      = uni_ref_input f, "contact_data", @university.contact_data || @university.build_contact_data
+      = uni_ref_input f, "link", @university.link || @university.build_link
+      = uni_ref_input f, "faculties", @university.faculties || @university.build_faculties
+      = uni_ref_input f, "students", @university.students || @university.build_students
 
   .form-actions
     = f.button :submit

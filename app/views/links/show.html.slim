@@ -1,14 +1,14 @@
 p#notice = notice
 
 p
-   strong Url:
-   = @link.url
+   strong Url:&nbsp;
+   = beauty_string @link, "url"
 p
-   strong Note:
-   = @link.note
+   strong Note:&nbsp;
+   = beauty_string @link, "note"
 p
-   strong Link parent:
-   = uni_link link, "link_parent"
+   strong Link parent:&nbsp;
+   = uni_info @link, "link_parent"
 
 = link_to 'Edit', edit_link_path(@link)
 '|

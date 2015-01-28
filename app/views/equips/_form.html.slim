@@ -6,12 +6,12 @@
       = uni_input f, "model"
       = uni_input f, "description"
       = uni_input f, "parametres"
-      = uni_ref_input f, @equip, "responsible", @equip.responsible || @equip.build_responsible
-      = uni_ref_input f, @equip, "organization", @equip.organization || @equip.build_organization
-      = uni_ref_input f, @equip, "subunit", @equip.subunit || @equip.build_subunit
-      = uni_ref_input f, @equip, "room", @equip.room || @equip.build_room
-      = uni_ref_input f, @equip, "equipstatus", @equip.equipstatus || @equip.build_equipstatus
-      = uni_ref_input f, @equip, "project_tasks", @equip.project_tasks || @equip.build_project_tasks
+      = uni_ref_input f, "responsible", @equip.responsible || @equip.build_responsible
+      = uni_ref_input f, "organization", @equip.organization || @equip.build_organization
+      = uni_ref_input f, "subunit", @equip.subunit || @equip.build_subunit
+      = uni_ref_input f, "room", @equip.room || @equip.build_room
+      = uni_ref_input f, "equipstatus", @equip.equipstatus || @equip.build_equipstatus
+      = uni_ref_input f, "project_tasks", @equip.project_tasks || @equip.build_project_tasks
 
   .form-actions
     = f.button :submit

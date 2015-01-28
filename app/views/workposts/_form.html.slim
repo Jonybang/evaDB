@@ -3,7 +3,7 @@
 
   .form-inputs
       = uni_input f, "name"
-      = uni_ref_input f, @workpost, "contacts", @workpost.contacts || @workpost.build_contacts
+      = uni_ref_input f, "contacts", @workpost.contacts || @workpost.build_contacts
 
   .form-actions
     = f.button :submit

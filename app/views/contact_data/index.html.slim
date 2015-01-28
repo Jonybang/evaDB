@@ -1,6 +1,6 @@
-h1 Listing contact_data
+h1 contact_data
 
-table
+table class="table table-hover table-condensed"
   thead
     tr
       th Phone
@@ -8,24 +8,18 @@ table
       th Addres
       th Cdata parent
       th
-      th
-      th
 
   tbody
     - @contact_data.each do |contact_data|
       tr
-        td = contact_data.phone
-        td = contact_data.email
-        td = contact_data.addres
-
-        - @cdata_parent_reference = ContactData.reflect_on_association(:cdata_parent).macro.to_s
-        - if (contact_data.cdata_parent:polymorphic)
-            td = (contact_data.cdata_parent ? (polymorphic_path(contact_data.cdata_parent)) : '')
-        - if (@cdata_parent_reference == 'has_one') || (@cdata_parent_reference == 'belongs_to')
-            td = (contact_data.cdata_parent ? (link_to contact_data.cdata_parent.name, contact_data.cdata_parent) : '')
-        td = link_to 'Show', contact_data
-        td = link_to 'Edit', edit_contact_data_path(contact_data)
-        td = link_to 'Destroy', contact_data, data: {:confirm => 'Are you sure?'}, :method => :delete
+        td = beauty_string contact_data, "phone", "min"
+        td = beauty_string contact_data, "email", "min"
+        td = beauty_string contact_data, "addres", "min"
+        td = uni_info contact_data, "cdata_parent"
+        td
+          = link_to 'Edit', edit_contact_data_path(contact_data)
+          br
+          = link_to 'Destroy', contact_data, data: {:confirm => 'Are you sure?'}, :method => :delete
 
 br
 

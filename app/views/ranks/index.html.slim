@@ -6,17 +6,16 @@ table class="table table-hover table-condensed"
       th Name
       th Scientists
       th
-      th
-      th
 
   tbody
     - @ranks.each do |rank|
       tr
-        td = rank.name
+        td = link_to rank.name, rank
         td = uni_info rank, "scientists"
-        td = link_to 'Show', rank
-        td = link_to 'Edit', edit_rank_path(rank)
-        td = link_to 'Destroy', rank, data: {:confirm => 'Are you sure?'}, :method => :delete
+        td
+          = link_to 'Edit', edit_rank_path(rank)
+          br
+          = link_to 'Destroy', rank, data: {:confirm => 'Are you sure?'}, :method => :delete
 
 br
 

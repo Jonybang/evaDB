@@ -3,8 +3,8 @@
 
   .form-inputs
       = uni_input f, "name"
-      = uni_ref_input f, @room, "subunit", @room.subunit || @room.build_subunit
-      = uni_ref_input f, @room, "equips", @room.equips || @room.build_equips
+      = uni_ref_input f, "subunit", @room.subunit || @room.build_subunit
+      = uni_ref_input f, "equips", @room.equips || @room.build_equips
 
   .form-actions
     = f.button :submit

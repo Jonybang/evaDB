@@ -1,0 +1,18 @@
+p#notice = notice
+
+p
+   strong Url:&nbsp;
+   = beauty_string @socnet_link, "url"
+p
+   strong Note:&nbsp;
+   = beauty_string @socnet_link, "note"
+p
+   strong Link parent:&nbsp;
+   = uni_info @socnet_link, "link_parent"
+p
+   strong Socnet:&nbsp;
+   = uni_info @socnet_link, "socnet"
+
+= link_to 'Edit', edit_socnet_link_path(@socnet_link)
+'|
+= link_to 'Back', socnet_links_path

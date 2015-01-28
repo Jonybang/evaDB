@@ -1,16 +1,16 @@
 p#notice = notice
 
 p
-   strong Name:
-   = @subunit.name
+   strong Name:&nbsp;
+   = beauty_string @subunit, "name"
 p
-   strong Organization:
+   strong Organization:&nbsp;
    = uni_info @subunit, "organization"
 p
-   strong Rooms:
+   strong Rooms:&nbsp;
    = uni_info @subunit, "rooms"
 p
-   strong Equips:
+   strong Equips:&nbsp;
    = uni_info @subunit, "equips"
 
 = link_to 'Edit', edit_subunit_path(@subunit)

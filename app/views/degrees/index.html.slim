@@ -6,17 +6,16 @@ table class="table table-hover table-condensed"
       th Name
       th Scientists
       th
-      th
-      th
 
   tbody
     - @degrees.each do |degree|
       tr
-        td = degree.name
+        td = link_to degree.name, degree
         td = uni_info degree, "scientists"
-        td = link_to 'Show', degree
-        td = link_to 'Edit', edit_degree_path(degree)
-        td = link_to 'Destroy', degree, data: {:confirm => 'Are you sure?'}, :method => :delete
+        td
+          = link_to 'Edit', edit_degree_path(degree)
+          br
+          = link_to 'Destroy', degree, data: {:confirm => 'Are you sure?'}, :method => :delete
 
 br
 

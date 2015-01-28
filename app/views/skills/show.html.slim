@@ -1,10 +1,10 @@
 p#notice = notice
 
 p
-   strong Name:
-   = @skill.name
+   strong Name:&nbsp;
+   = beauty_string @skill, "name"
 p
-   strong Contacts:
+   strong Contacts:&nbsp;
    = uni_info @skill, "contacts"
 
 = link_to 'Edit', edit_skill_path(@skill)

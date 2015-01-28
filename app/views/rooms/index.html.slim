@@ -7,18 +7,17 @@ table class="table table-hover table-condensed"
       th Subunit
       th Equips
       th
-      th
-      th
 
   tbody
     - @rooms.each do |room|
       tr
-        td = room.name
+        td = link_to room.name, room
         td = uni_info room, "subunit"
         td = uni_info room, "equips"
-        td = link_to 'Show', room
-        td = link_to 'Edit', edit_room_path(room)
-        td = link_to 'Destroy', room, data: {:confirm => 'Are you sure?'}, :method => :delete
+        td
+          = link_to 'Edit', edit_room_path(room)
+          br
+          = link_to 'Destroy', room, data: {:confirm => 'Are you sure?'}, :method => :delete
 
 br
 

@@ -5,6 +5,7 @@ table class="table table-hover table-condensed"
     tr
       th Name
       th Contact data
+      th Socnet links
       th Organization
       th Skills
       th Workpost
@@ -25,6 +26,7 @@ table class="table table-hover table-condensed"
       tr
         td = link_to student.name, student
         td = uni_info student, "contact_data"
+        td = uni_info student, "socnet_links"
         td = uni_info student, "organization"
         td = uni_info student, "skills"
         td = uni_info student, "workpost"

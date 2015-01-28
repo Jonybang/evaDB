@@ -1,4 +1,8 @@
 Rails.application.routes.draw do
+  resources :socnet_links
+
+  resources :socnets
+
   resources :projects
 
   resources :project_tasks

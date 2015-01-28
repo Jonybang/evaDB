@@ -3,7 +3,7 @@
 
   .form-inputs
       = uni_input f, "name"
-      = uni_ref_input f, @equipstatus, "equips", @equipstatus.equips || @equipstatus.build_equips
+      = uni_ref_input f, "equips", @equipstatus.equips || @equipstatus.build_equips
 
   .form-actions
     = f.button :submit

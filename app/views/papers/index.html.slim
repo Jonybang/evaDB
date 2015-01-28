@@ -6,17 +6,16 @@ table class="table table-hover table-condensed"
       th Name
       th Scientist
       th
-      th
-      th
 
   tbody
     - @papers.each do |paper|
       tr
-        td = paper.name
+        td = link_to paper.name, paper
         td = uni_info paper, "scientist"
-        td = link_to 'Show', paper
-        td = link_to 'Edit', edit_paper_path(paper)
-        td = link_to 'Destroy', paper, data: {:confirm => 'Are you sure?'}, :method => :delete
+        td
+          = link_to 'Edit', edit_paper_path(paper)
+          br
+          = link_to 'Destroy', paper, data: {:confirm => 'Are you sure?'}, :method => :delete
 
 br
 

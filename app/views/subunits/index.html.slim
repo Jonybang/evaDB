@@ -8,19 +8,18 @@ table class="table table-hover table-condensed"
       th Rooms
       th Equips
       th
-      th
-      th
 
   tbody
     - @subunits.each do |subunit|
       tr
-        td = subunit.name
+        td = link_to subunit.name, subunit
         td = uni_info subunit, "organization"
         td = uni_info subunit, "rooms"
         td = uni_info subunit, "equips"
-        td = link_to 'Show', subunit
-        td = link_to 'Edit', edit_subunit_path(subunit)
-        td = link_to 'Destroy', subunit, data: {:confirm => 'Are you sure?'}, :method => :delete
+        td
+          = link_to 'Edit', edit_subunit_path(subunit)
+          br
+          = link_to 'Destroy', subunit, data: {:confirm => 'Are you sure?'}, :method => :delete
 
 br
 

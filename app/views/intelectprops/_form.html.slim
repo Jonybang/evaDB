@@ -9,9 +9,9 @@
       = uni_input f, "regdate"
       = uni_input f, "enddate"
       = uni_input f, "doclink"
-      = uni_ref_input f, @intelectprop, "intelecttype", @intelectprop.intelecttype || @intelectprop.build_intelecttype
-      = uni_ref_input f, @intelectprop, "authors", @intelectprop.authors || @intelectprop.build_authors
-      = uni_ref_input f, @intelectprop, "projects", @intelectprop.projects || @intelectprop.build_projects
+      = uni_ref_input f, "intelecttype", @intelectprop.intelecttype || @intelectprop.build_intelecttype
+      = uni_ref_input f, "authors", @intelectprop.authors || @intelectprop.build_authors
+      = uni_ref_input f, "projects", @intelectprop.projects || @intelectprop.build_projects
 
   .form-actions
     = f.button :submit

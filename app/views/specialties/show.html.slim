@@ -1,19 +1,19 @@
 p#notice = notice
 
 p
-   strong Name:
-   = @specialty.name
+   strong Name:&nbsp;
+   = beauty_string @specialty, "name"
 p
-   strong Contact data:
+   strong Contact data:&nbsp;
    = uni_info @specialty, "contact_data"
 p
-   strong Link:
+   strong Link:&nbsp;
    = uni_info @specialty, "link"
 p
-   strong Faculty:
+   strong Faculty:&nbsp;
    = uni_info @specialty, "faculty"
 p
-   strong Students:
+   strong Students:&nbsp;
    = uni_info @specialty, "students"
 
 = link_to 'Edit', edit_specialty_path(@specialty)

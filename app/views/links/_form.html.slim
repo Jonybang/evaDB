@@ -1,10 +1,10 @@
-= simple_form_for(@link) do |f|
+= simple_nested_form_for(@link) do |f|
   = f.error_notification
 
   .form-inputs
-    = f.input :url
-    = f.input :note
-    = f.association :link_parent
+      = uni_input f, "url"
+      = uni_input f, "note"
+      = uni_ref_input f, "link_parent", @link.link_parent || @link.build_link_parent
 
   .form-actions
     = f.button :submit

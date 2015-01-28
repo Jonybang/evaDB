@@ -1,0 +1,2 @@
+module SocnetLinksHelper
+end

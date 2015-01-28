@@ -1,10 +1,10 @@
 p#notice = notice
 
 p
-   strong Name:
-   = @degree.name
+   strong Name:&nbsp;
+   = beauty_string @degree, "name"
 p
-   strong Scientists:
+   strong Scientists:&nbsp;
    = uni_info @degree, "scientists"
 
 = link_to 'Edit', edit_degree_path(@degree)

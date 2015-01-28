@@ -1,0 +1,15 @@
+p#notice = notice
+
+p
+   strong Name:&nbsp;
+   = beauty_string @socnet, "name"
+p
+   strong Url:&nbsp;
+   = beauty_string @socnet, "url"
+p
+   strong Socnet links:&nbsp;
+   = uni_info @socnet, "socnet_links"
+
+= link_to 'Edit', edit_socnet_path(@socnet)
+'|
+= link_to 'Back', socnets_path

@@ -9,20 +9,19 @@ table class="table table-hover table-condensed"
       th Faculty
       th Students
       th
-      th
-      th
 
   tbody
     - @specialties.each do |specialty|
       tr
-        td = specialty.name
+        td = link_to specialty.name, specialty
         td = uni_info specialty, "contact_data"
         td = uni_info specialty, "link"
         td = uni_info specialty, "faculty"
         td = uni_info specialty, "students"
-        td = link_to 'Show', specialty
-        td = link_to 'Edit', edit_specialty_path(specialty)
-        td = link_to 'Destroy', specialty, data: {:confirm => 'Are you sure?'}, :method => :delete
+        td
+          = link_to 'Edit', edit_specialty_path(specialty)
+          br
+          = link_to 'Destroy', specialty, data: {:confirm => 'Are you sure?'}, :method => :delete
 
 br
 

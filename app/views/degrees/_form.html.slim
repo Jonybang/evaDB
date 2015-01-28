@@ -3,7 +3,7 @@
 
   .form-inputs
       = uni_input f, "name"
-      = uni_ref_input f, @degree, "scientists", @degree.scientists || @degree.build_scientists
+      = uni_ref_input f, "scientists", @degree.scientists || @degree.build_scientists
 
   .form-actions
     = f.button :submit

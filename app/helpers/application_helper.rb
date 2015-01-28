@@ -40,10 +40,10 @@ module ApplicationHelper
 
    end
 
-   def uni_ref_input(form, employer, name, obj)
-      @nesteded = ['faculties', 'specialties', 'project_tasks']
+   def uni_ref_input(form, name, obj)
+      @nesteded = ['faculties', 'specialties', 'project_tasks', 'socnet_links']
 
-      @refference = employer.class.reflect_on_association(name.to_sym).macro.to_s
+      @refference = form.object.class.reflect_on_association(name.to_sym).macro.to_s
       if (@refference  == 'embeds_one' || @refference  == 'has_one')
          return ('<div class="well well-sm">' + form.fields_for(name.to_sym, obj) + '</div>').html_safe
       elsif (@refference  == 'embeds_many' || @nesteded.detect {|i| i == name } )
@@ -110,7 +110,7 @@ module ApplicationHelper
          return ''
       end
       if((name.include? "link") || (name.include? "url"))
-         return link_to(@obj.sub(/^https?:\/\//, ""), @obj, target: "_blank")
+         return link_to(@obj.sub(/^https?:\/\//, "").sub(/^www./, "").gsub(/\/$/, ''), @obj, target: "_blank")
       end
       if(name.include? "date")
          return mode == "min" ? @obj.strftime("%d.%m.%Y") : @obj.strftime("%d %B %Y")

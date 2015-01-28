@@ -6,17 +6,16 @@ table class="table table-hover table-condensed"
       th Name
       th Contacts
       th
-      th
-      th
 
   tbody
     - @workposts.each do |workpost|
       tr
-        td = workpost.name
+        td = link_to workpost.name, workpost
         td = uni_info workpost, "contacts"
-        td = link_to 'Show', workpost
-        td = link_to 'Edit', edit_workpost_path(workpost)
-        td = link_to 'Destroy', workpost, data: {:confirm => 'Are you sure?'}, :method => :delete
+        td
+          = link_to 'Edit', edit_workpost_path(workpost)
+          br
+          = link_to 'Destroy', workpost, data: {:confirm => 'Are you sure?'}, :method => :delete
 
 br
 

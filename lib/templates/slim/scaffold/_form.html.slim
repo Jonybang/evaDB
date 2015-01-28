@@ -4,7 +4,7 @@
   .form-inputs
 <%- attributes.each do |attribute| -%>
    <%- if attribute.reference? -%>
-      = uni_ref_input f, @<%= singular_table_name %>, "<%= attribute.name %>", @<%= singular_table_name %>.<%= attribute.name %> || @<%= singular_table_name %>.build_<%= attribute.name %>
+      = uni_ref_input f, "<%= attribute.name %>", @<%= singular_table_name %>.<%= attribute.name %> || @<%= singular_table_name %>.build_<%= attribute.name %>
    <%- else -%>
       = uni_input f, "<%= attribute.name %>"
    <%- end -%>
