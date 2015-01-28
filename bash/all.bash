@@ -114,4 +114,12 @@ fi
 if [[($1 = "projectdirection") || ($1 = "all")]]
         then rails g slim:scaffold projectdirection name projects:references
 fi
+
+if [[($1 = "finance_source") || ($1 = "all")]]
+        then rails g slim:scaffold finance_source name contact_data:references link:references volume_from:float volume_to:float currency:references projects:references project_directions:references
+fi
+
+if [[($1 = "currency") || ($1 = "all")]]
+        then rails g slim:scaffold currency name finance_sources:references
+fi
 rails server
