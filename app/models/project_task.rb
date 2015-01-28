@@ -9,7 +9,7 @@ class ProjectTask
   field :tehnical_task, type: String
 
   belongs_to :project
-  belongs_to :projectstatus
+  belongs_to :project_status
   belongs_to :responsible, class_name: "Contact", inverse_of: :project_tasks
 
   has_and_belongs_to_many :equips, class_name: "Equip"

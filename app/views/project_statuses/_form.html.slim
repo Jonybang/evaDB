@@ -4,6 +4,7 @@
   .form-inputs
       = uni_input f, "name"
       = uni_ref_input f, "projects", @project_status.projects || @project_status.build_projects
+      = uni_ref_input f, "project_tasks", @project_status.project_tasks || @project_status.build_project_tasks
 
   .form-actions
     = f.button :submit

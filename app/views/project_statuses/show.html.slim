@@ -6,6 +6,9 @@ p
 p
    strong Projects:&nbsp;
    = uni_info @project_status, "projects"
+p
+   strong Project tasks:&nbsp;
+   = uni_info @project_status, "project_tasks"
 
 = link_to 'Edit', edit_project_status_path(@project_status)
 '|

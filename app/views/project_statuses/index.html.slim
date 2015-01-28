@@ -5,6 +5,7 @@ table class="table table-hover table-condensed"
     tr
       th Name
       th Projects
+      th Project tasks
       th
 
   tbody
@@ -12,6 +13,7 @@ table class="table table-hover table-condensed"
       tr
         td = link_to project_status.name, project_status
         td = uni_info project_status, "projects"
+        td = uni_info project_status, "project_tasks"
         td
           = link_to 'Edit', edit_project_status_path(project_status)
           br

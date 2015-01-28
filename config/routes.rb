@@ -1,4 +1,8 @@
 Rails.application.routes.draw do
+  resources :currencies
+
+  resources :finance_sources
+
   resources :project_statuses
 
   resources :project_directions

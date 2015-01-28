@@ -4,4 +4,6 @@ class ProjectStatus
 
    has_many :projects
    accepts_nested_attributes_for :projects
+   has_many :project_tasks
+   accepts_nested_attributes_for :project_tasks
 end

@@ -104,11 +104,11 @@ if [[($1 = "project") || ($1 = "all")]]
 fi
 
 if [[($1 = "project_task") || ($1 = "all")]]
-        then rails g slim:scaffold project_task name number:int begin_date:date end_date:date projectstatus:references tehnical_task:text project:references responsible:references equips:references
+        then rails g slim:scaffold project_task name number:int begin_date:date end_date:date project_status:references tehnical_task:text project:references responsible:references equips:references
 fi
 
 if [[($1 = "project_status") || ($1 = "all")]]
-        then rails g slim:scaffold project_status name projects:references
+        then rails g slim:scaffold project_status name projects:references project_tasks:references
 fi
 
 if [[($1 = "project_direction") || ($1 = "all")]]
