@@ -1,0 +1,17 @@
+= simple_nested_form_for(@intellect_property) do |f|
+  = f.error_notification
+
+  .form-inputs
+      = uni_input f, "name"
+      = uni_input f, "indnumber"
+      = uni_input f, "description"
+      = uni_input f, "formula"
+      = uni_input f, "regdate"
+      = uni_input f, "enddate"
+      = uni_input f, "doclink"
+      = uni_ref_input f, "intellect_type", @intellect_property.intellect_type || @intellect_property.build_intellect_type
+      = uni_ref_input f, "authors", @intellect_property.authors || @intellect_property.build_authors
+      = uni_ref_input f, "projects", @intellect_property.projects || @intellect_property.build_projects
+
+  .form-actions
+    = f.button :submit

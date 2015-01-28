@@ -23,7 +23,7 @@ class Contact
 
   has_and_belongs_to_many :skills
   has_and_belongs_to_many :industries, class_name: "Industry"
-  has_and_belongs_to_many :intelectprops, class_name: "Intelectprop"
+  has_and_belongs_to_many :intellect_properties, class_name: "IntellectProperty"
 
   has_many :chief_projects, class_name: "Project", inverse_of: :chief
   accepts_nested_attributes_for :chief_projects

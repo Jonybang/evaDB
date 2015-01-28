@@ -1,4 +1,8 @@
 Rails.application.routes.draw do
+  resources :intellect_types
+
+  resources :intellect_properties
+
   resources :socnet_links
 
   resources :socnets
@@ -12,10 +16,6 @@ Rails.application.routes.draw do
   resources :projectstatuses
 
   resources :equipstatuses
-
-  resources :intelecttypes
-
-  resources :intelectprops
 
   resources :theses
 

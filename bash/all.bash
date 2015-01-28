@@ -16,7 +16,7 @@ if [[($1 = "socnet") || ($1 = "all")]]
 fi
 
 if [[($1 = "contact") || ($1 = "all")]]
-        then rails g slim:scaffold contact name contact_data:references socnet_links:references organization:references skills:references workpost:references industries:references equips:references intelectprops:references team_projects:references chief_projects:references expert_projects:references project_tasks:references
+        then rails g slim:scaffold contact name contact_data:references socnet_links:references organization:references skills:references workpost:references industries:references equips:references intellect_properties:references team_projects:references chief_projects:references expert_projects:references project_tasks:references
 fi
 
 #if [ $1 = "in_project" ]
@@ -31,12 +31,12 @@ if [[($1 = "scientist") || ($1 = "all")]]
         then rails g slim:scaffold scientist name contact_data:references socnet_links:references organization:references skills:references workpost:references industries:references equips:references degree:references rank:references papers:references thesis:references team_projects:references chief_projects:references expert_projects:references project_tasks:references
 fi
 
-if [[($1 = "intelectprop") || ($1 = "all")]]
-        then rails g slim:scaffold intelectprop name indnumber description:text formula regdate:date enddate:date doclink intelecttype:references authors:references projects:references
+if [[($1 = "intellect_property") || ($1 = "all")]]
+        then rails g slim:scaffold intellect_property name indnumber description:text formula regdate:date enddate:date doclink intellect_type:references authors:references projects:references
 fi
 
-if [[($1 = "intelecttype") || ($1 = "all")]]
-        then rails g slim:scaffold intelecttype name intelectprops:references
+if [[($1 = "intellect_type") || ($1 = "all")]]
+        then rails g slim:scaffold intelecttype name intellect_properties:references
 fi
 
 if [[($1 = "rank") || ($1 = "all")]]
@@ -100,7 +100,7 @@ if [[($1 = "room") || ($1 = "all")]]
 fi
 
 if [[($1 = "project") || ($1 = "all")]]
-        then rails g slim:scaffold project name projectstatus:references description:text result:text projectdirection:references chief:references intelectprops:references team:references experts:references project_tasks:references
+        then rails g slim:scaffold project name projectstatus:references description:text result:text projectdirection:references chief:references intellect_properties:references team:references experts:references project_tasks:references
 fi
 
 if [[($1 = "project_task") || ($1 = "all")]]

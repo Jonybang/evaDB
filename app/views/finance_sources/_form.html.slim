@@ -1,0 +1,15 @@
+= simple_nested_form_for(@finance_source) do |f|
+  = f.error_notification
+
+  .form-inputs
+      = uni_input f, "name"
+      = uni_ref_input f, "contact_data", @finance_source.contact_data || @finance_source.build_contact_data
+      = uni_ref_input f, "link", @finance_source.link || @finance_source.build_link
+      = uni_input f, "volume_from"
+      = uni_input f, "volume_to"
+      = uni_ref_input f, "currency", @finance_source.currency || @finance_source.build_currency
+      = uni_ref_input f, "projects", @finance_source.projects || @finance_source.build_projects
+      = uni_ref_input f, "project_directions", @finance_source.project_directions || @finance_source.build_project_directions
+
+  .form-actions
+    = f.button :submit

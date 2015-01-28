@@ -1,0 +1,2 @@
+module IntellectPropertyHelper
+end

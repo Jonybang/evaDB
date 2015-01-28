@@ -1,0 +1,12 @@
+p#notice = notice
+
+p
+   strong Name:&nbsp;
+   = beauty_string @intellect_type, "name"
+p
+   strong Intellect properties:&nbsp;
+   = uni_info @intellect_type, "intellect_properties"
+
+= link_to 'Edit', edit_intellect_type_path(@intellect_type)
+'|
+= link_to 'Back', intellect_types_path

@@ -1,0 +1,34 @@
+h1 finance_sources
+
+table class="table table-hover table-condensed"
+  thead
+    tr
+      th Name
+      th Contact data
+      th Link
+      th Volume from
+      th Volume to
+      th Currency
+      th Projects
+      th Project directions
+      th
+
+  tbody
+    - @finance_sources.each do |finance_source|
+      tr
+        td = link_to finance_source.name, finance_source
+        td = uni_info finance_source, "contact_data"
+        td = uni_info finance_source, "link"
+        td = beauty_string finance_source, "volume_from", "min"
+        td = beauty_string finance_source, "volume_to", "min"
+        td = uni_info finance_source, "currency"
+        td = uni_info finance_source, "projects"
+        td = uni_info finance_source, "project_directions"
+        td
+          = link_to 'Edit', edit_finance_source_path(finance_source)
+          br
+          = link_to 'Destroy', finance_source, data: {:confirm => 'Are you sure?'}, :method => :delete
+
+br
+
+= link_to 'New Finance source', new_finance_source_path
