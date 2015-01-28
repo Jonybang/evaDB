@@ -9,6 +9,7 @@ table class="table table-hover table-condensed"
       th Link
       th Contacts
       th Equips
+      th Subunits
       th
 
   tbody
@@ -20,6 +21,7 @@ table class="table table-hover table-condensed"
         td = uni_info organization, "link"
         td = uni_info organization, "contacts"
         td = uni_info organization, "equips"
+        td = uni_info organization, "subunits"
         td
           = link_to 'Edit', edit_organization_path(organization)
           br

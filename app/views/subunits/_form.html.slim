@@ -3,6 +3,8 @@
 
   .form-inputs
       = uni_input f, "name"
+      = uni_ref_input f, "contact_data", @subunit.contact_data || @subunit.build_contact_data
+      = uni_ref_input f, "link", @subunit.link || @subunit.build_link
       = uni_ref_input f, "organization", @subunit.organization || @subunit.build_organization
       = uni_ref_input f, "rooms", @subunit.rooms || @subunit.build_rooms
       = uni_ref_input f, "equips", @subunit.equips || @subunit.build_equips

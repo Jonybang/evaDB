@@ -8,16 +8,18 @@ module ApplicationHelper
       @url = ''
       @name = ''
       if(name == "link" && @obj.url)
-         @url = @obj.url
-         @name = @obj.url.sub(/^https?:\/\//, "")
-         return link_to(@name, @url, target: "_blank")
+         return link_to(cut_url(@obj.url), @obj.url, target: "_blank")
+      elsif(name == "socnet_links")
+         @result = ''
+
+         @obj.each do |item|
+            @result += link_to(cut_url(item.url), item.url, target: "_blank") + "<br />".html_safe
+         end
+         return @result.html_safe
       end
 
       @refference = employer.class.reflect_on_association(name.to_sym).macro.to_s
       if(@refference  == 'has_one' || @refference  == 'belongs_to' || @refference  == 'embedded_in')
-         # if(name == "organization")
-         #    return @obj.class
-         # end
          @url = @obj
          @name = @obj.name
 
@@ -40,7 +42,7 @@ module ApplicationHelper
 
    end
 
-   def uni_ref_input(form, name, obj)
+   def uni_ref_input(form, name, obj = {})
       @nesteded = ['faculties', 'specialties', 'project_tasks', 'socnet_links']
 
       @refference = form.object.class.reflect_on_association(name.to_sym).macro.to_s
@@ -110,12 +112,16 @@ module ApplicationHelper
          return ''
       end
       if((name.include? "link") || (name.include? "url"))
-         return link_to(@obj.sub(/^https?:\/\//, "").sub(/^www./, "").gsub(/\/$/, ''), @obj, target: "_blank")
+         return link_to(cut_url(@obj), @obj, target: "_blank")
       end
       if(name.include? "date")
          return mode == "min" ? @obj.strftime("%d.%m.%Y") : @obj.strftime("%d %B %Y")
       end
 
       return @obj
+   end
+
+   def cut_url(url)
+      return url.sub(/^https?:\/\//, "").sub(/^www./, "").gsub(/\/$/, '')
    end
 end

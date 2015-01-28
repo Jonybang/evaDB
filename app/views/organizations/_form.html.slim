@@ -8,6 +8,7 @@
       = uni_ref_input f, "link", @organization.link || @organization.build_link
       = uni_ref_input f, "contacts", @organization.contacts || @organization.build_contacts
       = uni_ref_input f, "equips", @organization.equips || @organization.build_equips
+      = uni_ref_input f, "subunits", @organization.subunits || @organization.build_subunits
 
   .form-actions
     = f.button :submit

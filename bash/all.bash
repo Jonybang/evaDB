@@ -1,6 +1,6 @@
 #!/bin/bash
 if [[($1 = "organization") || ($1 = "all")]]
-        then rails g slim:scaffold organization name requisites contact_data:references link:references contacts:references equips:references
+        then rails g slim:scaffold organization name requisites contact_data:references link:references contacts:references equips:references subunits:references
 fi
 
 if [[($$1 = "link") || ($1 = "all")]]
@@ -92,7 +92,7 @@ if [[($1 = "equipstatus") || ($1 = "all")]]
 fi
 
 if [[($1 = "subunit") || ($1 = "all")]]
-        then rails g slim:scaffold subunit name organization:references rooms:references equips:references
+        then rails g slim:scaffold subunit name contact_data:references link:references organization:references rooms:references equips:references
 fi
 
 if [[($1 = "room") || ($1 = "all")]]
