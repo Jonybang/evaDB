@@ -3,10 +3,10 @@
 
   .form-inputs
       = uni_input f, "name"
-      = uni_ref_input f, "projectstatus", @project.projectstatus || @project.build_projectstatus
+      = uni_ref_input f, "project_status", @project.project_status || @project.build_project_status
       = uni_input f, "description"
       = uni_input f, "result"
-      = uni_ref_input f, "projectdirection", @project.projectdirection || @project.build_projectdirection
+      = uni_ref_input f, "project_direction", @project.project_direction || @project.build_project_direction
       = uni_ref_input f, "chief", @project.chief || @project.build_chief
       = uni_ref_input f, "intellect_properties", @project.intellect_properties || @project.build_intellect_properties
       = uni_ref_input f, "team", @project.team || @project.build_team

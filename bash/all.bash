@@ -100,19 +100,19 @@ if [[($1 = "room") || ($1 = "all")]]
 fi
 
 if [[($1 = "project") || ($1 = "all")]]
-        then rails g slim:scaffold project name projectstatus:references description:text result:text projectdirection:references chief:references intellect_properties:references team:references experts:references project_tasks:references
+        then rails g slim:scaffold project name project_status:references description:text result:text project_direction:references chief:references intellect_properties:references team:references experts:references project_tasks:references
 fi
 
 if [[($1 = "project_task") || ($1 = "all")]]
         then rails g slim:scaffold project_task name number:int begin_date:date end_date:date projectstatus:references tehnical_task:text project:references responsible:references equips:references
 fi
 
-if [[($1 = "projectstatus") || ($1 = "all")]]
-        then rails g slim:scaffold projectstatus name projects:references
+if [[($1 = "project_status") || ($1 = "all")]]
+        then rails g slim:scaffold project_status name projects:references
 fi
 
-if [[($1 = "projectdirection") || ($1 = "all")]]
-        then rails g slim:scaffold projectdirection name projects:references
+if [[($1 = "project_direction") || ($1 = "all")]]
+        then rails g slim:scaffold project_direction name projects:references
 fi
 
 if [[($1 = "finance_source") || ($1 = "all")]]

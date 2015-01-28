@@ -1,0 +1,9 @@
+= simple_nested_form_for(@project_direction) do |f|
+  = f.error_notification
+
+  .form-inputs
+      = uni_input f, "name"
+      = uni_ref_input f, "projects", @project_direction.projects || @project_direction.build_projects
+
+  .form-actions
+    = f.button :submit

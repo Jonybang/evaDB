@@ -7,8 +7,8 @@ class Project
   has_many :project_tasks, class_name: "ProjectTask"
   accepts_nested_attributes_for :project_tasks
 
-  belongs_to :projectstatus
-  belongs_to :projectdirection
+  belongs_to :project_status
+  belongs_to :project_direction
   belongs_to :chief, class_name: "Contact", inverse_of: :chief_projects
 
   has_and_belongs_to_many :intellect_properties, class_name: "IntellectProperty"

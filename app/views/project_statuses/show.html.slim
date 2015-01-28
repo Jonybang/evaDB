@@ -1,0 +1,12 @@
+p#notice = notice
+
+p
+   strong Name:&nbsp;
+   = beauty_string @project_status, "name"
+p
+   strong Projects:&nbsp;
+   = uni_info @project_status, "projects"
+
+= link_to 'Edit', edit_project_status_path(@project_status)
+'|
+= link_to 'Back', project_statuses_path

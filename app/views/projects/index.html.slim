@@ -4,10 +4,10 @@ table class="table table-hover table-condensed"
   thead
     tr
       th Name
-      th Projectstatus
+      th Project status
       th Description
       th Result
-      th Projectdirection
+      th Project direction
       th Chief
       th Intellect properties
       th Team
@@ -19,10 +19,10 @@ table class="table table-hover table-condensed"
     - @projects.each do |project|
       tr
         td = link_to project.name, project
-        td = uni_info project, "projectstatus"
+        td = uni_info project, "project_status"
         td = beauty_string project, "description", "min"
         td = beauty_string project, "result", "min"
-        td = uni_info project, "projectdirection"
+        td = uni_info project, "project_direction"
         td = uni_info project, "chief"
         td = uni_info project, "intellect_properties"
         td = uni_info project, "team"
