@@ -1,0 +1,24 @@
+p#notice = notice
+
+p
+   strong Name:&nbsp;
+   = beauty_string @event, "name"
+p
+   strong Date:&nbsp;
+   = beauty_string @event, "date"
+p
+   strong Members:&nbsp;
+   = uni_info @event, "members"
+p
+   strong Sponsors:&nbsp;
+   = uni_info @event, "sponsors"
+p
+   strong Experts:&nbsp;
+   = uni_info @event, "experts"
+p
+   strong Documents:&nbsp;
+   = uni_info @event, "documents"
+
+= link_to 'Edit', edit_event_path(@event)
+'|
+= link_to 'Back', events_path

@@ -1,0 +1,28 @@
+h1 event_documents
+
+table class="table table-hover table-condensed"
+  thead
+    tr
+      th Name
+      th Comments
+      th To do
+      th Url
+      th Event
+      th
+
+  tbody
+    - @event_documents.each do |event_document|
+      tr
+        td = link_to event_document.name, event_document
+        td = beauty_string event_document, "comments", "min"
+        td = beauty_string event_document, "to_do", "min"
+        td = beauty_string event_document, "url", "min"
+        td = uni_info event_document, "event"
+        td
+          = link_to 'Edit', edit_event_document_path(event_document)
+          br
+          = link_to 'Destroy', event_document, data: {:confirm => 'Are you sure?'}, :method => :delete
+
+br
+
+= link_to 'New Event document', new_event_document_path

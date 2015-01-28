@@ -1,5 +1,11 @@
 Rails.application.routes.draw do
 
+  resources :partners
+
+  resources :event_documents
+
+  resources :events
+
   resources :finance_programs
 
   resources :currencies

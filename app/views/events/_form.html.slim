@@ -1,0 +1,13 @@
+= simple_nested_form_for(@event) do |f|
+  = f.error_notification
+
+  .form-inputs
+      = uni_input f, "name"
+      = uni_input f, "date"
+      = uni_ref_input f, "members", @event.members || @event.build_members
+      = uni_ref_input f, "sponsors", @event.sponsors || @event.build_sponsors
+      = uni_ref_input f, "experts", @event.experts || @event.build_experts
+      = uni_ref_input f, "documents", @event.documents || @event.build_documents
+
+  .form-actions
+    = f.button :submit

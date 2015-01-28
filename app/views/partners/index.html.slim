@@ -1,0 +1,52 @@
+h1 partners
+
+table class="table table-hover table-condensed"
+  thead
+    tr
+      th Name
+      th Contact data
+      th Socnet links
+      th Organization
+      th Skills
+      th Workpost
+      th Industries
+      th Equips
+      th Intellect properties
+      th Team projects
+      th Chief projects
+      th Expert projects
+      th Member events
+      th Project tasks
+      th Terms
+      th Sponsor events
+      th Expert events
+      th
+
+  tbody
+    - @partners.each do |partner|
+      tr
+        td = link_to partner.name, partner
+        td = uni_info partner, "contact_data"
+        td = uni_info partner, "socnet_links"
+        td = uni_info partner, "organization"
+        td = uni_info partner, "skills"
+        td = uni_info partner, "workpost"
+        td = uni_info partner, "industries"
+        td = uni_info partner, "equips"
+        td = uni_info partner, "intellect_properties"
+        td = uni_info partner, "team_projects"
+        td = uni_info partner, "chief_projects"
+        td = uni_info partner, "expert_projects"
+        td = uni_info partner, "member_events"
+        td = uni_info partner, "project_tasks"
+        td = beauty_string partner, "terms", "min"
+        td = uni_info partner, "sponsor_events"
+        td = uni_info partner, "expert_events"
+        td
+          = link_to 'Edit', edit_partner_path(partner)
+          br
+          = link_to 'Destroy', partner, data: {:confirm => 'Are you sure?'}, :method => :delete
+
+br
+
+= link_to 'New Partner', new_partner_path

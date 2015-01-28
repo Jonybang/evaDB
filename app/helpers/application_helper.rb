@@ -71,21 +71,14 @@ module ApplicationHelper
 
       @refference = employer.class.reflect_on_association(name.to_sym).macro.to_s
       if (@refference  == 'embeds_one')
-
-         @result = ''
-         @obj.instance_variable_get('@attributes').each do |prop|
-            if(prop[0] != "_id")
-               @result += "<strong>" + prop[0] + "</strong>: " + prop[1] + "<br/>"
-            end
-         end
-         return ("<pre>" + @result.html_safe + "</pre>").html_safe
+         return ("<pre>" + print_all_props(@obj).html_safe + "</pre>").html_safe
       elsif (@refference  == 'embeds_many')
          @result = ''
 
          @obj.each do |item|
-            @result += item.name + ", "
+            @result += print_all_props(item) + "<hr>".html_safe
          end
-         return @result[0..-3].html_safe
+         return ("<pre>" + @result[0..-5] + "</pre>").html_safe
       else
          return uni_link(employer, name)
       end
@@ -123,5 +116,22 @@ module ApplicationHelper
 
    def cut_url(url)
       return url.sub(/^https?:\/\//, "").sub(/^www./, "").gsub(/\/$/, '')
+   end
+
+   def print_all_props(obj)
+      @result = ''
+      @array = obj.instance_variable_get('@attributes')
+      @array.each do |prop|
+         if((prop[0] == "_id") || (prop[0].include? "url"))
+            next
+         end
+
+         if(prop[0] == "name" && @array.any? { |el| el[0].include? "url" } )
+            @result += "<strong>" + prop[0] + "</strong>: " + link_to(prop[1], @array.find { |el| el[0].include? "url" }[1]) + "<br/>"
+         else
+            @result += "<strong>" + prop[0] + "</strong>: " + prop[1] + "<br/>"
+         end
+      end
+      return @result[0..-6]
    end
 end

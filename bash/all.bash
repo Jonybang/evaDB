@@ -16,7 +16,7 @@ if [[($1 = "socnet") || ($1 = "all")]]
 fi
 
 if [[($1 = "contact") || ($1 = "all")]]
-        then rails g slim:scaffold contact name contact_data:references socnet_links:references organization:references skills:references workpost:references industries:references equips:references intellect_properties:references team_projects:references chief_projects:references expert_projects:references project_tasks:references
+        then rails g slim:scaffold contact name contact_data:references socnet_links:references organization:references skills:references workpost:references industries:references equips:references intellect_properties:references team_projects:references chief_projects:references expert_projects:references member_events:references project_tasks:references
 fi
 
 #if [ $1 = "in_project" ]
@@ -24,11 +24,11 @@ fi
 #fi
 
 if [[($1 = "student") || ($1 = "all")]]
-        then rails g slim:scaffold student name contact_data:references socnet_links:references organization:references skills:references workpost:references industries:references equips:references enter_year:date university:references faculty:references specialty:references team_projects:references chief_projects:references expert_projects:references project_tasks:references
+        then rails g slim:scaffold student name contact_data:references socnet_links:references organization:references skills:references workpost:references industries:references equips:references enter_year:date university:references faculty:references specialty:references team_projects:references chief_projects:references expert_projects:references member_events:references project_tasks:references
 fi
 
 if [[($1 = "scientist") || ($1 = "all")]]
-        then rails g slim:scaffold scientist name contact_data:references socnet_links:references organization:references skills:references workpost:references industries:references equips:references degree:references rank:references papers:references thesis:references team_projects:references chief_projects:references expert_projects:references project_tasks:references
+        then rails g slim:scaffold scientist name contact_data:references socnet_links:references organization:references skills:references workpost:references industries:references equips:references degree:references rank:references papers:references thesis:references team_projects:references chief_projects:references expert_projects:references member_events:references project_tasks:references
 fi
 
 if [[($1 = "intellect_property") || ($1 = "all")]]
@@ -125,5 +125,17 @@ fi
 
 if [[($1 = "currency") || ($1 = "all")]]
         then rails g slim:scaffold currency name finance_sources:references
+fi
+
+if [[($1 = "event") || ($1 = "all")]]
+        then rails g slim:scaffold event name date:datetime members:references sponsors:references experts:references documents:references
+fi
+
+if [[($1 = "event_document") || ($1 = "all")]]
+        then rails g slim:scaffold event_document name comments:text to_do:text url event:references
+fi
+
+if [[($1 = "partner") || ($1 = "all")]]
+        then rails g slim:scaffold partner name contact_data:references socnet_links:references organization:references skills:references workpost:references industries:references equips:references intellect_properties:references team_projects:references chief_projects:references expert_projects:references member_events:references project_tasks:references terms:text sponsor_events:references expert_events:references
 fi
 rails server
