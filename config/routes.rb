@@ -1,4 +1,6 @@
 Rails.application.routes.draw do
+  resources :equip_statuses
+
   resources :intellect_types
 
   resources :intellect_properties
@@ -14,8 +16,6 @@ Rails.application.routes.draw do
   resources :projectdirections
 
   resources :projectstatuses
-
-  resources :equipstatuses
 
   resources :theses
 

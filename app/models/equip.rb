@@ -9,7 +9,7 @@ class Equip
   belongs_to :organization
   belongs_to :subunit
   belongs_to :room
-  belongs_to :equipstatus
+  belongs_to :equip_status
 
   has_and_belongs_to_many :project_tasks, class_name: "ProjectTask"
 end

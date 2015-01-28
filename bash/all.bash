@@ -36,7 +36,7 @@ if [[($1 = "intellect_property") || ($1 = "all")]]
 fi
 
 if [[($1 = "intellect_type") || ($1 = "all")]]
-        then rails g slim:scaffold intelecttype name intellect_properties:references
+        then rails g slim:scaffold intellect_type name intellect_properties:references
 fi
 
 if [[($1 = "rank") || ($1 = "all")]]
@@ -84,11 +84,11 @@ if [[($1 = "industry") || ($1 = "all")]]
 fi
 
 if [[($1 = "equip") || ($1 = "all")]]
-        then rails g slim:scaffold equip name model description:text parametres responsible:references organization:references subunit:references room:references equipstatus:references project_tasks:references
+        then rails g slim:scaffold equip name model description:text parametres responsible:references organization:references subunit:references room:references equip_status:references project_tasks:references
 fi
 
-if [[($1 = "equipstatus") || ($1 = "all")]]
-        then rails g slim:scaffold equipstatus name equips:references
+if [[($1 = "equip_status") || ($1 = "all")]]
+        then rails g slim:scaffold equip_status name equips:references
 fi
 
 if [[($1 = "subunit") || ($1 = "all")]]
