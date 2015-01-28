@@ -1,5 +1,7 @@
 class Currency
   include Mongoid::Document
   field :name, type: String
-  embedded_in :finance_sources
+
+  has_many :finance_sources, class_name: "FinanceSource"
+  accepts_nested_attributes_for :finance_sources
 end
