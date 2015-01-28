@@ -12,6 +12,7 @@
       = uni_ref_input f, "team", @project.team || @project.build_team
       = uni_ref_input f, "experts", @project.experts || @project.build_experts
       = uni_ref_input f, "project_tasks", @project.project_tasks || @project.build_project_tasks
+      = uni_ref_input f, "finance_sources", @project.finance_sources || @project.build_finance_sources
 
   .form-actions
     = f.button :submit

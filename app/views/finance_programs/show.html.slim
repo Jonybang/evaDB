@@ -1,0 +1,15 @@
+p#notice = notice
+
+p
+   strong Name:&nbsp;
+   = beauty_string @finance_program, "name"
+p
+   strong Terms:&nbsp;
+   = beauty_string @finance_program, "terms"
+p
+   strong Finance source:&nbsp;
+   = uni_info @finance_program, "finance_source"
+
+= link_to 'Edit', edit_finance_program_path(@finance_program)
+'|
+= link_to 'Back', finance_programs_path

@@ -1,4 +1,9 @@
 Rails.application.routes.draw do
+
+  get 'finance_source/finance_programs'
+
+  resources :finance_programs
+
   resources :currencies
 
   resources :finance_sources

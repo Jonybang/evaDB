@@ -10,6 +10,7 @@
       = uni_ref_input f, "currency", @finance_source.currency || @finance_source.build_currency
       = uni_ref_input f, "projects", @finance_source.projects || @finance_source.build_projects
       = uni_ref_input f, "project_directions", @finance_source.project_directions || @finance_source.build_project_directions
+      = uni_ref_input f, "finance_programs", @finance_source.finance_programs || @finance_source.build_finance_programs
 
   .form-actions
     = f.button :submit

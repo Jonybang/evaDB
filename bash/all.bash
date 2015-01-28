@@ -100,7 +100,7 @@ if [[($1 = "room") || ($1 = "all")]]
 fi
 
 if [[($1 = "project") || ($1 = "all")]]
-        then rails g slim:scaffold project name project_status:references description:text result:text project_direction:references chief:references intellect_properties:references team:references experts:references project_tasks:references
+        then rails g slim:scaffold project name project_status:references description:text result:text project_direction:references chief:references intellect_properties:references team:references experts:references project_tasks:references finance_sources:references
 fi
 
 if [[($1 = "project_task") || ($1 = "all")]]
@@ -112,11 +112,15 @@ if [[($1 = "project_status") || ($1 = "all")]]
 fi
 
 if [[($1 = "project_direction") || ($1 = "all")]]
-        then rails g slim:scaffold project_direction name projects:references
+        then rails g slim:scaffold project_direction name projects:references finance_sources:references
 fi
 
 if [[($1 = "finance_source") || ($1 = "all")]]
-        then rails g slim:scaffold finance_source name contact_data:references link:references volume_from:float volume_to:float currency:references projects:references project_directions:references
+        then rails g slim:scaffold finance_source name contact_data:references link:references volume_from:float volume_to:float currency:references projects:references project_directions:references finance_programs:references
+fi
+
+if [[($1 = "finance_program") || ($1 = "all")]]
+        then rails g slim:scaffold finance_program name terms:text finance_source:references
 fi
 
 if [[($1 = "currency") || ($1 = "all")]]

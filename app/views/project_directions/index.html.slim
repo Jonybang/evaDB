@@ -5,6 +5,7 @@ table class="table table-hover table-condensed"
     tr
       th Name
       th Projects
+      th Finance sources
       th
 
   tbody
@@ -12,6 +13,7 @@ table class="table table-hover table-condensed"
       tr
         td = link_to project_direction.name, project_direction
         td = uni_info project_direction, "projects"
+        td = uni_info project_direction, "finance_sources"
         td
           = link_to 'Edit', edit_project_direction_path(project_direction)
           br
