@@ -12,6 +12,10 @@ Rails.application.routes.draw do
 
   resources :finance_sources
 
+  resources :projects do
+    resources :project_tasks
+  end
+
   resources :project_statuses
 
   resources :project_directions
@@ -25,10 +29,6 @@ Rails.application.routes.draw do
   resources :socnet_links
 
   resources :socnets
-
-  resources :projects
-
-  resources :project_tasks
 
   resources :theses
 

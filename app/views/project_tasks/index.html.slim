@@ -27,10 +27,10 @@ table class="table table-hover table-condensed"
         td = uni_info project_task, "responsible"
         td = uni_info project_task, "equips"
         td
-          = link_to 'Edit', edit_project_task_path(project_task)
+          = link_to 'Edit', uni_path(@parent, "project_tasks", "edit_project_task_path", project_task)
           br
           = link_to 'Destroy', project_task, data: {:confirm => 'Are you sure?'}, :method => :delete
 
 br
 
-= link_to 'New Project task', new_project_task_path
+= link_to 'New Project task', uni_path(@parent, "project_tasks", "new_project_task_path")

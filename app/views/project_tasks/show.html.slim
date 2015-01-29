@@ -28,6 +28,6 @@ p
    strong Equips:&nbsp;
    = uni_info @project_task, "equips"
 
-= link_to 'Edit', edit_project_task_path(@project_task)
+= link_to 'Edit', uni_path(@parent, "project_tasks", "edit_project_task_path", @project_task)
 '|
-= link_to 'Back', project_tasks_path
+= link_to 'Back', uni_path(@parent, "project_tasks", "project_tasks_path", @project_task)

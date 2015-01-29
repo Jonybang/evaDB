@@ -31,7 +31,12 @@ module ApplicationHelper
       if (@refference  == 'has_many' || @refference  == 'has_and_belongs_to_many')
          @result = ''
          @obj.each do |item|
-               @result += link_to(item.name, item)+ "<br />".html_safe
+            item_name = item.name
+            item_url = item
+            if(nested_resources[name.to_sym])
+               item_url = nested_resources[name.to_sym][:actions].call(:show, employer, item)
+            end
+            @result += link_to(item_name, item_url) + "<br />".html_safe
          end
          return @result.html_safe
       end
@@ -120,5 +125,41 @@ module ApplicationHelper
          end
       end
       return @result[0..-6]
+   end
+   def nested_resources
+      return {project_tasks: {actions: Proc.new {|action, employer, item|
+                                 if(action == :show)
+                                    project_project_task_url(employer, item)
+                                 elsif(action == :edit)
+                                    edit_project_project_task_path(employer, item)
+                                 elsif(action == :new)
+                                    new_project_project_task_path(employer)
+                                 elsif(action == :index)
+                                    project_url(employer) + '/project_tasks'
+                                 end
+                              }, employer: "project"}
+
+             }
+   end
+
+   def project_task_path(project_task)
+      return project_project_task_path(project_task.project, project_task)
+   end
+   def uni_path(employer, name, method_name, obj = {})
+      action = nil
+      if(method_name.downcase.include? "new")
+         action = :new
+      elsif(method_name.downcase.include? "edit")
+         action = :edit
+      elsif(method_name.downcase.include? "s_path")
+         action = :index
+      end
+
+      if(nested_resources[name.to_sym])
+         # employer = obj.send(nested_resources[name.to_sym].employer)
+         return nested_resources[name.to_sym][:actions].call(action, employer, obj)
+      else
+         return send(method_name)
+      end
    end
 end
