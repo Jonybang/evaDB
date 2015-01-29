@@ -1,5 +1,6 @@
 class Faculty
   include Mongoid::Document
+  include Mongoid::Timestamps
   field :name, type: String
 
   #embedded_in :university, :inverse_of => :faculties

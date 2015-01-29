@@ -1,5 +1,6 @@
 class Link
   include Mongoid::Document
+  include Mongoid::Timestamps
   field :url, type: String
   field :note, type: String
   belongs_to :link_parent, polymorphic: true, :dependent => :destroy

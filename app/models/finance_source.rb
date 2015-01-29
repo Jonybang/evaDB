@@ -1,5 +1,6 @@
 class FinanceSource
   include Mongoid::Document
+  include Mongoid::Timestamps
   field :name, type: String
   field :volume_from, type: Float
   field :volume_to, type: Float
