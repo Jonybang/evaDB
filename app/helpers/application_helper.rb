@@ -1,12 +1,8 @@
 module ApplicationHelper
    def uni_link(employer, name)
       @obj = employer.send(name.to_sym)
-      if(!@obj)
-         return ''
-      end
+      return '' unless @obj
 
-      @url = ''
-      @name = ''
       if(name == "link" && @obj.url)
          return link_to(cut_url(@obj.url), @obj.url, target: "_blank")
       elsif(name == "socnet_links")
@@ -57,17 +53,9 @@ module ApplicationHelper
 
    def uni_info(employer, name)
       @obj = employer.send(name.to_sym)
-      # begin
-      #    @obj = employer.send(name.to_sym)
-      # rescue Mongoid::Errors::MixedRelations => e
-      #    return 1
-      # end
       if(!@obj || @obj.class == NilClass)
          return ''
       end
-      # if(employer.class.field(name).kind_of? String )
-      #    return "1"
-      # end
 
       @refference = employer.class.reflect_on_association(name.to_sym).macro.to_s
       if (@refference  == 'embeds_one')
@@ -101,9 +89,8 @@ module ApplicationHelper
 
    def beauty_string(employer, name, mode = "normal")
       @obj = employer.send(name.to_sym)
-      if(!@obj)
-         return ''
-      end
+      return unless @obj
+
       if((name.include? "link") || (name.include? "url"))
          return link_to(cut_url(@obj), @obj, target: "_blank")
       end
