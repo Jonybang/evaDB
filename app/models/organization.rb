@@ -7,7 +7,7 @@ class Organization
   embeds_one :contact_data, as: :cdata_parent
   accepts_nested_attributes_for :contact_data
 
-  has_one :link, as: :link_parent
+  has_one :link, as: :linkable
   accepts_nested_attributes_for :link
 
   has_many :contacts, inverse_of: :organization

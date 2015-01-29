@@ -5,7 +5,7 @@ table class="table table-hover table-condensed"
     tr
       th Url
       th Note
-      th Link parent
+      th Linkable
       th
 
   tbody
@@ -13,7 +13,7 @@ table class="table table-hover table-condensed"
       tr
         td = beauty_string link, "url", "min"
         td = beauty_string link, "note", "min"
-        td = uni_info link, "link_parent"
+        td = uni_info link, "linkable"
         td
           = link_to 'Edit', edit_link_path(link)
           br

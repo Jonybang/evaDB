@@ -10,7 +10,7 @@ class University
   has_many :faculties, class_name: "Faculty"
   accepts_nested_attributes_for :faculties, allow_destroy: true
 
-  has_one :link, as: :link_parent
+  has_one :link, as: :linkable
   accepts_nested_attributes_for :link
 
   has_many :students

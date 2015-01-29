@@ -9,7 +9,7 @@ class Specialty
   #embedded_in :faculty
   belongs_to :faculty
 
-  has_one :link, as: :link_parent
+  has_one :link, as: :linkable
   accepts_nested_attributes_for :link
 
   has_many :students

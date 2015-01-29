@@ -15,7 +15,7 @@ class Contact
   has_many :equips, class_name: "Equip"
   accepts_nested_attributes_for :equips
 
-  has_many :socnet_links, class_name: "SocnetLink", as: :link_parent
+  has_many :socnet_links, class_name: "SocnetLink", as: :linkable
   accepts_nested_attributes_for :socnet_links
 
   # мешают работать contact_data, organization и workpost

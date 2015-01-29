@@ -4,7 +4,7 @@
   .form-inputs
       = uni_input f, "url"
       = uni_input f, "note"
-      = uni_ref_input f, "link_parent", @socnet_link.link_parent || @socnet_link.build_link_parent
+      = uni_ref_input f, "linkable", @socnet_link.linkable || @socnet_link.build_linkable
       = uni_ref_input f, "socnet", @socnet_link.socnet || @socnet_link.build_socnet
 
   .form-actions

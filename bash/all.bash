@@ -4,11 +4,11 @@ if [[($1 = "organization") || ($1 = "all")]]
 fi
 
 if [[($$1 = "link") || ($1 = "all")]]
-        then rails g slim:scaffold link url note:text link_parent:references
+        then rails g slim:scaffold link url note:text linkable:references
 fi
 
 if [[($1 = "socnet_link") || ($1 = "all")]]
-        then rails g slim:scaffold socnet_link url note:text link_parent:references socnet:references
+        then rails g slim:scaffold socnet_link url note:text linkable:references socnet:references
 fi
 
 if [[($1 = "socnet") || ($1 = "all")]]

@@ -5,7 +5,7 @@ table class="table table-hover table-condensed"
     tr
       th Url
       th Note
-      th Link parent
+      th Linkable
       th Socnet
       th
 
@@ -14,7 +14,7 @@ table class="table table-hover table-condensed"
       tr
         td = beauty_string socnet_link, "url", "min"
         td = beauty_string socnet_link, "note", "min"
-        td = uni_info socnet_link, "link_parent"
+        td = uni_info socnet_link, "linkable"
         td = uni_info socnet_link, "socnet"
         td
           = link_to 'Edit', edit_socnet_link_path(socnet_link)

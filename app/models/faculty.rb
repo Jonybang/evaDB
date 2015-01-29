@@ -13,7 +13,7 @@ class Faculty
   has_many :specialties, class_name: "Specialty"
   accepts_nested_attributes_for :specialties, allow_destroy: true
 
-  has_one :link, as: :link_parent
+  has_one :link, as: :linkable
   accepts_nested_attributes_for :link
 
   has_many :students
