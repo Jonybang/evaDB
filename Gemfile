@@ -51,15 +51,15 @@ gem "nested_form"
 gem "simple_form"
 
 gem "bootstrap-sass"
-gem 'rails-footnotes', '~> 4.0'
 
 group :production do
   gem 'rails_12factor'
 end
 
-# group :development do
-#    gem 'moped_footnotes'
-# end
+group :development do
+   gem 'rails-footnotes', '~> 4.0'
+   #gem 'moped_footnotes' #require mongo gem :(
+end
 
 group :test do
   gem "rspec-rails"
