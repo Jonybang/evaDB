@@ -19,6 +19,6 @@ p
    strong Documents:&nbsp;
    = uni_info @event, "documents"
 
-= link_to 'Edit', edit_event_path(@event)
+= link_to 'Edit', uni_path(@parent, "events", "edit_event_path", @event)
 '|
-= link_to 'Back', events_path
+= link_to 'Back', uni_path(@parent, "events", "events_path", @event)

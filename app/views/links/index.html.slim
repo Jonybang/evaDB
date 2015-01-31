@@ -1,4 +1,4 @@
-h1 links
+- @table = "links"
 
 table class="table table-hover table-condensed"
   thead
@@ -15,10 +15,10 @@ table class="table table-hover table-condensed"
         td = beauty_string link, "note", "min"
         td = uni_info link, "linkable"
         td
-          = link_to 'Edit', edit_link_path(link)
+          = link_to 'Edit', uni_path(@parent, "links", "edit_link_path", link)
           br
           = link_to 'Destroy', link, data: {:confirm => 'Are you sure?'}, :method => :delete
 
 br
 
-= link_to 'New Link', new_link_path
+= link_to 'New Link', uni_path(@parent, "links", "new_link_path")

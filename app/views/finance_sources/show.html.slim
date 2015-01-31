@@ -28,6 +28,6 @@ p
    strong Finance programs:&nbsp;
    = uni_info @finance_source, "finance_programs"
 
-= link_to 'Edit', edit_finance_source_path(@finance_source)
+= link_to 'Edit', uni_path(@parent, "finance_sources", "edit_finance_source_path", @finance_source)
 '|
-= link_to 'Back', finance_sources_path
+= link_to 'Back', uni_path(@parent, "finance_sources", "finance_sources_path", @finance_source)

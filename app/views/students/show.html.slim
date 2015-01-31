@@ -52,6 +52,6 @@ p
    strong Project tasks:&nbsp;
    = uni_info @student, "project_tasks"
 
-= link_to 'Edit', edit_student_path(@student)
+= link_to 'Edit', uni_path(@parent, "students", "edit_student_path", @student)
 '|
-= link_to 'Back', students_path
+= link_to 'Back', uni_path(@parent, "students", "students_path", @student)

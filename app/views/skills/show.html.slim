@@ -7,6 +7,6 @@ p
    strong Contacts:&nbsp;
    = uni_info @skill, "contacts"
 
-= link_to 'Edit', edit_skill_path(@skill)
+= link_to 'Edit', uni_path(@parent, "skills", "edit_skill_path", @skill)
 '|
-= link_to 'Back', skills_path
+= link_to 'Back', uni_path(@parent, "skills", "skills_path", @skill)

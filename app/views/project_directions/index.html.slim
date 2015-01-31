@@ -1,4 +1,4 @@
-h1 project_directions
+- @table = "project_directions"
 
 table class="table table-hover table-condensed"
   thead
@@ -15,10 +15,10 @@ table class="table table-hover table-condensed"
         td = uni_info project_direction, "projects"
         td = uni_info project_direction, "finance_sources"
         td
-          = link_to 'Edit', edit_project_direction_path(project_direction)
+          = link_to 'Edit', uni_path(@parent, "project_directions", "edit_project_direction_path", project_direction)
           br
           = link_to 'Destroy', project_direction, data: {:confirm => 'Are you sure?'}, :method => :delete
 
 br
 
-= link_to 'New Project direction', new_project_direction_path
+= link_to 'New Project direction', uni_path(@parent, "project_directions", "new_project_direction_path")

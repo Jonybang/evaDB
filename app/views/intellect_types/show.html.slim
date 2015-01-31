@@ -7,6 +7,6 @@ p
    strong Intellect properties:&nbsp;
    = uni_info @intellect_type, "intellect_properties"
 
-= link_to 'Edit', edit_intellect_type_path(@intellect_type)
+= link_to 'Edit', uni_path(@parent, "intellect_types", "edit_intellect_type_path", @intellect_type)
 '|
-= link_to 'Back', intellect_types_path
+= link_to 'Back', uni_path(@parent, "intellect_types", "intellect_types_path", @intellect_type)

@@ -7,6 +7,6 @@ p
    strong Contacts:&nbsp;
    = uni_info @industry, "contacts"
 
-= link_to 'Edit', edit_industry_path(@industry)
+= link_to 'Edit', uni_path(@parent, "industries", "edit_industry_path", @industry)
 '|
-= link_to 'Back', industries_path
+= link_to 'Back', uni_path(@parent, "industries", "industries_path", @industry)

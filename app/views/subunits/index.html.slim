@@ -1,4 +1,4 @@
-h1 subunits
+- @table = "subunits"
 
 table class="table table-hover table-condensed"
   thead
@@ -21,10 +21,10 @@ table class="table table-hover table-condensed"
         td = uni_info subunit, "rooms"
         td = uni_info subunit, "equips"
         td
-          = link_to 'Edit', edit_subunit_path(subunit)
+          = link_to 'Edit', uni_path(@parent, "subunits", "edit_subunit_path", subunit)
           br
           = link_to 'Destroy', subunit, data: {:confirm => 'Are you sure?'}, :method => :delete
 
 br
 
-= link_to 'New Subunit', new_subunit_path
+= link_to 'New Subunit', uni_path(@parent, "subunits", "new_subunit_path")

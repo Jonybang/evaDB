@@ -22,6 +22,6 @@ p
    strong Subunits:&nbsp;
    = uni_info @organization, "subunits"
 
-= link_to 'Edit', edit_organization_path(@organization)
+= link_to 'Edit', uni_path(@parent, "organizations", "edit_organization_path", @organization)
 '|
-= link_to 'Back', organizations_path
+= link_to 'Back', uni_path(@parent, "organizations", "organizations_path", @organization)

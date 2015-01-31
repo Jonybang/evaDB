@@ -1,4 +1,4 @@
-h1 event_documents
+- @table = "event_documents"
 
 table class="table table-hover table-condensed"
   thead
@@ -19,10 +19,10 @@ table class="table table-hover table-condensed"
         td = beauty_string event_document, "url", "min"
         td = uni_info event_document, "event"
         td
-          = link_to 'Edit', edit_event_document_path(event_document)
+          = link_to 'Edit', uni_path(@parent, "event_documents", "edit_event_document_path", event_document)
           br
           = link_to 'Destroy', event_document, data: {:confirm => 'Are you sure?'}, :method => :delete
 
 br
 
-= link_to 'New Event document', new_event_document_path
+= link_to 'New Event document', uni_path(@parent, "event_documents", "new_event_document_path")

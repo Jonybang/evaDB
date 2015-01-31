@@ -10,6 +10,6 @@ p
    strong Linkable:&nbsp;
    = uni_info @link, "linkable"
 
-= link_to 'Edit', edit_link_path(@link)
+= link_to 'Edit', uni_path(@parent, "links", "edit_link_path", @link)
 '|
-= link_to 'Back', links_path
+= link_to 'Back', uni_path(@parent, "links", "links_path", @link)

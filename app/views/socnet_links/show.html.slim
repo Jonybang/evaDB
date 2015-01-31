@@ -13,6 +13,6 @@ p
    strong Socnet:&nbsp;
    = uni_info @socnet_link, "socnet"
 
-= link_to 'Edit', edit_socnet_link_path(@socnet_link)
+= link_to 'Edit', uni_path(@parent, "socnet_links", "edit_socnet_link_path", @socnet_link)
 '|
-= link_to 'Back', socnet_links_path
+= link_to 'Back', uni_path(@parent, "socnet_links", "socnet_links_path", @socnet_link)

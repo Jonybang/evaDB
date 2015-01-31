@@ -1,4 +1,4 @@
-h1 ranks
+- @table = "ranks"
 
 table class="table table-hover table-condensed"
   thead
@@ -13,10 +13,10 @@ table class="table table-hover table-condensed"
         td = link_to rank.name, rank
         td = uni_info rank, "scientists"
         td
-          = link_to 'Edit', edit_rank_path(rank)
+          = link_to 'Edit', uni_path(@parent, "ranks", "edit_rank_path", rank)
           br
           = link_to 'Destroy', rank, data: {:confirm => 'Are you sure?'}, :method => :delete
 
 br
 
-= link_to 'New Rank', new_rank_path
+= link_to 'New Rank', uni_path(@parent, "ranks", "new_rank_path")

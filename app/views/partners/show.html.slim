@@ -52,6 +52,6 @@ p
    strong Expert events:&nbsp;
    = uni_info @partner, "expert_events"
 
-= link_to 'Edit', edit_partner_path(@partner)
+= link_to 'Edit', uni_path(@parent, "partners", "edit_partner_path", @partner)
 '|
-= link_to 'Back', partners_path
+= link_to 'Back', uni_path(@parent, "partners", "partners_path", @partner)

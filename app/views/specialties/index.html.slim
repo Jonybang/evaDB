@@ -1,4 +1,4 @@
-h1 specialties
+- @table = "specialties"
 
 table class="table table-hover table-condensed"
   thead
@@ -19,10 +19,10 @@ table class="table table-hover table-condensed"
         td = uni_info specialty, "faculty"
         td = uni_info specialty, "students"
         td
-          = link_to 'Edit', edit_specialty_path(specialty)
+          = link_to 'Edit', uni_path(@parent, "specialties", "edit_specialty_path", specialty)
           br
           = link_to 'Destroy', specialty, data: {:confirm => 'Are you sure?'}, :method => :delete
 
 br
 
-= link_to 'New Specialty', new_specialty_path
+= link_to 'New Specialty', uni_path(@parent, "specialties", "new_specialty_path")

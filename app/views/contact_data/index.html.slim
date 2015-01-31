@@ -1,4 +1,4 @@
-h1 contact_data
+- @table = "contact_data"
 
 table class="table table-hover table-condensed"
   thead
@@ -17,10 +17,10 @@ table class="table table-hover table-condensed"
         td = beauty_string contact_data, "addres", "min"
         td = uni_info contact_data, "cdata_parent"
         td
-          = link_to 'Edit', edit_contact_data_path(contact_data)
+          = link_to 'Edit', uni_path(@parent, "contact_data", "edit_contact_data_path", contact_data)
           br
           = link_to 'Destroy', contact_data, data: {:confirm => 'Are you sure?'}, :method => :delete
 
 br
 
-= link_to 'New Contact data', new_contact_data_path
+= link_to 'New Contact data', uni_path(@parent, "contact_data", "new_contact_data_path")

@@ -1,4 +1,4 @@
-h1 finance_sources
+- @table = "finance_sources"
 
 table class="table table-hover table-condensed"
   thead
@@ -27,10 +27,10 @@ table class="table table-hover table-condensed"
         td = uni_info finance_source, "project_directions"
         td = uni_info finance_source, "finance_programs"
         td
-          = link_to 'Edit', edit_finance_source_path(finance_source)
+          = link_to 'Edit', uni_path(@parent, "finance_sources", "edit_finance_source_path", finance_source)
           br
           = link_to 'Destroy', finance_source, data: {:confirm => 'Are you sure?'}, :method => :delete
 
 br
 
-= link_to 'New Finance source', new_finance_source_path
+= link_to 'New Finance source', uni_path(@parent, "finance_sources", "new_finance_source_path")

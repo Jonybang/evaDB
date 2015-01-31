@@ -10,6 +10,6 @@ p
    strong Equips:&nbsp;
    = uni_info @room, "equips"
 
-= link_to 'Edit', edit_room_path(@room)
+= link_to 'Edit', uni_path(@parent, "rooms", "edit_room_path", @room)
 '|
-= link_to 'Back', rooms_path
+= link_to 'Back', uni_path(@parent, "rooms", "rooms_path", @room)

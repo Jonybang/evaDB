@@ -1,4 +1,4 @@
-h1 students
+- @table = "students"
 
 table class="table table-hover table-condensed"
   thead
@@ -43,10 +43,10 @@ table class="table table-hover table-condensed"
         td = uni_info student, "member_events"
         td = uni_info student, "project_tasks"
         td
-          = link_to 'Edit', edit_student_path(student)
+          = link_to 'Edit', uni_path(@parent, "students", "edit_student_path", student)
           br
           = link_to 'Destroy', student, data: {:confirm => 'Are you sure?'}, :method => :delete
 
 br
 
-= link_to 'New Student', new_student_path
+= link_to 'New Student', uni_path(@parent, "students", "new_student_path")

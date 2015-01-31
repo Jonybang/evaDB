@@ -7,6 +7,6 @@ p
    strong Contacts:&nbsp;
    = uni_info @workpost, "contacts"
 
-= link_to 'Edit', edit_workpost_path(@workpost)
+= link_to 'Edit', uni_path(@parent, "workposts", "edit_workpost_path", @workpost)
 '|
-= link_to 'Back', workposts_path
+= link_to 'Back', uni_path(@parent, "workposts", "workposts_path", @workpost)

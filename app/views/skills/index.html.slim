@@ -1,4 +1,4 @@
-h1 skills
+- @table = "skills"
 
 table class="table table-hover table-condensed"
   thead
@@ -13,10 +13,10 @@ table class="table table-hover table-condensed"
         td = link_to skill.name, skill
         td = uni_info skill, "contacts"
         td
-          = link_to 'Edit', edit_skill_path(skill)
+          = link_to 'Edit', uni_path(@parent, "skills", "edit_skill_path", skill)
           br
           = link_to 'Destroy', skill, data: {:confirm => 'Are you sure?'}, :method => :delete
 
 br
 
-= link_to 'New Skill', new_skill_path
+= link_to 'New Skill', uni_path(@parent, "skills", "new_skill_path")

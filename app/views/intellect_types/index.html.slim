@@ -1,4 +1,4 @@
-h1 intellect_types
+- @table = "intellect_types"
 
 table class="table table-hover table-condensed"
   thead
@@ -13,10 +13,10 @@ table class="table table-hover table-condensed"
         td = link_to intellect_type.name, intellect_type
         td = uni_info intellect_type, "intellect_properties"
         td
-          = link_to 'Edit', edit_intellect_type_path(intellect_type)
+          = link_to 'Edit', uni_path(@parent, "intellect_types", "edit_intellect_type_path", intellect_type)
           br
           = link_to 'Destroy', intellect_type, data: {:confirm => 'Are you sure?'}, :method => :delete
 
 br
 
-= link_to 'New Intellect type', new_intellect_type_path
+= link_to 'New Intellect type', uni_path(@parent, "intellect_types", "new_intellect_type_path")

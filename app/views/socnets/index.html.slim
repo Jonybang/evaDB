@@ -1,4 +1,4 @@
-h1 socnets
+- @table = "socnets"
 
 table class="table table-hover table-condensed"
   thead
@@ -15,10 +15,10 @@ table class="table table-hover table-condensed"
         td = beauty_string socnet, "url", "min"
         td = uni_info socnet, "socnet_links"
         td
-          = link_to 'Edit', edit_socnet_path(socnet)
+          = link_to 'Edit', uni_path(@parent, "socnets", "edit_socnet_path", socnet)
           br
           = link_to 'Destroy', socnet, data: {:confirm => 'Are you sure?'}, :method => :delete
 
 br
 
-= link_to 'New Socnet', new_socnet_path
+= link_to 'New Socnet', uni_path(@parent, "socnets", "new_socnet_path")

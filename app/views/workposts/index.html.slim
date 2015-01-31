@@ -1,4 +1,4 @@
-h1 workposts
+- @table = "workposts"
 
 table class="table table-hover table-condensed"
   thead
@@ -13,10 +13,10 @@ table class="table table-hover table-condensed"
         td = link_to workpost.name, workpost
         td = uni_info workpost, "contacts"
         td
-          = link_to 'Edit', edit_workpost_path(workpost)
+          = link_to 'Edit', uni_path(@parent, "workposts", "edit_workpost_path", workpost)
           br
           = link_to 'Destroy', workpost, data: {:confirm => 'Are you sure?'}, :method => :delete
 
 br
 
-= link_to 'New Workpost', new_workpost_path
+= link_to 'New Workpost', uni_path(@parent, "workposts", "new_workpost_path")

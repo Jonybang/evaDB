@@ -1,4 +1,4 @@
-h1 equips
+- @table = "equips"
 
 table class="table table-hover table-condensed"
   thead
@@ -29,10 +29,10 @@ table class="table table-hover table-condensed"
         td = uni_info equip, "equip_status"
         td = uni_info equip, "project_tasks"
         td
-          = link_to 'Edit', edit_equip_path(equip)
+          = link_to 'Edit', uni_path(@parent, "equips", "edit_equip_path", equip)
           br
           = link_to 'Destroy', equip, data: {:confirm => 'Are you sure?'}, :method => :delete
 
 br
 
-= link_to 'New Equip', new_equip_path
+= link_to 'New Equip', uni_path(@parent, "equips", "new_equip_path")

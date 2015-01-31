@@ -31,6 +31,6 @@ p
    strong Projects:&nbsp;
    = uni_info @intellect_property, "projects"
 
-= link_to 'Edit', edit_intellect_property_path(@intellect_property)
+= link_to 'Edit', uni_path(@parent, "intellect_properties", "edit_intellect_property_path", @intellect_property)
 '|
-= link_to 'Back', intellect_properties_path
+= link_to 'Back', uni_path(@parent, "intellect_properties", "intellect_properties_path", @intellect_property)

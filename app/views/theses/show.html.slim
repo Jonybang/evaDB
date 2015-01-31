@@ -7,6 +7,6 @@ p
    strong Scientist:&nbsp;
    = uni_info @thesis, "scientist"
 
-= link_to 'Edit', edit_thesis_path(@thesis)
+= link_to 'Edit', uni_path(@parent, "theses", "edit_thesis_path", @thesis)
 '|
-= link_to 'Back', theses_path
+= link_to 'Back', uni_path(@parent, "theses", "theses_path", @thesis)

@@ -7,6 +7,6 @@ p
    strong Equips:&nbsp;
    = uni_info @equip_status, "equips"
 
-= link_to 'Edit', edit_equip_status_path(@equip_status)
+= link_to 'Edit', uni_path(@parent, "equip_statuses", "edit_equip_status_path", @equip_status)
 '|
-= link_to 'Back', equip_statuses_path
+= link_to 'Back', uni_path(@parent, "equip_statuses", "equip_statuses_path", @equip_status)

@@ -10,6 +10,6 @@ p
    strong Project tasks:&nbsp;
    = uni_info @project_status, "project_tasks"
 
-= link_to 'Edit', edit_project_status_path(@project_status)
+= link_to 'Edit', uni_path(@parent, "project_statuses", "edit_project_status_path", @project_status)
 '|
-= link_to 'Back', project_statuses_path
+= link_to 'Back', uni_path(@parent, "project_statuses", "project_statuses_path", @project_status)

@@ -13,6 +13,6 @@ p
    strong Cdata parent:&nbsp;
    = uni_info @contact_data, "cdata_parent"
 
-= link_to 'Edit', edit_contact_data_path(@contact_data)
+= link_to 'Edit', uni_path(@parent, "contact_data", "edit_contact_data_path", @contact_data)
 '|
-= link_to 'Back', contact_data_index_path
+= link_to 'Back', uni_path(@parent, "contact_data", "contact_data_index_path", @contact_data)

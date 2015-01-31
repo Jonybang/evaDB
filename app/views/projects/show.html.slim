@@ -34,6 +34,6 @@ p
    strong Finance sources:&nbsp;
    = uni_info @project, "finance_sources"
 
-= link_to 'Edit', edit_project_path(@project)
+= link_to 'Edit', uni_path(@parent, "projects", "edit_project_path", @project)
 '|
-= link_to 'Back', projects_path
+= link_to 'Back', uni_path(@parent, "projects", "projects_path", @project)

@@ -7,6 +7,6 @@ p
    strong Scientists:&nbsp;
    = uni_info @degree, "scientists"
 
-= link_to 'Edit', edit_degree_path(@degree)
+= link_to 'Edit', uni_path(@parent, "degrees", "edit_degree_path", @degree)
 '|
-= link_to 'Back', degrees_path
+= link_to 'Back', uni_path(@parent, "degrees", "degrees_path", @degree)

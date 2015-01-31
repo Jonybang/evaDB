@@ -16,6 +16,6 @@ p
    strong Students:&nbsp;
    = uni_info @university, "students"
 
-= link_to 'Edit', edit_university_path(@university)
+= link_to 'Edit', uni_path(@parent, "universities", "edit_university_path", @university)
 '|
-= link_to 'Back', universities_path
+= link_to 'Back', uni_path(@parent, "universities", "universities_path", @university)

@@ -1,4 +1,4 @@
-h1 theses
+- @table = "theses"
 
 table class="table table-hover table-condensed"
   thead
@@ -13,10 +13,10 @@ table class="table table-hover table-condensed"
         td = link_to thesis.name, thesis
         td = uni_info thesis, "scientist"
         td
-          = link_to 'Edit', edit_thesis_path(thesis)
+          = link_to 'Edit', uni_path(@parent, "theses", "edit_thesis_path", thesis)
           br
           = link_to 'Destroy', thesis, data: {:confirm => 'Are you sure?'}, :method => :delete
 
 br
 
-= link_to 'New These', new_thesis_path
+= link_to 'New These', uni_path(@parent, "theses", "new_thesis_path")
