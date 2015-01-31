@@ -43,6 +43,6 @@ p
    strong Project tasks:&nbsp;
    = uni_info @contact, "project_tasks"
 
-= link_to 'Edit', edit_contact_path(@contact)
+= link_to 'Edit', uni_path(@parent, "contacts", "edit_contact_path", @contact)
 '|
-= link_to 'Back', contacts_path
+= link_to 'Back', uni_path(@parent, "contacts", "contacts_path", @contact)

@@ -159,7 +159,11 @@ module ApplicationHelper
          # employer = obj.send(nested_resources[name.to_sym].employer)
          return nested_resources[name.to_sym][:actions].call(action, employer, obj)
       else
-         return send(method_name)
+         if(action == :edit)
+            return send(method_name, [obj])
+         else
+            return send(method_name)
+         end
       end
    end
 end

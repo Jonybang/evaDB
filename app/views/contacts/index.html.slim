@@ -1,4 +1,4 @@
-h1 contacts
+- @table = "contacts"
 
 table class="table table-hover table-condensed"
   thead
@@ -37,10 +37,10 @@ table class="table table-hover table-condensed"
         td = uni_info contact, "member_events"
         td = uni_info contact, "project_tasks"
         td
-          = link_to 'Edit', edit_contact_path(contact)
+          = link_to 'Edit', uni_path(@parent, "contacts", "edit_contact_path", contact)
           br
           = link_to 'Destroy', contact, data: {:confirm => 'Are you sure?'}, :method => :delete
 
 br
 
-= link_to 'New Contact', new_contact_path
+= link_to 'New Contact', uni_path(@parent, "contacts", "new_contact_path")
