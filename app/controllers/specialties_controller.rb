@@ -1,4 +1,4 @@
-class SpecialtiesController < InheritedResources::Base
+class SpecialtiesController < ApplicationController
 
   private
 

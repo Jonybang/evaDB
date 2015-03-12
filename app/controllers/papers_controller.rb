@@ -1,4 +1,4 @@
-class PapersController < InheritedResources::Base
+class PapersController < ApplicationController
 
   private
 

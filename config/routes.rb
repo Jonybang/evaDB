@@ -1,6 +1,11 @@
 Rails.application.routes.draw do
 
-  get 'manager/Projects'
+  resources :project_resources
+
+  resources :resources
+
+  get '/manager/' => 'manager#index'
+  get 'manager/projects'
 
   resources :partners
 

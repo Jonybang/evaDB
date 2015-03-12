@@ -1,4 +1,4 @@
-class IndustriesController < InheritedResources::Base
+class IndustriesController < ApplicationController
 
   private
 

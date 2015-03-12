@@ -1,4 +1,4 @@
-class ProjectStatusesController < InheritedResources::Base
+class ProjectStatusesController < ApplicationController
 
   private
 

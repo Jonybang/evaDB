@@ -1,4 +1,4 @@
-class SubunitsController < InheritedResources::Base
+class SubunitsController < ApplicationController
 
   private
 

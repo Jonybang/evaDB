@@ -1,4 +1,4 @@
-class EquipsController < InheritedResources::Base
+class EquipsController < ApplicationController
 
   private
 

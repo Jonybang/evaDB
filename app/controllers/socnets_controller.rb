@@ -1,4 +1,4 @@
-class SocnetsController < InheritedResources::Base
+class SocnetsController < ApplicationController
 
   private
 

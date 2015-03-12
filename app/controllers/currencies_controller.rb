@@ -1,4 +1,4 @@
-class CurrenciesController < InheritedResources::Base
+class CurrenciesController < ApplicationController
 
   private
 

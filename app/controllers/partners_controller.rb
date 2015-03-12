@@ -1,4 +1,4 @@
-class PartnersController < InheritedResources::Base
+class PartnersController < ApplicationController
 
   private
 

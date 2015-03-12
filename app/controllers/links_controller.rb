@@ -1,4 +1,4 @@
-class LinksController < InheritController
+class LinksController < ApplicationController
 
   private
 

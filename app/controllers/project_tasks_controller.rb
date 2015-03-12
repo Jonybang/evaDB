@@ -1,4 +1,4 @@
-class ProjectTasksController < InheritedResources::Base
+class ProjectTasksController < ApplicationController
    before_filter :load_parent
    def index
       @project_tasks = @parent.project_tasks.all

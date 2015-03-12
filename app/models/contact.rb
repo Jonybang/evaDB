@@ -11,6 +11,7 @@ class Contact
 
   belongs_to :organization, inverse_of: :contacts, class_name: "Organization"
   belongs_to :workpost
+  belongs_to :project_resource
 
   has_many :equips, class_name: "Equip"
   accepts_nested_attributes_for :equips

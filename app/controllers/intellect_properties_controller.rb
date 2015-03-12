@@ -1,4 +1,4 @@
-class IntellectPropertiesController < InheritedResources::Base
+class IntellectPropertiesController < ApplicationController
 
   private
 

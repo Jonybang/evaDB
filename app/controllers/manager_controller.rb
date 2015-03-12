@@ -1,4 +1,4 @@
-class ManagerController < ApplicationController
+class ManagerController < ActionController::Base
   def Projects
   end
 end

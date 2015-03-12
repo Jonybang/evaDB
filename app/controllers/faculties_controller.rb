@@ -1,4 +1,4 @@
-class FacultiesController < InheritedResources::Base
+class FacultiesController < ApplicationController
 
   private
 
