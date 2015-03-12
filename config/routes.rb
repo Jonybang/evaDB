@@ -1,5 +1,7 @@
 Rails.application.routes.draw do
 
+  get 'manager/Projects'
+
   resources :partners
 
   resources :event_documents
