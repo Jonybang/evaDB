@@ -12,8 +12,7 @@ class Contact
   belongs_to :organization, inverse_of: :contacts, class_name: "Organization"
   belongs_to :workpost
 
-  belongs_to :project_resource, as: :resoursable
-  accepts_nested_attributes_for :project_resource
+  belongs_to :resoursable, class_name: "ProjectResource", polymorphic: true, :dependent => :destroy
 
   has_many :equips, class_name: "Equip"
   accepts_nested_attributes_for :equips

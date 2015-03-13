@@ -1,7 +1,8 @@
 class ProjectResource
   include Mongoid::Document
   field :name, type: String
-  field :default_value, type: String
+  field :value, type: String
 
-  belongs_to :resoursable, polymorphic: true, :dependent => :destroy
+  has_many :owners, as: :resoursable
+  accepts_nested_attributes_for :owners
 end

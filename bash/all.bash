@@ -18,7 +18,7 @@ if [[($1 = "socnet") || ($1 = "all")]]
         then $generate socnet name url socnet_links:references
 fi
 
-contact_main_fields="name contact_data:references socnet_links:references organization:references skills:references workpost:references industries:references equips:references"
+contact_main_fields="name contact_data:references socnet_links:references organization:references skills:references workpost:references industries:references equips:references resoursable:references"
 contact_sub_fields="intellect_properties:references team_projects:references chief_projects:references expert_projects:references member_events:references project_tasks:references"
 
 if [[($1 = "contact") || ($1 = "all")]]
@@ -139,5 +139,9 @@ fi
 
 if [[($1 = "partner") || ($1 = "all")]]
         then $generate partner $contact_main_fields $contact_sub_fields terms:text sponsor_events:references expert_events:references
+fi
+
+if [[($1 = "project_resource") || ($1 = "all")]]
+        then $generate project_resource name value owners:references
 fi
 rails server
