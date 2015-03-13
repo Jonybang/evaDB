@@ -2,10 +2,23 @@
   = f.error_notification
 
   .form-inputs
+
+
       = uni_input f, "phone"
+
+
+
       = uni_input f, "email"
+
+
+
       = uni_input f, "addres"
+
+
+
       = uni_ref_input f, "cdata_parent", @contact_data.cdata_parent || @contact_data.build_cdata_parent
+
+
 
   .form-actions
     = f.button :submit

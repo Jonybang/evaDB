@@ -1,11 +1,18 @@
 p#notice = notice
 
+
 p
    strong Name:&nbsp;
+
    = beauty_string @degree, "name"
+
+
 p
    strong Scientists:&nbsp;
+
    = uni_info @degree, "scientists"
+
+
 
 = link_to 'Edit', uni_path(@parent, "degrees", "edit_degree_path", @degree)
 '|

@@ -2,15 +2,43 @@
   = f.error_notification
 
   .form-inputs
+
+
       = uni_input f, "name"
+
+
+
       = uni_input f, "number"
+
+
+
       = uni_input f, "begin_date"
+
+
+
       = uni_input f, "end_date"
+
+
+
       = uni_ref_input f, "project_status", @project_task.project_status || @project_task.build_project_status
+
+
+
       = uni_input f, "tehnical_task"
+
+
+
       = uni_ref_input f, "project", @project_task.project || @project_task.build_project
+
+
+
       = uni_ref_input f, "responsible", @project_task.responsible || @project_task.build_responsible
+
+
+
       = uni_ref_input f, "equips", @project_task.equips || @project_task.build_equips
+
+
 
   .form-actions
     = f.button :submit

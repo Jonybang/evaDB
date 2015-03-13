@@ -2,9 +2,19 @@
   = f.error_notification
 
   .form-inputs
+
+
       = uni_input f, "url"
+
+
+
       = uni_input f, "note"
+
+
+
       = uni_ref_input f, "linkable", @link.linkable || @link.build_linkable
+
+
 
   .form-actions
     = f.button :submit

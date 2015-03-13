@@ -3,45 +3,125 @@
 table class="table table-hover table-condensed"
   thead
     tr
+
       th Name
+
       th Contact data
+
       th Socnet links
+
       th Organization
+
       th Skills
+
       th Workpost
+
       th Industries
+
       th Equips
+
       th Enter year
+
       th University
+
       th Faculty
+
       th Specialty
+
+      th Intellect properties
+
       th Team projects
+
       th Chief projects
+
       th Expert projects
+
       th Member events
+
       th Project tasks
+
       th
 
   tbody
     - @students.each do |student|
       tr
+
+
+
         td = link_to student.name, student
+
+
+
+
         td = uni_info student, "contact_data"
+
+
+
         td = uni_info student, "socnet_links"
+
+
+
         td = uni_info student, "organization"
+
+
+
         td = uni_info student, "skills"
+
+
+
         td = uni_info student, "workpost"
+
+
+
         td = uni_info student, "industries"
+
+
+
         td = uni_info student, "equips"
+
+
+
+
         td = beauty_string student, "enter_year", "min"
+
+
+
+
         td = uni_info student, "university"
+
+
+
         td = uni_info student, "faculty"
+
+
+
         td = uni_info student, "specialty"
+
+
+
+        td = uni_info student, "intellect_properties"
+
+
+
         td = uni_info student, "team_projects"
+
+
+
         td = uni_info student, "chief_projects"
+
+
+
         td = uni_info student, "expert_projects"
+
+
+
         td = uni_info student, "member_events"
+
+
+
         td = uni_info student, "project_tasks"
+
+
         td
           = link_to 'Edit', uni_path(@parent, "students", "edit_student_path", student)
           br

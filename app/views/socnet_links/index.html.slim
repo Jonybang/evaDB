@@ -3,19 +3,41 @@
 table class="table table-hover table-condensed"
   thead
     tr
+
       th Url
+
       th Note
+
       th Linkable
+
       th Socnet
+
       th
 
   tbody
     - @socnet_links.each do |socnet_link|
       tr
+
+
+
         td = beauty_string socnet_link, "url", "min"
+
+
+
+
+
         td = beauty_string socnet_link, "note", "min"
+
+
+
+
         td = uni_info socnet_link, "linkable"
+
+
+
         td = uni_info socnet_link, "socnet"
+
+
         td
           = link_to 'Edit', uni_path(@parent, "socnet_links", "edit_socnet_link_path", socnet_link)
           br

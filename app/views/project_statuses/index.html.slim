@@ -3,17 +3,33 @@
 table class="table table-hover table-condensed"
   thead
     tr
+
       th Name
+
       th Projects
+
       th Project tasks
+
       th
 
   tbody
     - @project_statuses.each do |project_status|
       tr
+
+
+
         td = link_to project_status.name, project_status
+
+
+
+
         td = uni_info project_status, "projects"
+
+
+
         td = uni_info project_status, "project_tasks"
+
+
         td
           = link_to 'Edit', uni_path(@parent, "project_statuses", "edit_project_status_path", project_status)
           br

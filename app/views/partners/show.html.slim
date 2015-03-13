@@ -1,56 +1,108 @@
 p#notice = notice
 
+
 p
    strong Name:&nbsp;
+
    = beauty_string @partner, "name"
+
+
 p
    strong Contact data:&nbsp;
+
    = uni_info @partner, "contact_data"
+
+
 p
    strong Socnet links:&nbsp;
+
    = uni_info @partner, "socnet_links"
+
+
 p
    strong Organization:&nbsp;
+
    = uni_info @partner, "organization"
+
+
 p
    strong Skills:&nbsp;
+
    = uni_info @partner, "skills"
+
+
 p
    strong Workpost:&nbsp;
+
    = uni_info @partner, "workpost"
+
+
 p
    strong Industries:&nbsp;
+
    = uni_info @partner, "industries"
+
+
 p
    strong Equips:&nbsp;
+
    = uni_info @partner, "equips"
+
+
 p
    strong Intellect properties:&nbsp;
+
    = uni_info @partner, "intellect_properties"
+
+
 p
    strong Team projects:&nbsp;
+
    = uni_info @partner, "team_projects"
+
+
 p
    strong Chief projects:&nbsp;
+
    = uni_info @partner, "chief_projects"
+
+
 p
    strong Expert projects:&nbsp;
+
    = uni_info @partner, "expert_projects"
+
+
 p
    strong Member events:&nbsp;
+
    = uni_info @partner, "member_events"
+
+
 p
    strong Project tasks:&nbsp;
+
    = uni_info @partner, "project_tasks"
+
+
 p
    strong Terms:&nbsp;
+
    = beauty_string @partner, "terms"
+
+
 p
    strong Sponsor events:&nbsp;
+
    = uni_info @partner, "sponsor_events"
+
+
 p
    strong Expert events:&nbsp;
+
    = uni_info @partner, "expert_events"
+
+
 
 = link_to 'Edit', uni_path(@parent, "partners", "edit_partner_path", @partner)
 '|

@@ -3,23 +3,51 @@
 table class="table table-hover table-condensed"
   thead
     tr
+
       th Name
+
       th Contact data
+
       th Link
+
       th Organization
+
       th Rooms
+
       th Equips
+
       th
 
   tbody
     - @subunits.each do |subunit|
       tr
+
+
+
         td = link_to subunit.name, subunit
+
+
+
+
         td = uni_info subunit, "contact_data"
+
+
+
         td = uni_info subunit, "link"
+
+
+
         td = uni_info subunit, "organization"
+
+
+
         td = uni_info subunit, "rooms"
+
+
+
         td = uni_info subunit, "equips"
+
+
         td
           = link_to 'Edit', uni_path(@parent, "subunits", "edit_subunit_path", subunit)
           br

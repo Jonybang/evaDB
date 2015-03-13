@@ -3,15 +3,27 @@
 table class="table table-hover table-condensed"
   thead
     tr
+
       th Name
+
       th Scientist
+
       th
 
   tbody
     - @theses.each do |thesis|
       tr
+
+
+
         td = link_to thesis.name, thesis
+
+
+
+
         td = uni_info thesis, "scientist"
+
+
         td
           = link_to 'Edit', uni_path(@parent, "theses", "edit_thesis_path", thesis)
           br

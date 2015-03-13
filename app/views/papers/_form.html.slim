@@ -2,8 +2,15 @@
   = f.error_notification
 
   .form-inputs
+
+
       = uni_input f, "name"
+
+
+
       = uni_ref_input f, "scientist", @paper.scientist || @paper.build_scientist
+
+
 
   .form-actions
     = f.button :submit

@@ -2,13 +2,35 @@
   = f.error_notification
 
   .form-inputs
+
+
       = uni_input f, "name"
+
+
+
       = uni_input f, "requisites"
+
+
+
       = uni_ref_input f, "contact_data", @organization.contact_data || @organization.build_contact_data
+
+
+
       = uni_ref_input f, "link", @organization.link || @organization.build_link
+
+
+
       = uni_ref_input f, "contacts", @organization.contacts || @organization.build_contacts
+
+
+
       = uni_ref_input f, "equips", @organization.equips || @organization.build_equips
+
+
+
       = uni_ref_input f, "subunits", @organization.subunits || @organization.build_subunits
+
+
 
   .form-actions
     = f.button :submit

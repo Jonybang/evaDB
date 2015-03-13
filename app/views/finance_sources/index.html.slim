@@ -3,29 +3,73 @@
 table class="table table-hover table-condensed"
   thead
     tr
+
       th Name
+
       th Contact data
+
       th Link
+
       th Volume from
+
       th Volume to
+
       th Currency
+
       th Projects
+
       th Project directions
+
       th Finance programs
+
       th
 
   tbody
     - @finance_sources.each do |finance_source|
       tr
+
+
+
         td = link_to finance_source.name, finance_source
+
+
+
+
         td = uni_info finance_source, "contact_data"
+
+
+
         td = uni_info finance_source, "link"
+
+
+
+
         td = beauty_string finance_source, "volume_from", "min"
+
+
+
+
+
         td = beauty_string finance_source, "volume_to", "min"
+
+
+
+
         td = uni_info finance_source, "currency"
+
+
+
         td = uni_info finance_source, "projects"
+
+
+
         td = uni_info finance_source, "project_directions"
+
+
+
         td = uni_info finance_source, "finance_programs"
+
+
         td
           = link_to 'Edit', uni_path(@parent, "finance_sources", "edit_finance_source_path", finance_source)
           br

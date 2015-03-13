@@ -2,8 +2,15 @@
   = f.error_notification
 
   .form-inputs
+
+
       = uni_input f, "name"
+
+
+
       = uni_ref_input f, "finance_sources", @currency.finance_sources || @currency.build_finance_sources
+
+
 
   .form-actions
     = f.button :submit

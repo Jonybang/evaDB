@@ -2,8 +2,15 @@
   = f.error_notification
 
   .form-inputs
+
+
       = uni_input f, "name"
+
+
+
       = uni_ref_input f, "intellect_properties", @intellect_type.intellect_properties || @intellect_type.build_intellect_properties
+
+
 
   .form-actions
     = f.button :submit

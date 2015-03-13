@@ -1,26 +1,48 @@
 p#notice = notice
 
+
 p
    strong Name:&nbsp;
+
    = beauty_string @organization, "name"
+
+
 p
    strong Requisites:&nbsp;
+
    = beauty_string @organization, "requisites"
+
+
 p
    strong Contact data:&nbsp;
+
    = uni_info @organization, "contact_data"
+
+
 p
    strong Link:&nbsp;
+
    = uni_info @organization, "link"
+
+
 p
    strong Contacts:&nbsp;
+
    = uni_info @organization, "contacts"
+
+
 p
    strong Equips:&nbsp;
+
    = uni_info @organization, "equips"
+
+
 p
    strong Subunits:&nbsp;
+
    = uni_info @organization, "subunits"
+
+
 
 = link_to 'Edit', uni_path(@parent, "organizations", "edit_organization_path", @organization)
 '|

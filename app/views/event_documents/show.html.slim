@@ -1,20 +1,36 @@
 p#notice = notice
 
+
 p
    strong Name:&nbsp;
+
    = beauty_string @event_document, "name"
+
+
 p
    strong Comments:&nbsp;
+
    = beauty_string @event_document, "comments"
+
+
 p
    strong To do:&nbsp;
+
    = beauty_string @event_document, "to_do"
+
+
 p
    strong Url:&nbsp;
+
    = beauty_string @event_document, "url"
+
+
 p
    strong Event:&nbsp;
+
    = uni_info @event_document, "event"
+
+
 
 = link_to 'Edit', uni_path(@parent, "event_documents", "edit_event_document_path", @event_document)
 '|
