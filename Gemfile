@@ -59,8 +59,9 @@ group :production do
   gem 'rails_12factor'
 end
 
+gem 'quiet_assets', group: :development
 group :development do
-   gem 'rails-footnotes', '~> 4.0'
+   #gem 'rails-footnotes', '~> 4.0'
    #gem 'moped_footnotes' #require mongo gem :(
 end
 

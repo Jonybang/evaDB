@@ -31,9 +31,14 @@ class User
   end
   def self.authenticate email, password
     user = where(:email => email).first
+    logger = Logger.new(STDOUT)
+    logger.debug "Saved_password: #{user.saved_password}"
+    logger.debug "Tested password: #{password}"
     if user && user.saved_password == password
+      logger.debug "OK"
       user
     else
+      logger.debug "BAD!"
       nil
     end
   end

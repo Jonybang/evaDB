@@ -1,5 +1,22 @@
-<h1>Личный кабинет</h1>
+<script type="text/x-handlebars">
 <div class="row">
+    <div class="col-md-offset-1 col-md-10">
+        <div class="row nav-container">
+            <ul class="nav nav-pills nav-justified">
+                {{#link-to "projects" tagName="li" href=false role="presentation"}}
+                  <a {{bind-attr href="view.href"}}>
+                    Личный кабинет
+                  </a>
+                {{/link-to}}
+            </ul>
+        </div>
+        <div class="row">
+            {{outlet}}
+        </div>
+    </div>
+</div>
+</script>
+<script type="text/x-handlebars" id="projects">
     <div class="col-md-8">
         <div class="thumbnail">
             <div class="thumbnail">
@@ -12,7 +29,7 @@
                 <div class="panel panel-success">
                     <div class="panel-heading">Ближайшие задачи</div>
                     <div class="panel-body">
-                        <p>Сегодня</p>
+                        <p class="lead">Сегодня</p>
                     </div>
                     <ul class="list-group">
                         <li class="list-group-item">Cras justo odio</li>
@@ -27,20 +44,18 @@
                     <div class="panel-body">
                         <p>Текущие</p>
                     </div>
-                    <ul class="list-group">
-                        <li class="list-group-item">Cras justo odio</li>
-                        <li class="list-group-item">Dapibus ac facilisis in</li>
-                        <li class="list-group-item">Morbi leo risus</li>
-                        <li class="list-group-item">Porta ac consectetur ac</li>
-                        <li class="list-group-item">Vestibulum at eros</li>
-                    </ul>
+                    <div class="btn-group-vertical projects-list" style="" role="group" aria-label="Vertical button group">
+                        {{#each model}}
+                            {{#link-to 'project' this class="btn btn-default"}}{{project.name}}{{/link-to}}
+                        {{/each}}
+                    </div>
                 </div>
             </div>
         </div>
     </div>
     <div class="col-md-4">
         <div class="thumbnail">
-            =image_tag "ledkov.jpg"
+            <%=image_tag "ledkov.jpg" %>
             <div class="caption">
                 <h3>Прочее</h3>
                 <p>Прочее прочее прочее прочее прочее прочее прочее прочее прочее прочее прочее прочее прочее прочее прочее прочее прочее прочее прочее прочее прочее прочее</p>
@@ -48,4 +63,8 @@
             </div>
         </div>
     </div>
-</div>
+</script>
+<script type="text/x-handlebars" id="project">
+    {{name}}
+</script>
+

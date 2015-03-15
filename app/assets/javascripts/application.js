@@ -14,6 +14,9 @@
 //= require jquery_ujs
 //= require jquery.validate.min
 //= require jquery_nested_form
+//= require handlebars.min
+//= require ember-template-compiler
+//= require ember.min
 //= require bootstrap
 //= require bootstrap-formhelpers.min
 //= require bootstrap-formhelpers-phone
