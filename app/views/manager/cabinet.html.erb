@@ -19,36 +19,34 @@
 <script type="text/x-handlebars" id="projects">
     <div class="col-md-8">
         <div class="thumbnail">
-            <div class="thumbnail">
-                <div class="panel panel-primary">
-                    <div class="panel-heading"><strong>Имя Фамилия</strong></div>
-                    <div class="panel-body">
-                        <p>Email: email@mail.ru</p>
-                    </div>
+            <div class="panel panel-primary">
+                <div class="panel-heading"><strong>Имя Фамилия</strong></div>
+                <div class="panel-body">
+                    <p>Email: email@mail.ru</p>
                 </div>
-                <div class="panel panel-success">
-                    <div class="panel-heading">Ближайшие задачи</div>
-                    <div class="panel-body">
-                        <p class="lead">Сегодня</p>
-                    </div>
-                    <ul class="list-group">
-                        <li class="list-group-item">Cras justo odio</li>
-                        <li class="list-group-item">Dapibus ac facilisis in</li>
-                        <li class="list-group-item">Morbi leo risus</li>
-                        <li class="list-group-item">Porta ac consectetur ac</li>
-                        <li class="list-group-item">Vestibulum at eros</li>
-                    </ul>
+            </div>
+            <div class="panel panel-success">
+                <div class="panel-heading">Ближайшие задачи</div>
+                <div class="panel-body">
+                    <p class="lead">Сегодня</p>
                 </div>
-                <div class="panel panel-info">
-                    <div class="panel-heading">Проекты</div>
-                    <div class="panel-body">
-                        <p>Текущие</p>
-                    </div>
-                    <div class="btn-group-vertical projects-list" style="" role="group" aria-label="Vertical button group">
-                        {{#each model}}
-                            {{#link-to 'project' this class="btn btn-default"}}{{project.name}}{{/link-to}}
-                        {{/each}}
-                    </div>
+                <ul class="list-group">
+                    <li class="list-group-item">Cras justo odio</li>
+                    <li class="list-group-item">Dapibus ac facilisis in</li>
+                    <li class="list-group-item">Morbi leo risus</li>
+                    <li class="list-group-item">Porta ac consectetur ac</li>
+                    <li class="list-group-item">Vestibulum at eros</li>
+                </ul>
+            </div>
+            <div class="panel panel-info">
+                <div class="panel-heading">Проекты</div>
+                <div class="panel-body">
+                    <p>Текущие</p>
+                </div>
+                <div class="btn-group-vertical projects-list" style="" role="group" aria-label="Vertical button group">
+                    {{#each model}}
+                        {{#link-to 'project' this class="btn btn-default"}}{{name}}{{/link-to}}
+                    {{/each}}
                 </div>
             </div>
         </div>
@@ -65,6 +63,57 @@
     </div>
 </script>
 <script type="text/x-handlebars" id="project">
-    {{name}}
+    <div class="col-md-4">
+        <div class="btn-group-vertical projects-list" style="" role="group" aria-label="Vertical button group">
+            {{#link-to "project" this class="btn btn-primary"}}Проект "{{name}}"{{/link-to}}
+            {{#link-to "tasks" this class="btn btn-default"}}Задачи{{/link-to}}
+            <a class="btn btn-default">Исполнители</a>
+            <a class="btn btn-default">Ресурсы</a>
+            <a class="btn btn-default">Партнеры</a>
+            <a class="btn btn-default">Сроки</a>
+            <a class="btn btn-default">Бюджет</a>
+        </div>
+    </div>
+    <div class="col-md-8">
+        <div class="thumbnail">
+            {{outlet}}
+        </div>
+    </div>
 </script>
 
+<script type="text/x-handlebars" id="project/index">
+    <h3>{{name}}</h3>
+    <dl>
+      <dt>Статус</dt>
+      <dd>{{project_status.name}}</dd>
+      <dt>Направление</dt>
+      <dd>{{project_direction.name}}</dd>
+      <dt>Описание</dt>
+      <dd>{{description}}</dd>
+      <dt>Ожидаемый результат</dt>
+      <dd>{{result}}</dd>
+    </dl>
+</script>
+
+<script type="text/x-handlebars" id="tasks">
+    <table class="table table-hover">
+      <thead>
+        <tr>
+          <th>#</th>
+          <th>Название</th>
+          <th>Статус</th>
+          <th>Ответственный</th>
+        </tr>
+      </thead>
+      <tbody>
+        {{#each model}}
+            <tr>
+              <th scope="row">{{number}}</th>
+              <td>{{name}}</td>
+              <td>{{project_status.name}}</td>
+              <td>{{responsible.name}}</td>
+            </tr>
+        {{/each}}
+      </tbody>
+    </table>
+</script>

@@ -17,6 +17,7 @@ module EvaDB
   class Application < Rails::Application
     config.generators do |g|
       g.scaffold_controller "scaffold_controller"
+      g.jbuilder false
     end
     config.middleware.use ActionDispatch::Flash
     # Settings in config/environments/* take precedence over those specified here.

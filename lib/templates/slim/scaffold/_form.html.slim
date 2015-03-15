@@ -6,7 +6,7 @@
    <%- if attribute.reference? -%>
       = uni_ref_input f, "<%= attribute.name %>", @<%= singular_table_name %>.<%= attribute.name %> || @<%= singular_table_name %>.build_<%= attribute.name %>
    <%- else -%>
-      = uni_input f, "<%= attribute.name %>"
+      = uni_input f, "<%= attribute.name %>", "<%= attribute.field_type %>"
    <%- end -%>
 <%- end -%>
 

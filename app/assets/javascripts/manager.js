@@ -4,32 +4,64 @@ App = Ember.Application.create({});
 App.Router.map(function() {
     //this.resource('about');
     this.resource('projects');
-    this.resource('project', { path: ':project_id' });
+    this.resource('project', { path: '/project/:project_id' }, function() {
+//        this.route('index', { path: '/project/:project_id/index' });
+        this.resource('tasks');
+    });
+//    this.resource('projects', function() {
+//        this.resource('project', { path: ':post_id' });
+//    });
 });
 App.IndexRoute = Ember.Route.extend({
     redirect: function() {
         return this.transitionTo('projects');
     }
 });
-App.ProjectsRoute = Ember.Route.extend({
+var collections = {
+    "Projects":{controller:"projects", object: "project"}
+};
+Object.keys(collections).forEach(function (name) {
+    var route_data = collections[name];
+    App[name+"Route"] = Ember.Route.extend({
+        model: function(params) {
+            var url = "http://192.168.153.132:3000/"+route_data.controller+".json";
+            return Ember.$.getJSON(url).success(function(data) {
+                return data.map(function(proj, idx){
+                    data[idx] = data[idx][route_data.object];
+                    data[idx].id = data[idx].id['$oid'];
+                    return true;
+                });
+            });
+        }
+    });
+});
+App.TasksRoute = Ember.Route.extend({
     model: function() {
-       return $.getJSON( "http://192.168.153.132:3000/projects.json", function( data ) {
-            return data.map(function(proj){
-                proj = proj.project;
-                proj.id = proj.id['$oid'];
-                return proj;
+        var parentModel = this.modelFor('project');
+        var url = "http://192.168.153.132:3000/projects/" + parentModel.id + "/project_tasks.json";
+        return Ember.$.getJSON(url).success(function(data) {
+            return data.map(function(proj, idx){
+                data[idx] = data[idx].project_task;
+                data[idx].id = data[idx].id['$oid'];
+                return true;
             });
         });
-        //return [{"project":{"id":{"$oid":"54b63de2756275148a0e0000"},"name":"project1","description":"desc","project_status":{"id":{"$oid":"54c88abe7562751a0b040000"},"name":"Активен"},"project_direction":{"id":{"$oid":"54c88b0a7562751a0b0a0000"},"name":"Направление 1"}}},{"project":{"id":{"$oid":"54ca491275627519b2050000"},"name":"проект 2","description":"выв","project_status":{"id":{"$oid":"54c88abe7562751a0b040000"},"name":"Активен"},"project_direction":{"id":{"$oid":"54c88b0a7562751a0b0a0000"},"name":"Направление 1"}}}];
     }
 });
 
 App.ProjectRoute = Ember.Route.extend({
     model: function(params) {
-        return $.getJSON( "http://192.168.153.132:3000/projects/"+params.project_id+".json", function( data ) {
+        return Ember.$.getJSON("http://192.168.153.132:3000/projects/" + params.project_id + ".json").success(function( data ) {
+            data = data.project;
             data.id = data.id['$oid'];
             return data;
         });
+    },
+    afterModel: function(data) {
+        if (data.project) {
+            Ember.$.extend( data, data.project );
+            data.project = {};
+        }
     }
 });
 //

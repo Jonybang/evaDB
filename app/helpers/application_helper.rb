@@ -77,7 +77,7 @@ module ApplicationHelper
       end
    end
 
-   def uni_input(form, name)
+   def uni_input(form, name, type="input")
 
       if (name == "phone")
          return form.input(name.to_sym, input_html: {class: 'bfh-phone', minlength: 16, type: 'tel', data: {format: '8 (ddd) ddd-dddd'}})
@@ -87,6 +87,8 @@ module ApplicationHelper
          return form.input(name.to_sym, input_html: {class: 'droplist date', type: 'date'})
       elsif (name == "url" || name == "doclink" )
          return form.input(name.to_sym, input_html: {type: 'url'})
+      elsif (type == "text_area")
+         return form.input(name.to_sym, as: "text")
       else
          return form.input(name.to_sym)
       end
