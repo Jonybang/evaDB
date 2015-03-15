@@ -14,6 +14,8 @@
 //= require jquery_ujs
 //= require jquery.validate.min
 //= require jquery_nested_form
+//= require select2
+//= require select2_locale_ru
 //= require handlebars.min
 //= require ember-template-compiler
 //= require ember.min
@@ -24,6 +26,7 @@
 //= require_tree .
 
 $(document).on("ready page:load", function(){
+    $('.eva-select').select2();
     $("form").validate();
     $("input[type='url']").keydown(function() {
         if(!this.value || this.value == "http:/" || this.value == "https:/"){

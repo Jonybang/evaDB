@@ -44,7 +44,7 @@ module ApplicationHelper
    end
 
    def uni_ref_input(form, name, obj = {})
-      @nesteded = ['faculties', 'specialties', 'project_tasks', 'socnet_links']
+      @nesteded = ['faculties', 'specialties', 'project_tasks', 'socnet_links', 'resources']
 
       @refference = form.object.class.reflect_on_association(name.to_sym).macro.to_s
       if (@refference  == 'embeds_one' || @refference  == 'has_one')
@@ -52,7 +52,7 @@ module ApplicationHelper
       elsif (@refference  == 'embeds_many' || @nesteded.detect {|i| i == name } )
          return ('<div class="well well-sm">' + form.fields_for(name.to_sym, obj) + form.link_to_add("Add a " + name, name.to_sym) + '</div>').html_safe
       else
-         return form.association(name.to_sym, include_blank: true)
+         return form.association(name.to_sym, include_blank: true, input_html: {class: "eva-select"})
       end
    end
 

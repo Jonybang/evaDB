@@ -52,7 +52,7 @@ gem "slim-rails"
 gem "nested_form", :git => 'git://github.com/ryanb/nested_form.git'
 gem "simple_form"
 
-
+gem "select2-rails"
 gem "bcrypt"
 
 group :production do

@@ -7,6 +7,7 @@ require "action_controller/railtie"
 require "action_mailer/railtie"
 require "action_view/railtie"
 require "sprockets/railtie"
+require 'rabl'
 # require "rails/test_unit/railtie"
 
 # Require the gems listed in Gemfile, including any gems
@@ -20,6 +21,11 @@ module EvaDB
       g.jbuilder false
     end
     config.middleware.use ActionDispatch::Flash
+
+    Rabl.configure do |config|
+      config.include_json_root = false
+      config.include_child_root = false
+    end
     # Settings in config/environments/* take precedence over those specified here.
     # Application configuration should go into files in config/initializers
     # -- all .rb files in that directory are automatically loaded.

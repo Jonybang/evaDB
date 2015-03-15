@@ -6,6 +6,7 @@ class Equip
   field :description, type: String
   field :parametres, type: String
 
+  belongs_to :resoursable, class_name: "ProjectResource", polymorphic: true, :dependent => :destroy
   belongs_to :responsible, class_name: "Contact"
   belongs_to :organization
   belongs_to :subunit

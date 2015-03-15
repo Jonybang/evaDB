@@ -86,7 +86,7 @@ if [[($1 = "industry") || ($1 = "all")]]
 fi
 
 if [[($1 = "equip") || ($1 = "all")]]
-        then $generate equip name model description:text parametres responsible:references organization:references subunit:references room:references equip_status:references project_tasks:references --force
+        then $generate equip name model description:text parametres:text responsible:references organization:references subunit:references room:references equip_status:references project_tasks:references resoursable:references --force
 fi
 
 if [[($1 = "equip_status") || ($1 = "all")]]
@@ -102,7 +102,7 @@ if [[($1 = "room") || ($1 = "all")]]
 fi
 
 if [[($1 = "project") || ($1 = "all")]]
-        then $generate project name project_status:references description:text result:text project_direction:references chief:references intellect_properties:references team:references experts:references project_tasks:references finance_sources:references --force
+        then $generate project name project_status:references description:text result:text project_direction:references chief:references intellect_properties:references team:references experts:references project_tasks:references finance_sources:references resources:references --force
 fi
 
 if [[($1 = "project_task")]]
@@ -142,6 +142,10 @@ if [[($1 = "partner") || ($1 = "all")]]
 fi
 
 if [[($1 = "project_resource") || ($1 = "all")]]
-        then $generate project_resource name value owners:references --force
+        then $generate project_resource name value project:references owner:references resource_type:references --force
+fi
+
+if [[($1 = "resource_type") || ($1 = "all")]]
+        then $generate resource_type name resources:references --force
 fi
 rails server

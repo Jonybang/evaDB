@@ -1,0 +1,6 @@
+  = f.error_notification
+
+  .form-inputs
+    = f.collection_select :owner, Equip.all, :id, :name, {:prompt=>true, :include_blank=>true}, {:class=>'form-control'}
+    = f.collection_select :resource_type, ResourceType.all, :id, :name, {:prompt=>true, :include_blank=>true}, {:class=>'form-control'}
+    = f.input :value

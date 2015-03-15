@@ -6,7 +6,7 @@
     <div class="col-md-offset-1 col-md-10">
         <div class="row nav-container">
             <ul class="nav nav-pills nav-justified">
-                {{#link-to "projects" tagName="li" href=false role="presentation"}}
+                {{#link-to "main" tagName="li" href=false role="presentation"}}
                   <a {{bind-attr href="view.href"}}>
                     Личный кабинет
                   </a>
@@ -19,36 +19,34 @@
     </div>
 </div>
 </script>
-<script type="text/x-handlebars" id="projects">
+<script type="text/x-handlebars" id="main">
     <div class="col-md-8">
         <div class="thumbnail">
             <div class="panel panel-primary">
-                <div class="panel-heading"><strong>Имя Фамилия</strong></div>
+                <div class="panel-heading"><strong>{{name}}</strong></div>
                 <div class="panel-body">
-                    <p>Email: email@mail.ru</p>
+                    <p>Email: {{email}}</p>
                 </div>
             </div>
             <div class="panel panel-success">
+                <div class="panel-heading">Проекты</div>
+                <div class="panel-body">
+                    <p class="lead">Текущие</p>
+                </div>
+                <div class="btn-group-vertical projects-list" style="" role="group" aria-label="Vertical button group">
+                    {{#each projects}}
+                        {{#link-to 'project' this.id class="btn btn-default"}}{{name}}{{/link-to}}
+                    {{/each}}
+                </div>
+            </div>
+            <div class="panel panel-info">
                 <div class="panel-heading">Ближайшие задачи</div>
                 <div class="panel-body">
                     <p class="lead">Сегодня</p>
                 </div>
-                <ul class="list-group">
-                    <li class="list-group-item">Cras justo odio</li>
-                    <li class="list-group-item">Dapibus ac facilisis in</li>
-                    <li class="list-group-item">Morbi leo risus</li>
-                    <li class="list-group-item">Porta ac consectetur ac</li>
-                    <li class="list-group-item">Vestibulum at eros</li>
-                </ul>
-            </div>
-            <div class="panel panel-info">
-                <div class="panel-heading">Проекты</div>
-                <div class="panel-body">
-                    <p>Текущие</p>
-                </div>
                 <div class="btn-group-vertical projects-list" style="" role="group" aria-label="Vertical button group">
-                    {{#each model}}
-                        {{#link-to 'project' this class="btn btn-default"}}{{name}}{{/link-to}}
+                    {{#each project_tasks}}
+                        {{#link-to 'project' this.id class="btn btn-default"}}{{name}}{{/link-to}}
                     {{/each}}
                 </div>
             </div>
@@ -70,7 +68,7 @@
         <div class="btn-group-vertical projects-list" style="" role="group" aria-label="Vertical button group">
             {{#link-to "project" this class="btn btn-primary"}}Проект "{{name}}"{{/link-to}}
             {{#link-to "tasks" this class="btn btn-default"}}Задачи{{/link-to}}
-            <a class="btn btn-default">Исполнители</a>
+            {{#link-to "team" this class="btn btn-default"}}Исполнители{{/link-to}}
             <a class="btn btn-default">Ресурсы</a>
             <a class="btn btn-default">Партнеры</a>
             <a class="btn btn-default">Сроки</a>
@@ -105,7 +103,7 @@
           <th>#</th>
           <th>Название</th>
           <th>Статус</th>
-          <th>Ответственный</th>
+          <th>Дедлайн</th>
         </tr>
       </thead>
       <tbody>
@@ -114,7 +112,47 @@
               <th scope="row">{{number}}</th>
               <td>{{name}}</td>
               <td>{{project_status.name}}</td>
-              <td>{{responsible.name}}</td>
+              <td>{{end_date}}</td>
+            </tr>
+        {{/each}}
+      </tbody>
+    </table>
+</script>
+<script type="text/x-handlebars" id="team">
+    <table class="table table-hover">
+      <thead>
+        <tr>
+          <th>#</th>
+          <th>ФИО</th>
+        </tr>
+      </thead>
+      <tbody>
+        {{#each model}}
+            <tr>
+              <th scope="row">{{idx}}</th>
+              <td>{{name}}</td>
+            </tr>
+        {{/each}}
+      </tbody>
+    </table>
+</script>
+<script type="text/x-handlebars" id="resources">
+    <table class="table table-hover">
+      <thead>
+        <tr>
+          <th>#</th>
+          <th>Имя ресурса</th>
+          <th>Значение</th>
+          <th>Ед. изм.</th>
+        </tr>
+      </thead>
+      <tbody>
+        {{#each model}}
+            <tr>
+              <th scope="row">{{idx}}</th>
+              <td>{{owner_name}}</td>
+              <td>{{value}}</td>
+              <td>{{resource_type.name}}</td>
             </tr>
         {{/each}}
       </tbody>

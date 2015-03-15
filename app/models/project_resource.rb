@@ -1,8 +1,17 @@
 class ProjectResource
   include Mongoid::Document
-  field :name, type: String
+
+  def name
+    self.value
+  end
+  #def owner_name
+  #  self.owner.name
+  #end
+  belongs_to :resource_type
   field :value, type: String
 
-  has_many :owners, as: :resoursable
-  accepts_nested_attributes_for :owners
+  belongs_to :project
+
+  has_one :owner, as: :resoursable
+  accepts_nested_attributes_for :owner
 end

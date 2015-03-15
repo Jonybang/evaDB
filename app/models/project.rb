@@ -8,6 +8,9 @@ class Project
   has_many :project_tasks, class_name: "ProjectTask"
   accepts_nested_attributes_for :project_tasks
 
+  has_many :resources, class_name: "ProjectResource"
+  accepts_nested_attributes_for :resources
+
   belongs_to :project_status
   belongs_to :project_direction
   belongs_to :chief, class_name: "Contact", inverse_of: :chief_projects
