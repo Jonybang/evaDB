@@ -31,8 +31,7 @@ html
            ul.nav.navbar-nav.navbar-right
               -if current_user
                 li
-                  ="Вы вошли под ником "
-                  =link_to current_user.email, cabinet_path
+                  =link_to "Личный кабинет", cabinet_path
                 li
                   =link_to "Выйти", log_out_path
               -else

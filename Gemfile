@@ -45,11 +45,11 @@ gem "mongoid-elasticsearch"
 #gem "bson"
 gem "moped", github: "mongoid/moped"
 gem "inherited_resources"
-gem "rails-api"
+#gem "rails-api"
 gem "rabl"
 gem "slim-rails"
 
-gem "nested_form"
+gem "nested_form", :git => 'git://github.com/ryanb/nested_form.git'
 gem "simple_form"
 
 

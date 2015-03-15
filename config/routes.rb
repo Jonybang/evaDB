@@ -13,7 +13,7 @@ Rails.application.routes.draw do
 
   get '/manager/' => 'manager#index'
   get 'manager/projects'
-  get 'manager/cabinet'
+  get 'manager/cabinet', :as => "cabinet"
 
   resources :partners
 

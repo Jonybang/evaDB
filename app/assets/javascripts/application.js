@@ -24,15 +24,15 @@
 //= require_tree .
 
 $(document).on("ready page:load", function(){
-   $("form").validate();
-   $("input[type='url']").keydown(function() {
-      if(!this.value || this.value == "http:/" || this.value == "https:/"){
-         this.value = '';
-         return;
-      }
+    $("form").validate();
+    $("input[type='url']").keydown(function() {
+        if(!this.value || this.value == "http:/" || this.value == "https:/"){
+            this.value = '';
+            return;
+        }
 
-     if (!/^https?:\/\//.test(this.value)) {
-         this.value = "http://" + this.value;
-     }
-   });
+        if (!/^https?:\/\//.test(this.value)) {
+            this.value = "http://" + this.value;
+        }
+    });
 });

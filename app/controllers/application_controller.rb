@@ -15,7 +15,7 @@ class ApplicationController < ActionController::Base
 
   def current_user
     logger = Logger.new(STDOUT)
-    logger.debug "Get current user, session: #{session.inspect}"
-    @current_user ||= User.find_by(id: session[:user_id]) if session[:user_id]
+    logger.debug "==================================Get current user, session id: #{session[:user_id]}============================"
+    @current_user ||= User.find_by(id: session[:user_id]["$oid"]) if session[:user_id]
   end
 end

@@ -4,6 +4,16 @@ class ProjectTasksController < ApplicationController
       @project_tasks = @parent.project_tasks.all
       index!
    end
+   def edit
+     @project_task = @parent.project_tasks.find(params[:id])
+     edit!
+   end
+   def update
+     update! do |success, failure|
+       success.html { redirect_to project_project_task_path(@project_task.project, @project_task) }
+       failure.html { redirect_to root_path() }
+     end
+   end
    def destroy
      project_task = @parent.project_tasks.find(params[:id])
      project_task.destroy
