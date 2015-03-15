@@ -3,6 +3,8 @@ class Contact
   include Mongoid::Timestamps
   field :name, type: String
 
+  belongs_to :user
+
   embeds_one :contact_data, as: :cdata_parent
   accepts_nested_attributes_for :contact_data
 

@@ -1,0 +1,16 @@
+= simple_nested_form_for(@resource) do |f|
+  = f.error_notification
+
+  .form-inputs
+
+
+      = uni_input f, "name"
+
+
+
+      = uni_input f, "default_value"
+
+
+
+  .form-actions
+    = f.button :submit

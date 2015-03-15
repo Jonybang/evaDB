@@ -6,6 +6,18 @@ html
      = javascript_include_tag 'application', 'data-turbolinks-track' => true
      = csrf_meta_tags
    body
-      div class="col-md-8"
-         h1 = @table
-         = yield
+      div class="row"
+        div class="col-md-12" id="user_nav"
+           -if current_user
+              p
+                = "Logged in as "
+                = current_user.email
+              = link_to "Log out", log_out_path
+           -else
+              = link_to "Sign up", sign_up_path
+              br
+              = link_to "log in", log_in_path
+      div class="row"
+        div class="col-md-8"
+           h1 = @table
+           = yield

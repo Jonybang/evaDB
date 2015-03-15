@@ -1,0 +1,42 @@
+- @table = "project_resources"
+
+table class="table table-hover table-condensed"
+  thead
+    tr
+
+      th Name
+
+      th Value
+
+      th Owners
+
+      th
+
+  tbody
+    - @project_resources.each do |project_resource|
+      tr
+
+
+
+        td = link_to project_resource.name, project_resource
+
+
+
+
+
+        td = beauty_string project_resource, "value", "min"
+
+
+
+
+        td = uni_info project_resource, "owners"
+
+
+        td
+          = link_to 'Edit', uni_path(@parent, "project_resources", "edit_project_resource_path", project_resource)
+          br
+          = link_to 'Destroy', project_resource, data: {:confirm => 'Are you sure?'}, :method => :delete
+
+br
+
+= link_to 'New Project resource', uni_path(@parent, "project_resources", "new_project_resource_path")
