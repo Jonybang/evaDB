@@ -16,4 +16,7 @@ child :resources do
   child :resource_type do
     attributes :id, :name
   end
+  child :owner do
+    attributes :id, :name
+  end
 end

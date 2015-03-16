@@ -4,14 +4,14 @@ class ProjectResource
   def name
     self.value
   end
-  #def owner_name
-  #  self.owner.name
-  #end
+  def owner_name
+    self.owner.name
+  end
   belongs_to :resource_type
   field :value, type: String
 
   belongs_to :project
 
-  has_one :owner, as: :resoursable
+  has_one :owner, as: :resoursable, class_name: "Equip"
   accepts_nested_attributes_for :owner
 end

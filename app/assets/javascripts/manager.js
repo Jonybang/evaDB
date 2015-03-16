@@ -13,6 +13,7 @@ $(document).on("ready page:load", function(){
 //        this.route('index', { path: '/project/:project_id/index' });
             this.resource('tasks');
             this.resource('team');
+            this.resource('resources');
         });
 //    this.resource('projects', function() {
 //        this.resource('project', { path: ':post_id' });
@@ -49,9 +50,9 @@ $(document).on("ready page:load", function(){
     App.ResourcesRoute = Ember.Route.extend({
         model: function() {
             var parent = this.modelFor("project");
-            return parent.resources.map(function(obj, i){
-                parent.resources[i].idx = i + 1;
-                return parent.resources[i];
+            return parent.project_resources.map(function(obj, i){
+                parent.project_resources[i].idx = i + 1;
+                return parent.project_resources[i];
             });;
         }
     });

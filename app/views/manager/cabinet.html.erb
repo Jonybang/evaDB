@@ -69,7 +69,7 @@
             {{#link-to "project" this class="btn btn-primary"}}Проект "{{name}}"{{/link-to}}
             {{#link-to "tasks" this class="btn btn-default"}}Задачи{{/link-to}}
             {{#link-to "team" this class="btn btn-default"}}Исполнители{{/link-to}}
-            <a class="btn btn-default">Ресурсы</a>
+            {{#link-to "resources" this class="btn btn-default"}}Ресурсы{{/link-to}}
             <a class="btn btn-default">Партнеры</a>
             <a class="btn btn-default">Сроки</a>
             <a class="btn btn-default">Бюджет</a>
@@ -150,7 +150,7 @@
         {{#each model}}
             <tr>
               <th scope="row">{{idx}}</th>
-              <td>{{owner_name}}</td>
+              <td>{{owner.name}}Оборудование</td>
               <td>{{value}}</td>
               <td>{{resource_type.name}}</td>
             </tr>
