@@ -1,4 +1,4 @@
-= simple_nested_form_for(@socnet_link) do |f|
+= simple_nested_form_for @socnet_link, :url => socnet_link_path(@socnet_link) do |f|
   = f.error_notification
 
   .form-inputs

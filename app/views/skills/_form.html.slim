@@ -1,4 +1,4 @@
-= simple_nested_form_for(@skill) do |f|
+= simple_nested_form_for @skill, :url => skill_path(@skill) do |f|
   = f.error_notification
 
   .form-inputs

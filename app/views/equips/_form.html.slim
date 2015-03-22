@@ -1,4 +1,4 @@
-= simple_nested_form_for(@equip) do |f|
+= simple_nested_form_for @equip, :url => equip_path(@equip) do |f|
   = f.error_notification
 
   .form-inputs
@@ -16,7 +16,7 @@
 
 
 
-      = uni_input f, "parametres", "text_field"
+      = uni_input f, "parametres", "text_area"
 
 
 
@@ -41,6 +41,10 @@
 
 
       = uni_ref_input f, "project_tasks", @equip.project_tasks || @equip.build_project_tasks
+
+
+
+      = uni_ref_input f, "project_resources", @equip.project_resources || @equip.build_project_resources
 
 
 

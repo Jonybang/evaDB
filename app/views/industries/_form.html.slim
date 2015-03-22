@@ -1,4 +1,4 @@
-= simple_nested_form_for(@industry) do |f|
+= simple_nested_form_for @industry, :url => industry_path(@industry) do |f|
   = f.error_notification
 
   .form-inputs

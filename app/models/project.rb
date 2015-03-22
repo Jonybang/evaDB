@@ -8,7 +8,7 @@ class Project
   has_many :project_tasks, class_name: "ProjectTask"
   accepts_nested_attributes_for :project_tasks
 
-  has_many :resources, class_name: "ProjectResource"
+  has_many :resources, class_name: "ProjectResource", inverse_of: :project
   accepts_nested_attributes_for :resources
 
   belongs_to :project_status

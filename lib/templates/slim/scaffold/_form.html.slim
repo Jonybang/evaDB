@@ -1,4 +1,4 @@
-= simple_nested_form_for(@<%= singular_table_name %>) do |f|
+= simple_nested_form_for @<%= singular_table_name %>, :url => <%= singular_table_name %>_path(@<%= singular_table_name %>) do |f|
   = f.error_notification
 
   .form-inputs

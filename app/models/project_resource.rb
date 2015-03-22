@@ -12,6 +12,5 @@ class ProjectResource
 
   belongs_to :project
 
-  has_one :owner, as: :resoursable, class_name: "Equip"
-  accepts_nested_attributes_for :owner
+  belongs_to :resoursable, polymorphic: true, :dependent => :destroy
 end

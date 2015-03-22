@@ -20,8 +20,12 @@ class ProjectTasksController < ApplicationController
 
      redirect_to request.referrer # will redirect back to the referrer (page from where you came from)
    end
+   helper_method :project_tasks_path
   private
 
+    def project_tasks_path
+      return @parent
+    end
     def project_task_params
       params.require(:project_task).permit!
     end

@@ -4,5 +4,5 @@ h1 Editing contact_data
 
 = link_to 'Show', @contact_data
 '|
-= link_to 'Back', contact_data_index_path
+= link_to 'Back', uni_path(@parent, "contact_data", "contact_data_index_path", @contact_data)
 

@@ -4,5 +4,5 @@ h1 Editing project_task
 
 = link_to 'Show', @project_task
 '|
-= link_to 'Back', @parent
+= link_to 'Back', uni_path(@parent, "project_tasks", "project_tasks_path", @project_task)
 

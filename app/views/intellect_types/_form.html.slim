@@ -1,4 +1,4 @@
-= simple_nested_form_for(@intellect_type) do |f|
+= simple_nested_form_for @intellect_type, :url => intellect_type_path(@intellect_type) do |f|
   = f.error_notification
 
   .form-inputs

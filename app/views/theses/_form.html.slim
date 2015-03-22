@@ -1,4 +1,4 @@
-= simple_nested_form_for(@thesis) do |f|
+= simple_nested_form_for @thesis, :url => thesis_path(@thesis) do |f|
   = f.error_notification
 
   .form-inputs

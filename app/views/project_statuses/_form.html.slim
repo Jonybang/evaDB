@@ -1,4 +1,4 @@
-= simple_nested_form_for(@project_status) do |f|
+= simple_nested_form_for @project_status, :url => project_status_path(@project_status) do |f|
   = f.error_notification
 
   .form-inputs

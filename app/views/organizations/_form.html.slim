@@ -1,4 +1,4 @@
-= simple_nested_form_for(@organization) do |f|
+= simple_nested_form_for @organization, :url => organization_path(@organization) do |f|
   = f.error_notification
 
   .form-inputs

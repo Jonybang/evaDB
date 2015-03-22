@@ -1,4 +1,4 @@
-= simple_nested_form_for(@project_resource) do |f|
+= simple_nested_form_for @project_resource, :url => project_resource_path(@project_resource) do |f|
   = f.error_notification
 
   .form-inputs
@@ -12,7 +12,15 @@
 
 
 
-      = uni_ref_input f, "owners", @project_resource.owners || @project_resource.build_owners
+      = uni_ref_input f, "project", @project_resource.project || @project_resource.build_project
+
+
+
+      = uni_ref_input f, "resoursable", @project_resource.resoursable || @project_resource.build_resoursable
+
+
+
+      = uni_ref_input f, "resource_type", @project_resource.resource_type || @project_resource.build_resource_type
 
 
 

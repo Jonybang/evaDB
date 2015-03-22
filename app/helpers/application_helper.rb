@@ -147,6 +147,17 @@ module ApplicationHelper
    def project_task_path(project_task)
       return project_project_task_path(project_task.project, project_task)
    end
+   def contact_path(contact)
+     if contact.is_a?(Student)
+       return student_path(contact)
+     elsif contact.is_a?(Partner)
+       return partner_path(contact)
+     elsif contact.is_a?(Scientist)
+       return scientist_path(contact)
+     else
+       return contact_url(contact)
+     end
+   end
    def uni_path(employer, name, method_name, obj = {})
       action = nil
       if(method_name.downcase.include? "new")

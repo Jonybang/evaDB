@@ -1,4 +1,4 @@
-= simple_nested_form_for(@finance_program) do |f|
+= simple_nested_form_for @finance_program, :url => finance_program_path(@finance_program) do |f|
   = f.error_notification
 
   .form-inputs

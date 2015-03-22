@@ -1,4 +1,4 @@
-= simple_nested_form_for(@partner) do |f|
+= simple_nested_form_for @partner, :url => partner_path(@partner) do |f|
   = f.error_notification
 
   .form-inputs

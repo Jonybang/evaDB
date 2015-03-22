@@ -1,4 +1,4 @@
-= simple_nested_form_for(@link) do |f|
+= simple_nested_form_for @link, :url => link_path(@link) do |f|
   = f.error_notification
 
   .form-inputs

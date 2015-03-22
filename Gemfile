@@ -46,6 +46,7 @@ gem "mongoid-elasticsearch"
 gem "moped", github: "mongoid/moped"
 gem "inherited_resources"
 #gem "rails-api"
+gem "oj"
 gem "rabl"
 gem "slim-rails"
 

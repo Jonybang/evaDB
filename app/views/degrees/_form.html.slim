@@ -1,4 +1,4 @@
-= simple_nested_form_for(@degree) do |f|
+= simple_nested_form_for @degree, :url => degree_path(@degree) do |f|
   = f.error_notification
 
   .form-inputs

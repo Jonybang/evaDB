@@ -1,4 +1,4 @@
-= simple_nested_form_for(@rank) do |f|
+= simple_nested_form_for @rank, :url => rank_path(@rank) do |f|
   = f.error_notification
 
   .form-inputs
