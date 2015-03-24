@@ -14,8 +14,9 @@ class ApplicationController < ActionController::Base
   private
 
   def current_user
+    user_id = session[:user_id]["$oid"] || session[:user_id]
     logger = Logger.new(STDOUT)
-    logger.debug "==================================Get current user, session id: #{session[:user_id]}============================"
-    @current_user ||= User.find_by(id: session[:user_id]["$oid"]) if session[:user_id]
+    logger.debug "==================================Get current user, session id: #{user_id}============================"
+    @current_user ||= User.find_by(id: user_id) if user_id
   end
 end

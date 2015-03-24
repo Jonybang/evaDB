@@ -89,6 +89,9 @@ module ApplicationHelper
          return form.input(name.to_sym, input_html: {type: 'url'})
       elsif (type == "text_area")
          return form.input(name.to_sym, as: "text")
+      elsif (name == "color")
+         #return select form.object.name.downcase, name.to_sym, enum_option_pairs(form.object.class, name.to_sym)
+         return form.input(name.to_sym,:collection => enum_option_pairs(form.object.class, name.to_sym),:include_blank => true)
       else
          return form.input(name.to_sym)
       end

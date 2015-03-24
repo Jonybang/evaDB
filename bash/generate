@@ -110,7 +110,7 @@ if [[($1 = "project_task") || ($1 = "all")]]
 fi
 
 if [[($1 = "project_status") || ($1 = "all")]]
-        then $generate project_status name projects:references project_tasks:references --force
+        then $generate project_status name color projects:references project_tasks:references --force
 fi
 
 if [[($1 = "project_direction") || ($1 = "all")]]

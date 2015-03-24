@@ -42,6 +42,7 @@ gem 'spring',        group: :development
 
 gem "mongoid"
 gem "mongoid-elasticsearch"
+gem 'simple_enum', '~> 2.0.0' , require: 'simple_enum/mongoid'
 #gem "bson"
 gem "moped", github: "mongoid/moped"
 gem "inherited_resources"

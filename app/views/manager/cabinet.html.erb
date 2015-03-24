@@ -97,26 +97,58 @@
 </script>
 
 <script type="text/x-handlebars" id="tasks">
-    <table class="table table-hover">
-      <thead>
-        <tr>
-          <th>#</th>
-          <th>Название</th>
-          <th>Статус</th>
-          <th>Дедлайн</th>
-        </tr>
-      </thead>
-      <tbody>
-        {{#each model}}
+<div role="tabpanel">
+
+  <!-- Nav tabs -->
+  <ul class="nav nav-tabs" role="tablist">
+    <li role="presentation" class="active"><a href="#gant" aria-controls="home" role="tab" data-toggle="tab">Диаграмма Ганта</a></li>
+    <li role="presentation"><a href="#table" aria-controls="profile" role="tab" data-toggle="tab">Таблица</a></li>
+  </ul>
+
+  <!-- Tab panes -->
+  <div class="tab-content">
+    <div role="tabpanel" class="tab-pane fade in active" id="gant">
+        <div class="col-md-8">
+            <h4>Масштаб</h4>
+            <button type="button" onclick="changeTimeDomain('6hr')" class="btn btn-info btn-sm">6 Часов</button>
+            <button type="button" onclick="changeTimeDomain('1day')" class="btn btn-info btn-sm">1 День</button>
+            <button type="button" onclick="changeTimeDomain('1week')" class="btn btn-info btn-sm">1 Неделя</button>
+            <button type="button" onclick="changeTimeDomain('1month')" class="btn btn-info btn-sm">1 Месяц</button>
+            <button type="button" onclick="changeTimeDomain('2month')" class="btn btn-info btn-sm">2 Месяца</button>
+            <button type="button" onclick="changeTimeDomain('6month')" class="btn btn-info btn-sm">6 Месяцев</button>
+        </div>
+        <div class="col-md-3 col-md-offset-1">
+            <h4 class="text-right">Управление</h4>
+            <button type="button" onclick="addTask()" class="btn btn-success btn-sm">Добавить</button>
+            <button type="button" onclick="removeTask()" class="btn btn-danger btn-sm">Удалить</button>
+        </div>
+        <!-- <button type="button" onclick="changeTimeDomain('1hr')">1 HR</button>
+        <button type="button" onclick="changeTimeDomain('3hr')">3 HR</button>-->
+    </div>
+    <div role="tabpanel" class="tab-pane fade" id="table">
+        <table class="table table-hover">
+          <thead>
             <tr>
-              <th scope="row">{{number}}</th>
-              <td>{{name}}</td>
-              <td>{{project_status.name}}</td>
-              <td>{{end_date}}</td>
+              <th>#</th>
+              <th>Название</th>
+              <th>Статус</th>
+              <th>Дедлайн</th>
             </tr>
-        {{/each}}
-      </tbody>
-    </table>
+          </thead>
+          <tbody>
+            {{#each model}}
+                <tr>
+                  <th scope="row">{{number}}</th>
+                  <td>{{name}}</td>
+                  <td>{{project_status.name}}</td>
+                  <td>{{end_date}}</td>
+                </tr>
+            {{/each}}
+          </tbody>
+        </table>
+    </div>
+  </div>
+</div>
 </script>
 <script type="text/x-handlebars" id="team">
     <table class="table table-hover">
