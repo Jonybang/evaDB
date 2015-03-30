@@ -6,7 +6,7 @@
 d3.gantt = function() {
     var FIT_TIME_DOMAIN_MODE = "fit";
     var FIXED_TIME_DOMAIN_MODE = "fixed";
-    
+
     var margin = {
         top : 20,
         right : 0,
@@ -77,9 +77,9 @@ d3.gantt = function() {
             //.tickSize(0);
     };
     initAxis();
-    
+
     function gantt(tasks) {
-	
+
         initTimeDomain();
         initAxis();
 
@@ -94,27 +94,23 @@ d3.gantt = function() {
             .attr("width", width + margin.left + margin.right)
             .attr("height", height + margin.top + margin.bottom)
             .attr("transform", "translate(" + margin.left + ", " + margin.top + ")");
-	
-        svg.selectAll(".chart")
-            .data(tasks, keyFunction).enter()
-            .append("rect")
-            .attr("rx", 5)
-            .attr("ry", 5)
-            .attr("data-title", function(d){
-                return d.title;
-            })
-            .attr("class", function(d){
-             if(taskStatus[d.status] == null){ return "bar";}
-                 return taskStatus[d.status] + " task";
-            })
-            .attr("y", 0)
-            .attr("transform", rectTransform)
-            .attr("height", function(d) { return y.rangeBand(); })
-            .attr("width", function(d) {
-                 return (x(d.endDate) - x(d.startDate));
-            });
 
-            svg.selectAll(".task")
+
+
+//            svg.selectAll(".task")
+//                .data(rectTasks).enter()
+//                .insert('g', '.task')
+//                .classed('text-wrapper', true)
+//                .append('text')
+//                .attr('y', function(d, i){
+//                    return d3.select(d[i]).attr('y');
+//                })
+//                .text(function(d, i){
+//                    return d3.select(d[i]).attr('data-title');
+//                })
+//                .textwrap(function(){
+//                    return this;
+//                }, 0);
 //        svg
 //            .append("text")
 //            .classed('chart', true)
@@ -127,7 +123,7 @@ d3.gantt = function() {
 //            .text(function(d) {
 //                return d.name;
 //            });
-	 
+
         svg.append("g")
             .attr("class", "x axis")
             .attr("transform", "translate(0, " + (height - margin.top - margin.bottom) + ")")
@@ -144,41 +140,79 @@ d3.gantt = function() {
 
         return gantt;
     }
-    
+
     gantt.redraw = function(tasks) {
 
         initTimeDomain();
         initAxis();
 
         var svg = d3.select("svg");
+        var gTasks =
+            svg.select(".gantt-chart")
+            .selectAll(".task")
+            .data(tasks, keyFunction);
 
-        var ganttChartGroup = svg.select(".gantt-chart");
-        var rect = ganttChartGroup.selectAll("rect").data(tasks, keyFunction);
+        gTasks.enter()
+            .insert("g", ":first-child")
+            .attr('class', 'task')
+            .attr("data-title", function(d){
+                return d.title;
+            })
+            .transition()
+            .attr("y", 0)
+            .attr("transform", function(d) {
+                return "translate(" + x(d.startDate) + "," + y(d.taskName) + ")";
+            })
+            .attr("height", function(d) { return y.rangeBand(); })
+            .attr("width", function(d) {
+                return (x(d.endDate) - x(d.startDate));
+            });
+        gTasks.transition()
+            .attr("transform", function(d) {
+                return "translate(" + x(d.startDate) + "," + y(d.taskName) + ")";
+            })
+            .attr("height", function(d) { return y.rangeBand(); })
+            .attr("width", function(d) {
+                return (x(d.endDate) - x(d.startDate));
+            });
+            //.exit().remove();
 
-        rect.enter()
-            .insert("rect",":first-child")
+
+        //gTasks.exit().remove();
+
+        var gRect = gTasks.insert("rect",":first-child")
+            .transition()
+            .attr("height", function(d) { return y.rangeBand(); })
+            .attr("width", function(d) {
+                return (x(d.endDate) - x(d.startDate));
+            })
             .attr("rx", 5)
             .attr("ry", 5)
             .attr("class", function(d){
                 if(taskStatus[d.status] == null){ return "bar";}
                 return taskStatus[d.status];
-            })
+            });
+
+            gRect.transition()
+            .attr("height", function(d) { return y.rangeBand(); })
+            .attr("width", function(d) {
+                return (x(d.endDate) - x(d.startDate));
+            });
+
+        var gText = gTasks.insert("text",":first-child")
             .transition()
-            .attr("y", 0)
-            .attr("transform", rectTransform)
-            .attr("height", function(d) { return y.rangeBand(); })
-            .attr("width", function(d) {
-                return (x(d.endDate) - x(d.startDate));
-            });
+            .attr("x", 0)
+            .attr("y", y.rangeBand() / 2)
+            .attr("dy", ".35em")
+            .text(function(d) { return d.title; });
 
-        rect.transition()
-            .attr("transform", rectTransform)
-            .attr("height", function(d) { return y.rangeBand(); })
-            .attr("width", function(d) {
-                return (x(d.endDate) - x(d.startDate));
-            });
+            gText.transition()
+            .attr("x", 0)
+            .attr("y", y.rangeBand() / 2);
 
-        rect.exit().remove();
+//        gRect.exit().remove();
+//        gText.exit().remove();
+        gTasks.exit().remove();
 
         svg.select(".x").transition().call(xAxis);
         svg.select(".y").transition().call(yAxis);

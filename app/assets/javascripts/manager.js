@@ -160,7 +160,7 @@ function initGant(initTasks){
         .taskTypes(taskNames)
         .taskStatus(taskStatus)
         .tickFormat(format)
-        .height(300)
+        .height(taskNames.length*70)
         .width(document.getElementById('gant').offsetWidth-120);
 
 
