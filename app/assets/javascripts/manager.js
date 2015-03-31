@@ -1,6 +1,6 @@
-//= require d3.min.js
-// = require gantt-chart-d3v2
+// = require d3.min.js
 // = require d3textwrap.v0
+// = require gantt-chart-d3v2
 
 $(document).on("ready page:load", function(){
     if(!$('#cabinet').length)

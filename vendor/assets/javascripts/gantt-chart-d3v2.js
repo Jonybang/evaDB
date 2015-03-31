@@ -31,19 +31,25 @@ d3.gantt = function() {
 	    return "translate(" + x(d.startDate) + "," + y(d.taskName) + ")";
     };
 
+    function calculateWidth(d){
+        console.log(d.title + " - " + (x(d.endDate) - x(d.startDate)));
+        //console.log('result = ' + (x(d.endDate) - x(d.startDate)));
+        return (x(d.endDate) - x(d.startDate));
+    }
+
     var initTimeDomain = function() {
         if (timeDomainMode === FIT_TIME_DOMAIN_MODE) {
             if (tasks === undefined || tasks.length < 1) {
-            timeDomainStart = d3.time.day.offset(new Date(), -3);
-            timeDomainEnd = d3.time.hour.offset(new Date(), +3);
-            return;
+                timeDomainStart = d3.time.day.offset(new Date(), -3);
+                timeDomainEnd = d3.time.hour.offset(new Date(), +3);
+                return;
             }
             tasks.sort(function(a, b) {
-            return a.endDate - b.endDate;
+                return a.endDate - b.endDate;
             });
             timeDomainEnd = tasks[tasks.length - 1].endDate;
-            tasks.sort(function(a, b) {
-            return a.startDate - b.startDate;
+                tasks.sort(function(a, b) {
+                return a.startDate - b.startDate;
             });
             timeDomainStart = tasks[0].startDate;
         }
@@ -95,35 +101,6 @@ d3.gantt = function() {
             .attr("height", height + margin.top + margin.bottom)
             .attr("transform", "translate(" + margin.left + ", " + margin.top + ")");
 
-
-
-//            svg.selectAll(".task")
-//                .data(rectTasks).enter()
-//                .insert('g', '.task')
-//                .classed('text-wrapper', true)
-//                .append('text')
-//                .attr('y', function(d, i){
-//                    return d3.select(d[i]).attr('y');
-//                })
-//                .text(function(d, i){
-//                    return d3.select(d[i]).attr('data-title');
-//                })
-//                .textwrap(function(){
-//                    return this;
-//                }, 0);
-//        svg
-//            .append("text")
-//            .classed('chart', true)
-//            //.attr("y", function(d) { return (y(d.y1) + y(d.y0)) / 2; }) // Center text
-//            .attr("y", 0)
-//            .attr("fill","#fff")
-//            .style("stroke-width", 1)
-//            .style({"font-size":"18px","z-index":"999999999"})
-//            .style("text-anchor", "middle")
-//            .text(function(d) {
-//                return d.name;
-//            });
-
         svg.append("g")
             .attr("class", "x axis")
             .attr("transform", "translate(0, " + (height - margin.top - margin.bottom) + ")")
@@ -152,6 +129,13 @@ d3.gantt = function() {
             .selectAll(".task")
             .data(tasks, keyFunction);
 
+        svg.select(".gantt-chart")
+            .selectAll(".task")
+            .selectAll("*").data(tasks, keyFunction)
+        .exit().attr('width', 0).remove()
+
+        gTasks.exit().remove();
+
         gTasks.enter()
             .insert("g", ":first-child")
             .attr('class', 'task')
@@ -160,55 +144,51 @@ d3.gantt = function() {
             })
             .transition()
             .attr("y", 0)
-            .attr("transform", function(d) {
-                return "translate(" + x(d.startDate) + "," + y(d.taskName) + ")";
-            })
+            .attr("transform", rectTransform)
             .attr("height", function(d) { return y.rangeBand(); })
-            .attr("width", function(d) {
-                return (x(d.endDate) - x(d.startDate));
-            });
+            .attr("width", calculateWidth);
+
         gTasks.transition()
-            .attr("transform", function(d) {
-                return "translate(" + x(d.startDate) + "," + y(d.taskName) + ")";
-            })
+            .attr("transform", rectTransform)
             .attr("height", function(d) { return y.rangeBand(); })
-            .attr("width", function(d) {
-                return (x(d.endDate) - x(d.startDate));
-            });
-            //.exit().remove();
+            .attr("width", calculateWidth);
+        gTasks.exit().remove();
 
 
         //gTasks.exit().remove();
-
-        var gRect = gTasks.insert("rect",":first-child")
+        function confRect(rect){
+            rect.attr("height", function(d) { return y.rangeBand(); })
+                .attr("width", calculateWidth)
+                .attr("rx", 5)
+                .attr("ry", 5)
+                .attr("class", function(d){
+                    if(taskStatus[d.status] == null){ return "bar";}
+                    return taskStatus[d.status];
+                });
+        }
+        var gRect = gTasks
+            .insert("rect",":first-child")
             .transition()
-            .attr("height", function(d) { return y.rangeBand(); })
-            .attr("width", function(d) {
-                return (x(d.endDate) - x(d.startDate));
-            })
-            .attr("rx", 5)
-            .attr("ry", 5)
-            .attr("class", function(d){
-                if(taskStatus[d.status] == null){ return "bar";}
-                return taskStatus[d.status];
-            });
+            .call(confRect);
 
-            gRect.transition()
-            .attr("height", function(d) { return y.rangeBand(); })
-            .attr("width", function(d) {
-                return (x(d.endDate) - x(d.startDate));
-            });
-
-        var gText = gTasks.insert("text",":first-child")
+        gRect
             .transition()
-            .attr("x", 0)
-            .attr("y", y.rangeBand() / 2)
-            .attr("dy", ".35em")
-            .text(function(d) { return d.title; });
+            .call(confRect);
+
+        function confText(text){
+            text.attr("x", 0)
+                .attr("y", y.rangeBand() / 4)
+                .attr("dy", ".35em")
+                .text(function(d) { return d.title; });
+        }
+
+        var gText = gTasks.append("text")
+            .call(confText)
+            .call(d3TextWrap, false);
 
             gText.transition()
             .attr("x", 0)
-            .attr("y", y.rangeBand() / 2);
+            .attr("y", y.rangeBand() / 4);
 
 //        gRect.exit().remove();
 //        gText.exit().remove();
@@ -220,17 +200,18 @@ d3.gantt = function() {
         return gantt;
     };
 
-    function d3TextWrap(text, width, paddingRightLeft, paddingTopBottom) {
+    var calcTextWrapWidth = calculateWidth;
+
+    function d3TextWrap(allText, inputWidth, paddingRightLeft, paddingTopBottom) {
         paddingRightLeft = paddingRightLeft || 5; //Default padding (5px)
         paddingTopBottom = (paddingTopBottom || 5) - 2; //Default padding (5px), remove 2 pixels because of the borders
-        var maxWidth = width; //I store the tooltip max width
-        width = width - (paddingRightLeft * 2); //Take the padding into account
 
         var arrLineCreatedCount = [];
-        text.each(function() {
+        allText.each(function(object) {
             var text = d3.select(this),
                 words = text.text().split(/[ \f\n\r\t\v]+/).reverse(), //Don't cut non-breaking space (\xA0), as well as the Unicode characters \u00A0 \u2028 \u2029)
                 word,
+                width,
                 line = [],
                 lineNumber = 0,
                 lineHeight = 1.1, //Ems
@@ -239,6 +220,24 @@ d3.gantt = function() {
                 dy = parseFloat(text.attr("dy")),
                 createdLineCount = 1, //Total line created count
                 textAlign = text.style('text-anchor') || 'start'; //'start' by default (start, middle, end, inherit)
+
+//            function isFunction(functionToCheck) {
+//                var getType = {};
+//                return functionToCheck && getType.toString.call(functionToCheck) === '[object Function]';
+//            }
+//            if(isFunction(width)){
+//
+//                //var d3text = d3.select(text);
+//                width = text.call(width, index);//, allText.indexOf(this)
+//            }
+            if(calcTextWrapWidth && inputWidth == false){
+                width = calcTextWrapWidth(object);
+            }else{
+                width = inputWidth;
+            }
+
+            var maxWidth = width; //I store the tooltip max width
+            width = width - (paddingRightLeft * 2); //Take the padding into account
 
             //Clean the data in case <text> does not define those values
             if (isNaN(dy)) dy = 0; //Default padding (0em) : the 'dy' attribute on the first <tspan> _must_ be identical to the 'dy' specified on the <text> element, or start at '0em' if undefined
@@ -280,7 +279,7 @@ d3.gantt = function() {
             while (word = words.pop()) {
                 line.push(word);
                 tspan.text(line.join(" "));
-                if (tspan.node().getComputedTextLength() > width/3 && line.length > 1) {
+                if (tspan.node().getComputedTextLength() > width && line.length > 1) {
                     line.pop();
                     tspan.text(line.join(" "));
                     line = [word];
