@@ -142,7 +142,10 @@ d3.gantt = function() {
     function confText(text){
         text.attr("x", 0)
             .attr("y", y.rangeBand() / 4)
-            .attr("dy", ".35em");
+            .attr("dy", ".35em")
+            .style("visibility", function(d) {
+                return x(d.startDate) == 0 ? "hidden" : "visible";
+            });
     }
 
     gantt.redraw = function(tasks) {
@@ -160,7 +163,7 @@ d3.gantt = function() {
             .selectAll("*")
             .data(tasks, keyFunction)
             .exit()
-            .attr('width', 0).remove()
+            .attr('width', 0).remove();
 
         gTasks.exit().remove();
 
