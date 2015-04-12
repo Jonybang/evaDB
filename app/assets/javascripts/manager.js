@@ -114,6 +114,7 @@ $(document).on("ready page:load", function(){
 function initGant(initTasks){
 //    var tasks = [
 //        {"startDate":new Date("Sun Dec 09 01:36:45 EST 2012"),"endDate":new Date("Sun Dec 09 02:36:45 EST 2012"),"taskName":"E Job","status":"RUNNING"}];
+    var ganttContainerId = 'svg-gantt';
     var taskStatus = {};
     var taskNames = [];
     var tasks = initTasks.map(function(item){
@@ -157,17 +158,18 @@ function initGant(initTasks){
     var timeDomainString = "2month";
 
     var gantt = d3.gantt()
+        .containerId(ganttContainerId)
         .taskTypes(taskNames)
         .taskStatus(taskStatus)
         .tickFormat(format)
-        .height(taskNames.length*70)
-        .width(document.getElementById('gant').offsetWidth-120);
+        .height(taskNames.length*100)
+        .width(document.getElementById(ganttContainerId).offsetWidth - 120);
 
 
     gantt.timeDomainMode("fixed");
 //    changeTimeDomain(timeDomainString);
 
-    gantt(tasks);
+    gantt();
 
     window.changeTimeDomain = function (timeDomainString) {
         this.timeDomainString = timeDomainString;

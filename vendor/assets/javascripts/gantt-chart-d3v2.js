@@ -11,8 +11,10 @@ d3.gantt = function() {
         top : 20,
         right : 0,
         bottom : 20,
-        left : 100
+        left : 120
     };
+    var yAxisPaddingRightLeft = 70;
+    var containerId = 'svg-gantt';
     var timeDomainStart = d3.time.day.offset(new Date(),-3);
     var timeDomainEnd = d3.time.hour.offset(new Date(),+3);
     var timeDomainMode = FIT_TIME_DOMAIN_MODE;// fixed or fit
@@ -23,6 +25,8 @@ d3.gantt = function() {
 
     var tickFormat = "%H:%M";
 
+    window.calcTextWrapWidth = getWidth;
+
     var keyFunction = function(d) {
 	    return d.startDate + d.taskName + d.endDate;
     };
@@ -31,10 +35,11 @@ d3.gantt = function() {
 	    return "translate(" + x(d.startDate) + "," + y(d.taskName) + ")";
     };
 
-    function calculateWidth(d){
-        console.log(d.title + " - " + (x(d.endDate) - x(d.startDate)));
-        //console.log('result = ' + (x(d.endDate) - x(d.startDate)));
+    function getWidth(d){
         return (x(d.endDate) - x(d.startDate));
+    }
+    function getText(d) {
+        return d.title;
     }
 
     var initTimeDomain = function() {
@@ -54,6 +59,7 @@ d3.gantt = function() {
             timeDomainStart = tasks[0].startDate;
         }
     };
+
     var x, y, xAxis, yAxis;
     var initAxis = function() {
         x = d3.time
@@ -73,24 +79,22 @@ d3.gantt = function() {
             .orient("bottom")
             .tickFormat(d3.time.format(tickFormat))
             .tickSubdivide(true)
-            .tickSize(8).tickPadding(8);
+            .tickSize(8)
+            .tickPadding(8);
 
         yAxis = d3.svg
             .axis()
             .scale(y)
             .orient("left")
             .ticks(8, "%");
-            //.tickSize(0);
     };
     initAxis();
 
     function gantt(tasks) {
-
         initTimeDomain();
         initAxis();
 
-        //var svg = d3.select("body")
-        var svg = d3.select("#gant")
+        var svg = d3.select("#"+containerId)
             .append("svg")
             .attr("class", "chart")
             .attr("width", width + margin.left + margin.right)
@@ -109,13 +113,36 @@ d3.gantt = function() {
 
         svg.append("g")
             .attr("class", "y axis")
-            //.attr("transform", "translate(" + (margin.left) + ", 0)")
-            .transition()
-            .call(yAxis)
-            .selectAll(".tick text")
-            .call(d3TextWrap, margin.left);
+            .call(yAxis);
+
+        if(tasks && tasks.length){
+            gantt.redraw(tasks);
+        }
 
         return gantt;
+    }
+
+
+    function confGTasks(task){
+        task.attr("transform", rectTransform)
+            .attr("height", function(d) { return y.rangeBand(); })
+            .attr("width", getWidth);
+    }
+    function confRect(rect){
+        rect.attr("height", function(d) { return y.rangeBand(); })
+            .attr("width", getWidth)
+            .attr("rx", 5)
+            .attr("ry", 5)
+            .attr("class", function(d){
+                if(taskStatus[d.status] == null){ return "bar";}
+                return taskStatus[d.status];
+            });
+    }
+
+    function confText(text){
+        text.attr("x", 0)
+            .attr("y", y.rangeBand() / 4)
+            .attr("dy", ".35em");
     }
 
     gantt.redraw = function(tasks) {
@@ -124,174 +151,65 @@ d3.gantt = function() {
         initAxis();
 
         var svg = d3.select("svg");
-        var gTasks =
-            svg.select(".gantt-chart")
+        var gTasks = svg.select(".gantt-chart")
             .selectAll(".task")
             .data(tasks, keyFunction);
 
         svg.select(".gantt-chart")
             .selectAll(".task")
-            .selectAll("*").data(tasks, keyFunction)
-        .exit().attr('width', 0).remove()
+            .selectAll("*")
+            .data(tasks, keyFunction)
+            .exit()
+            .attr('width', 0).remove()
 
         gTasks.exit().remove();
 
         gTasks.enter()
             .insert("g", ":first-child")
             .attr('class', 'task')
-            .attr("data-title", function(d){
-                return d.title;
-            })
-            .transition()
             .attr("y", 0)
-            .attr("transform", rectTransform)
-            .attr("height", function(d) { return y.rangeBand(); })
-            .attr("width", calculateWidth);
+            .transition()
+            .call(confGTasks);
 
-        gTasks.transition()
-            .attr("transform", rectTransform)
-            .attr("height", function(d) { return y.rangeBand(); })
-            .attr("width", calculateWidth);
         gTasks.exit().remove();
 
-
-        //gTasks.exit().remove();
-        function confRect(rect){
-            rect.attr("height", function(d) { return y.rangeBand(); })
-                .attr("width", calculateWidth)
-                .attr("rx", 5)
-                .attr("ry", 5)
-                .attr("class", function(d){
-                    if(taskStatus[d.status] == null){ return "bar";}
-                    return taskStatus[d.status];
-                });
-        }
-        var gRect = gTasks
-            .insert("rect",":first-child")
+        var gRect = gTasks.insert("rect",":first-child")
             .transition()
             .call(confRect);
-
-        gRect
-            .transition()
-            .call(confRect);
-
-        function confText(text){
-            text.attr("x", 0)
-                .attr("y", y.rangeBand() / 4)
-                .attr("dy", ".35em")
-                .text(function(d) { return d.title; });
-        }
 
         var gText = gTasks.append("text")
             .call(confText)
+            .text(getText)
             .call(d3TextWrap, false);
 
-            gText.transition()
-            .attr("x", 0)
-            .attr("y", y.rangeBand() / 4);
+        gTasks.transition()
+            .call(confGTasks);
 
-//        gRect.exit().remove();
-//        gText.exit().remove();
+        gRect.transition()
+            .call(confRect);
+
+        gText.transition()
+            .call(confText);
+
         gTasks.exit().remove();
 
-        svg.select(".x").transition().call(xAxis);
-        svg.select(".y").transition().call(yAxis);
+        svg.select(".x")
+            .transition()
+            .call(xAxis);
+
+        svg.select(".y")
+            .transition()
+            .call(yAxis)
+            .selectAll(".tick text")
+            .call(d3TextWrap, margin.left, yAxisPaddingRightLeft);
 
         return gantt;
     };
 
-    var calcTextWrapWidth = calculateWidth;
-
-    function d3TextWrap(allText, inputWidth, paddingRightLeft, paddingTopBottom) {
-        paddingRightLeft = paddingRightLeft || 5; //Default padding (5px)
-        paddingTopBottom = (paddingTopBottom || 5) - 2; //Default padding (5px), remove 2 pixels because of the borders
-
-        var arrLineCreatedCount = [];
-        allText.each(function(object) {
-            var text = d3.select(this),
-                words = text.text().split(/[ \f\n\r\t\v]+/).reverse(), //Don't cut non-breaking space (\xA0), as well as the Unicode characters \u00A0 \u2028 \u2029)
-                word,
-                width,
-                line = [],
-                lineNumber = 0,
-                lineHeight = 1.1, //Ems
-                x,
-                y = text.attr("y"),
-                dy = parseFloat(text.attr("dy")),
-                createdLineCount = 1, //Total line created count
-                textAlign = text.style('text-anchor') || 'start'; //'start' by default (start, middle, end, inherit)
-
-//            function isFunction(functionToCheck) {
-//                var getType = {};
-//                return functionToCheck && getType.toString.call(functionToCheck) === '[object Function]';
-//            }
-//            if(isFunction(width)){
-//
-//                //var d3text = d3.select(text);
-//                width = text.call(width, index);//, allText.indexOf(this)
-//            }
-            if(calcTextWrapWidth && inputWidth == false){
-                width = calcTextWrapWidth(object);
-            }else{
-                width = inputWidth;
-            }
-
-            var maxWidth = width; //I store the tooltip max width
-            width = width - (paddingRightLeft * 2); //Take the padding into account
-
-            //Clean the data in case <text> does not define those values
-            if (isNaN(dy)) dy = 0; //Default padding (0em) : the 'dy' attribute on the first <tspan> _must_ be identical to the 'dy' specified on the <text> element, or start at '0em' if undefined
-
-            //Offset the text position based on the text-anchor
-            var wrapTickLabels = d3.select(text.node().parentNode).classed('tick'); //Don't wrap the 'normal untranslated' <text> element and the translated <g class='tick'><text></text></g> elements the same way..
-            if (wrapTickLabels) {
-                switch (textAlign) {
-                    case 'start':
-                        x = -width / 2;
-                        break;
-                    case 'middle':
-                        x = 0;
-                        break;
-                    case 'end':
-                        x = width / 2;
-                        break;
-                    default :
-                }
-            }
-            else { //untranslated <text> elements
-                switch (textAlign) {
-                    case 'start':
-                        x = paddingRightLeft;
-                        break;
-                    case 'middle':
-                        x = maxWidth / 2;
-                        break;
-                    case 'end':
-                        x = maxWidth - paddingRightLeft;
-                        break;
-                    default :
-                }
-            }
-            y = +((null === y) ? paddingTopBottom : y);
-
-            var tspan = text.text(null).append("tspan").attr("x", x).attr("y", y).attr("dy", dy + "em");
-            //noinspection JSHint
-            while (word = words.pop()) {
-                line.push(word);
-                tspan.text(line.join(" "));
-                if (tspan.node().getComputedTextLength() > width && line.length > 1) {
-                    line.pop();
-                    tspan.text(line.join(" "));
-                    line = [word];
-                    tspan = text.append("tspan").attr("x", x).attr("y", y).attr("dy", ++lineNumber * lineHeight + dy + "em").text(word);
-                    ++createdLineCount;
-                }
-            }
-
-            arrLineCreatedCount.push(createdLineCount); //Store the line count in the array
-        });
-        return arrLineCreatedCount;
-    }
+    gantt.containerId = function(strId){
+        containerId = strId;
+        return gantt;
+    };
 
     gantt.margin = function(value) {
         if (!arguments.length)
@@ -356,3 +274,87 @@ d3.gantt = function() {
 
     return gantt;
 };
+
+function d3TextWrap (allText, inputWidth, paddingRightLeft, paddingTopBottom) {
+    paddingRightLeft = paddingRightLeft || 5; //Default padding (5px)
+    paddingTopBottom = (paddingTopBottom || 5) - 2; //Default padding (5px), remove 2 pixels because of the borders
+
+    var arrLineCreatedCount = [];
+    allText.each(function(object) {
+        var text = d3.select(this),
+            objType = typeof object,
+            words = ((objType == "string") ? object : text.text()).split(/[ \f\n\r\t\v]+/).reverse(), //Don't cut non-breaking space (\xA0), as well as the Unicode characters \u00A0 \u2028 \u2029)
+            word,
+            width,
+            line = [],
+            lineNumber = 0,
+            lineHeight = 1.1, //Ems
+            x,
+            y = text.attr("y"),
+            dy = parseFloat(text.attr("dy")),
+            createdLineCount = 1, //Total line created count
+            textAlign = text.style('text-anchor') || 'start'; //'start' by default (start, middle, end, inherit)
+
+        if(calcTextWrapWidth && inputWidth == false){
+            width = calcTextWrapWidth(object);
+        } else {
+            width = inputWidth;
+        }
+
+        var maxWidth = width; //I store the tooltip max width
+        width = width - (paddingRightLeft * 2); //Take the padding into account
+
+        //Clean the data in case <text> does not define those values
+        if (isNaN(dy)) dy = 0; //Default padding (0em) : the 'dy' attribute on the first <tspan> _must_ be identical to the 'dy' specified on the <text> element, or start at '0em' if undefined
+
+        //Offset the text position based on the text-anchor
+        var wrapTickLabels = d3.select(text.node().parentNode).classed('tick'); //Don't wrap the 'normal untranslated' <text> element and the translated <g class='tick'><text></text></g> elements the same way..
+        if (wrapTickLabels) {
+            switch (textAlign) {
+                case 'start':
+                    x = -width / 2;
+                    break;
+                case 'middle':
+                    x = 0;
+                    break;
+                case 'end':
+                    x = width / 2;
+                    break;
+                default :
+            }
+        }
+        else { //untranslated <text> elements
+            switch (textAlign) {
+                case 'start':
+                    x = paddingRightLeft;
+                    break;
+                case 'middle':
+                    x = maxWidth / 2;
+                    break;
+                case 'end':
+                    x = maxWidth - paddingRightLeft;
+                    break;
+                default :
+            }
+        }
+        y = +((null === y) ? paddingTopBottom : y);
+
+        var tspan = text.text(null).append("tspan").attr("x", x).attr("y", y).attr("dy", dy + "em");
+        //noinspection JSHint
+        while (word = words.pop()) {
+            line.push(word);
+            tspan.text(line.join(" "));
+            var computedTextLength = tspan.node().getComputedTextLength();
+            if (computedTextLength > width && line.length > 1) {
+                line.pop();
+                tspan.text(line.join(" "));
+                line = [word];
+                tspan = text.append("tspan").attr("x", x).attr("y", y).attr("dy", ++lineNumber * lineHeight + dy + "em").text(word);
+                ++createdLineCount;
+            }
+        }
+
+        arrLineCreatedCount.push(createdLineCount); //Store the line count in the array
+    });
+    return arrLineCreatedCount;
+}
