@@ -16,14 +16,11 @@
 //= require jquery_nested_form
 //= require select2
 //= require select2_locale_ru
-//= require handlebars.min
-//= require ember-template-compiler
-//= require ember.debug
 //= require bootstrap
 //= require bootstrap-formhelpers.min
 //= require bootstrap-formhelpers-phone
 //= require turbolinks
-//= require_tree .
+//= require manager
 
 $(document).on("ready page:load", function(){
     $('.eva-select').select2();
@@ -39,6 +36,7 @@ $(document).on("ready page:load", function(){
         }
     });
 });
+
 //function toggleLeftMenu (el){
 //    var $glyph = $(el).find('span.glyphicon');
 //    var $leftHide = $('.left-hide');

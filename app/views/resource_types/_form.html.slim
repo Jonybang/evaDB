@@ -1,0 +1,16 @@
+= simple_nested_form_for @resource_type, :url => resource_type_path(@resource_type) do |f|
+  = f.error_notification
+
+  .form-inputs
+
+
+      = uni_input f, "name", "text_field"
+
+
+
+      = uni_ref_input f, "resources", @resource_type.resources || @resource_type.build_resources
+
+
+
+  .form-actions
+    = f.button :submit

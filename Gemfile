@@ -57,6 +57,9 @@ gem "simple_form"
 gem "select2-rails"
 gem "bcrypt"
 
+gem 'ember-rails'
+gem 'ember-source', '1.5.1.1'
+
 group :production do
   gem 'rails_12factor'
 end

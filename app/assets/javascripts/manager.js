@@ -1,7 +1,23 @@
+// = require jquery
+// = require jquery_ujs
+// = require handlebars
+// = require ember
 // = require d3.min.js
 // = require d3textwrap.v0
 // = require gantt-chart-d3v2
+// = require_self
+// = require eva_db
 
+// for more details see: http://emberjs.com/guides/application/
+
+window.EvaDB = Ember.Application.create({
+    rootElement: '#eva_db',
+    LOG_TRANSITIONS: true,
+    LOG_TRANSITIONS_INTERNAL: true,
+    LOG_VIEW_LOOKUPS: true
+});
+
+/*
 $(document).on("ready page:load", function(){
     if(!$('#cabinet').length)
         return;
@@ -279,3 +295,4 @@ function initGant(initTasks){
 //Ember.Handlebars.helper('format-date', function(date) {
 //    return moment(date).fromNow();
 //});
+ */

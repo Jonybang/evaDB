@@ -1,0 +1,19 @@
+p#notice = notice
+
+
+p
+   strong Name:&nbsp;
+
+   = beauty_string @resource_type, "name"
+
+
+p
+   strong Resources:&nbsp;
+
+   = uni_info @resource_type, "resources"
+
+
+
+= link_to 'Edit', uni_path(@parent, "resource_types", "edit_resource_type_path", @resource_type)
+'|
+= link_to 'Back', uni_path(@parent, "resource_types", "resource_types_path", @resource_type)
