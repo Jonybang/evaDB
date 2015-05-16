@@ -1,3 +1,4 @@
+<<<<<<< HEAD
 - @table = "contact_data"
 
 table class="table table-hover table-condensed"
@@ -48,3 +49,55 @@ table class="table table-hover table-condensed"
 br
 
 = link_to 'New Contact data', uni_path(@parent, "contact_data", "new_contact_data_path")
+=======
+- @table = "contact_data"
+
+table class="table table-hover table-condensed"
+  thead
+    tr
+
+      th Phone
+
+      th Email
+
+      th Addres
+
+      th Cdata parent
+
+      th
+
+  tbody
+    - @contact_data.each do |contact_data|
+      tr
+
+
+
+        td = beauty_string contact_data, "phone", "min"
+
+
+
+
+
+        td = beauty_string contact_data, "email", "min"
+
+
+
+
+
+        td = beauty_string contact_data, "addres", "min"
+
+
+
+
+        td = uni_info contact_data, "cdata_parent"
+
+
+        td
+          = link_to 'Edit', uni_path(@parent, "contact_data", "edit_contact_data_path", contact_data)
+          br
+          = link_to 'Destroy', contact_data, data: {:confirm => 'Are you sure?'}, :method => :delete
+
+br
+
+= link_to 'New Contact data', uni_path(@parent, "contact_data", "new_contact_data_path")
+>>>>>>> 5ab5a8da4ba00a34ea1da0744f2d7980a5694bda

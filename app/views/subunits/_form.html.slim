@@ -1,3 +1,4 @@
+<<<<<<< HEAD
 = simple_nested_form_for @subunit, :url => subunit_path(@subunit) do |f|
   = f.error_notification
 
@@ -30,3 +31,37 @@
 
   .form-actions
     = f.button :submit
+=======
+= simple_nested_form_for @subunit, :url => subunit_path(@subunit) do |f|
+  = f.error_notification
+
+  .form-inputs
+
+
+      = uni_input f, "name", "text_field"
+
+
+
+      = uni_ref_input f, "contact_data", @subunit.contact_data || @subunit.build_contact_data
+
+
+
+      = uni_ref_input f, "link", @subunit.link || @subunit.build_link
+
+
+
+      = uni_ref_input f, "organization", @subunit.organization || @subunit.build_organization
+
+
+
+      = uni_ref_input f, "rooms", @subunit.rooms || @subunit.build_rooms
+
+
+
+      = uni_ref_input f, "equips", @subunit.equips || @subunit.build_equips
+
+
+
+  .form-actions
+    = f.button :submit
+>>>>>>> 5ab5a8da4ba00a34ea1da0744f2d7980a5694bda

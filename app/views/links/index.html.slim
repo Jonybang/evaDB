@@ -1,3 +1,4 @@
+<<<<<<< HEAD
 - @table = "links"
 
 table class="table table-hover table-condensed"
@@ -40,3 +41,47 @@ table class="table table-hover table-condensed"
 br
 
 = link_to 'New Link', uni_path(@parent, "links", "new_link_path")
+=======
+- @table = "links"
+
+table class="table table-hover table-condensed"
+  thead
+    tr
+
+      th Url
+
+      th Note
+
+      th Linkable
+
+      th
+
+  tbody
+    - @links.each do |link|
+      tr
+
+
+
+        td = beauty_string link, "url", "min"
+
+
+
+
+
+        td = beauty_string link, "note", "min"
+
+
+
+
+        td = uni_info link, "linkable"
+
+
+        td
+          = link_to 'Edit', uni_path(@parent, "links", "edit_link_path", link)
+          br
+          = link_to 'Destroy', link, data: {:confirm => 'Are you sure?'}, :method => :delete
+
+br
+
+= link_to 'New Link', uni_path(@parent, "links", "new_link_path")
+>>>>>>> 5ab5a8da4ba00a34ea1da0744f2d7980a5694bda

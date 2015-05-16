@@ -1,3 +1,4 @@
+<<<<<<< HEAD
 = simple_nested_form_for @scientist, :url => scientist_path(@scientist) do |f|
   = f.error_notification
 
@@ -86,3 +87,93 @@
 
   .form-actions
     = f.button :submit
+=======
+= simple_nested_form_for @scientist, :url => scientist_path(@scientist) do |f|
+  = f.error_notification
+
+  .form-inputs
+
+
+      = uni_input f, "name", "text_field"
+
+
+
+      = uni_ref_input f, "contact_data", @scientist.contact_data || @scientist.build_contact_data
+
+
+
+      = uni_ref_input f, "user", @scientist.user || @scientist.build_user
+
+
+
+      = uni_ref_input f, "socnet_links", @scientist.socnet_links || @scientist.build_socnet_links
+
+
+
+      = uni_ref_input f, "organization", @scientist.organization || @scientist.build_organization
+
+
+
+      = uni_ref_input f, "skills", @scientist.skills || @scientist.build_skills
+
+
+
+      = uni_ref_input f, "workpost", @scientist.workpost || @scientist.build_workpost
+
+
+
+      = uni_ref_input f, "industries", @scientist.industries || @scientist.build_industries
+
+
+
+      = uni_ref_input f, "equips", @scientist.equips || @scientist.build_equips
+
+
+
+      = uni_ref_input f, "resoursable", @scientist.resoursable || @scientist.build_resoursable
+
+
+
+      = uni_ref_input f, "degree", @scientist.degree || @scientist.build_degree
+
+
+
+      = uni_ref_input f, "rank", @scientist.rank || @scientist.build_rank
+
+
+
+      = uni_ref_input f, "papers", @scientist.papers || @scientist.build_papers
+
+
+
+      = uni_ref_input f, "thesis", @scientist.thesis || @scientist.build_thesis
+
+
+
+      = uni_ref_input f, "intellect_properties", @scientist.intellect_properties || @scientist.build_intellect_properties
+
+
+
+      = uni_ref_input f, "team_projects", @scientist.team_projects || @scientist.build_team_projects
+
+
+
+      = uni_ref_input f, "chief_projects", @scientist.chief_projects || @scientist.build_chief_projects
+
+
+
+      = uni_ref_input f, "expert_projects", @scientist.expert_projects || @scientist.build_expert_projects
+
+
+
+      = uni_ref_input f, "member_events", @scientist.member_events || @scientist.build_member_events
+
+
+
+      = uni_ref_input f, "project_tasks", @scientist.project_tasks || @scientist.build_project_tasks
+
+
+
+  .form-actions
+    = f.button :submit
+>>>>>>> 5ab5a8da4ba00a34ea1da0744f2d7980a5694bda

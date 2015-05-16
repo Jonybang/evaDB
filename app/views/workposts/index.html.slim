@@ -1,3 +1,4 @@
+<<<<<<< HEAD
 - @table = "workposts"
 
 table class="table table-hover table-condensed"
@@ -32,3 +33,39 @@ table class="table table-hover table-condensed"
 br
 
 = link_to 'New Workpost', uni_path(@parent, "workposts", "new_workpost_path")
+=======
+- @table = "workposts"
+
+table class="table table-hover table-condensed"
+  thead
+    tr
+
+      th Name
+
+      th Contacts
+
+      th
+
+  tbody
+    - @workposts.each do |workpost|
+      tr
+
+
+
+        td = link_to workpost.name, workpost
+
+
+
+
+        td = uni_info workpost, "contacts"
+
+
+        td
+          = link_to 'Edit', uni_path(@parent, "workposts", "edit_workpost_path", workpost)
+          br
+          = link_to 'Destroy', workpost, data: {:confirm => 'Are you sure?'}, :method => :delete
+
+br
+
+= link_to 'New Workpost', uni_path(@parent, "workposts", "new_workpost_path")
+>>>>>>> 5ab5a8da4ba00a34ea1da0744f2d7980a5694bda

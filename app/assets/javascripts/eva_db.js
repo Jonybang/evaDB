@@ -14,7 +14,11 @@ var api_url = "http://192.168.153.132:3000/";
 
 EvaDB.Router.map(function() {
     //this.resource('about');
+<<<<<<< HEAD
     this.resource('cabinet');
+=======
+    this.resource('main');
+>>>>>>> 5ab5a8da4ba00a34ea1da0744f2d7980a5694bda
     this.resource('projects');
     this.resource('project', { path: '/project/:project_id' }, function() {
 //        this.route('index', { path: '/project/:project_id/index' });
@@ -26,7 +30,11 @@ EvaDB.Router.map(function() {
 //        this.resource('project', { path: ':post_id' });
 //    });
 });
+<<<<<<< HEAD
 EvaDB.CabinetRoute = Ember.Route.extend({
+=======
+EvaDB.MainRoute = Ember.Route.extend({
+>>>>>>> 5ab5a8da4ba00a34ea1da0744f2d7980a5694bda
     model: function(){
         return Ember.$.getJSON(api_url + "users/" + Ember.$("#user-id").val()+".json").success(function(data){
             var contacts = ['contact', 'student', 'partner', 'scientist'];
@@ -42,6 +50,7 @@ EvaDB.CabinetRoute = Ember.Route.extend({
 });
 EvaDB.IndexRoute = Ember.Route.extend({
     redirect: function() {
+<<<<<<< HEAD
         return this.transitionTo('cabinet');
     }
 });
@@ -293,3 +302,8 @@ function initGant(initTasks){
 //Ember.Handlebars.helper('format-date', function(date) {
 //    return moment(date).fromNow();
 //});
+=======
+        return this.transitionTo('main');
+    }
+});
+>>>>>>> 5ab5a8da4ba00a34ea1da0744f2d7980a5694bda

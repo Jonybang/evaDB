@@ -1,3 +1,4 @@
+<<<<<<< HEAD
 class SessionsController < ApplicationController
   def new
   end
@@ -23,3 +24,30 @@ class SessionsController < ApplicationController
     redirect_to root_url, :notice => "Logged out!"
   end
 end
+=======
+class SessionsController < ApplicationController
+  def new
+  end
+
+  def create
+    user = User.authenticate(params[:email], params[:password])
+    logger = Logger.new(STDOUT)
+    if user
+      session[:user_id] = user.id
+      logger.debug "All OK, SESSION VARIABLE: #{session.inspect}"
+      redirect_to root_url, :notice => "Logged in!"
+    else
+      logger.debug "User in session controller not found"
+      flash.now.alert = "Invalid email or password"
+      render "new"
+    end
+  end
+
+  def destroy
+    session[:user_id] = nil
+    logger = Logger.new(STDOUT)
+    logger.debug "Logged out!"
+    redirect_to root_url, :notice => "Logged out!"
+  end
+end
+>>>>>>> 5ab5a8da4ba00a34ea1da0744f2d7980a5694bda

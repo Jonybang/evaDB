@@ -1,3 +1,4 @@
+<<<<<<< HEAD
 p#notice = notice
 
 
@@ -41,3 +42,48 @@ p
 = link_to 'Edit', uni_path(@parent, "events", "edit_event_path", @event)
 '|
 = link_to 'Back', uni_path(@parent, "events", "events_path", @event)
+=======
+p#notice = notice
+
+
+p
+   strong Name:&nbsp;
+
+   = beauty_string @event, "name"
+
+
+p
+   strong Date:&nbsp;
+
+   = beauty_string @event, "date"
+
+
+p
+   strong Members:&nbsp;
+
+   = uni_info @event, "members"
+
+
+p
+   strong Sponsors:&nbsp;
+
+   = uni_info @event, "sponsors"
+
+
+p
+   strong Experts:&nbsp;
+
+   = uni_info @event, "experts"
+
+
+p
+   strong Documents:&nbsp;
+
+   = uni_info @event, "documents"
+
+
+
+= link_to 'Edit', uni_path(@parent, "events", "edit_event_path", @event)
+'|
+= link_to 'Back', uni_path(@parent, "events", "events_path", @event)
+>>>>>>> 5ab5a8da4ba00a34ea1da0744f2d7980a5694bda

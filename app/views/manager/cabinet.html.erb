@@ -1,0 +1,192 @@
+<input type="hidden" id="cabinet">
+<input type="hidden" id="user-id" value="<%= current_user.id %>">
+
+<script type="text/x-handlebars">
+<div class="row">
+    <div class="col-md-offset-1 col-md-10">
+        <div class="row nav-container">
+            <ul class="nav nav-pills nav-justified">
+                {{#link-to "main" tagName="li" href=false role="presentation"}}
+                  <a {{bind-attr href="view.href"}}>
+                    Личный кабинет
+                  </a>
+                {{/link-to}}
+            </ul>
+        </div>
+        <div class="row">
+            {{outlet}}
+        </div>
+    </div>
+</div>
+</script>
+<script type="text/x-handlebars" id="main">
+    <div class="col-md-8">
+        <div class="thumbnail">
+            <div class="panel panel-primary">
+                <div class="panel-heading"><strong>{{name}}</strong></div>
+                <div class="panel-body">
+                    <p>Email: {{email}}</p>
+                </div>
+            </div>
+            <div class="panel panel-success">
+                <div class="panel-heading">Проекты</div>
+                <div class="panel-body">
+                    <p class="lead">Текущие</p>
+                </div>
+                <div class="btn-group-vertical projects-list" style="" role="group" aria-label="Vertical button group">
+                    {{#each projects}}
+                        {{#link-to 'project' this.id class="btn btn-default"}}{{name}}{{/link-to}}
+                    {{/each}}
+                </div>
+            </div>
+            <div class="panel panel-info">
+                <div class="panel-heading">Ближайшие задачи</div>
+                <div class="panel-body">
+                    <p class="lead">Сегодня</p>
+                </div>
+                <div class="btn-group-vertical projects-list" style="" role="group" aria-label="Vertical button group">
+                    {{#each project_tasks}}
+                        {{#link-to 'project' this.id class="btn btn-default"}}{{name}}{{/link-to}}
+                    {{/each}}
+                </div>
+            </div>
+        </div>
+    </div>
+    <div class="col-md-4">
+        <div class="thumbnail">
+            <%=image_tag "ledkov.jpg" %>
+            <div class="caption">
+                <h3>Прочее</h3>
+                <p>Прочее прочее прочее прочее прочее прочее прочее прочее прочее прочее прочее прочее прочее прочее прочее прочее прочее прочее прочее прочее прочее прочее</p>
+                <p><a href="#" class="btn btn-primary" role="button">Кнопка</a> <a href="#" class="btn btn-default" role="button">Кнопка</a></p>
+            </div>
+        </div>
+    </div>
+</script>
+<script type="text/x-handlebars" id="project">
+    <div class="col-md-4">
+        <div class="btn-group-vertical projects-list" style="" role="group" aria-label="Vertical button group">
+            {{#link-to "project" this class="btn btn-primary"}}Проект "{{name}}"{{/link-to}}
+            {{#link-to "tasks" this class="btn btn-default"}}Задачи{{/link-to}}
+            {{#link-to "team" this class="btn btn-default"}}Исполнители{{/link-to}}
+            {{#link-to "resources" this class="btn btn-default"}}Ресурсы{{/link-to}}
+            <a class="btn btn-default">Партнеры</a>
+            <a class="btn btn-default">Сроки</a>
+            <a class="btn btn-default">Бюджет</a>
+        </div>
+    </div>
+    <div class="col-md-8">
+        <div class="thumbnail">
+            {{outlet}}
+        </div>
+    </div>
+</script>
+
+<script type="text/x-handlebars" id="project/index">
+    <h3>{{name}}</h3>
+    <dl>
+      <dt>Статус</dt>
+      <dd>{{project_status.name}}</dd>
+      <dt>Направление</dt>
+      <dd>{{project_direction.name}}</dd>
+      <dt>Описание</dt>
+      <dd>{{description}}</dd>
+      <dt>Ожидаемый результат</dt>
+      <dd>{{result}}</dd>
+    </dl>
+</script>
+
+<script type="text/x-handlebars" id="tasks">
+<div role="tabpanel">
+
+  <!-- Nav tabs -->
+  <ul class="nav nav-tabs" role="tablist">
+    <li role="presentation" class="active"><a href="#gant" aria-controls="home" role="tab" data-toggle="tab">Диаграмма Ганта</a></li>
+    <li role="presentation"><a href="#table" aria-controls="profile" role="tab" data-toggle="tab">Таблица</a></li>
+  </ul>
+
+  <!-- Tab panes -->
+  <div class="tab-content">
+    <div role="tabpanel" class="tab-pane fade in active" id="svg-gantt">
+        <div class="col-md-8">
+            <h4>Масштаб</h4>
+            <button type="button" onclick="changeTimeDomain('6hr')" class="btn btn-info btn-sm">6 Часов</button>
+            <button type="button" onclick="changeTimeDomain('1day')" class="btn btn-info btn-sm">1 День</button>
+            <button type="button" onclick="changeTimeDomain('1week')" class="btn btn-info btn-sm">1 Неделя</button>
+            <button type="button" onclick="changeTimeDomain('1month')" class="btn btn-info btn-sm">1 Месяц</button>
+            <button type="button" onclick="changeTimeDomain('2month')" class="btn btn-info btn-sm">2 Месяца</button>
+            <button type="button" onclick="changeTimeDomain('6month')" class="btn btn-info btn-sm">6 Месяцев</button>
+        </div>
+        <div class="col-md-3 col-md-offset-1">
+            <h4 class="text-right">Управление</h4>
+            <button type="button" onclick="addTask()" class="btn btn-success btn-sm">Добавить</button>
+            <button type="button" onclick="removeTask()" class="btn btn-danger btn-sm">Удалить</button>
+        </div>
+        <!-- <button type="button" onclick="changeTimeDomain('1hr')">1 HR</button>
+        <button type="button" onclick="changeTimeDomain('3hr')">3 HR</button>-->
+    </div>
+    <div role="tabpanel" class="tab-pane fade" id="table">
+        <table class="table table-hover">
+          <thead>
+            <tr>
+              <th>#</th>
+              <th>Название</th>
+              <th>Статус</th>
+              <th>Дедлайн</th>
+            </tr>
+          </thead>
+          <tbody>
+            {{#each model}}
+                <tr>
+                  <th scope="row">{{number}}</th>
+                  <td>{{name}}</td>
+                  <td>{{project_status.name}}</td>
+                  <td>{{end_date}}</td>
+                </tr>
+            {{/each}}
+          </tbody>
+        </table>
+    </div>
+  </div>
+</div>
+</script>
+<script type="text/x-handlebars" id="team">
+    <table class="table table-hover">
+      <thead>
+        <tr>
+          <th>#</th>
+          <th>ФИО</th>
+        </tr>
+      </thead>
+      <tbody>
+        {{#each model}}
+            <tr>
+              <th scope="row">{{idx}}</th>
+              <td>{{name}}</td>
+            </tr>
+        {{/each}}
+      </tbody>
+    </table>
+</script>
+<script type="text/x-handlebars" id="resources">
+    <table class="table table-hover">
+      <thead>
+        <tr>
+          <th>#</th>
+          <th>Имя ресурса</th>
+          <th>Значение</th>
+          <th>Ед. изм.</th>
+        </tr>
+      </thead>
+      <tbody>
+        {{#each model}}
+            <tr>
+              <th scope="row">{{idx}}</th>
+              <td>{{owner.name}}Оборудование</td>
+              <td>{{value}}</td>
+              <td>{{resource_type.name}}</td>
+            </tr>
+        {{/each}}
+      </tbody>
+    </table>
+</script>

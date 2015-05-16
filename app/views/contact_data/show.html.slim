@@ -1,3 +1,4 @@
+<<<<<<< HEAD
 p#notice = notice
 
 
@@ -29,3 +30,36 @@ p
 = link_to 'Edit', uni_path(@parent, "contact_data", "edit_contact_data_path", @contact_data)
 '|
 = link_to 'Back', uni_path(@parent, "contact_data", "contact_data_index_path", @contact_data)
+=======
+p#notice = notice
+
+
+p
+   strong Phone:&nbsp;
+
+   = beauty_string @contact_data, "phone"
+
+
+p
+   strong Email:&nbsp;
+
+   = beauty_string @contact_data, "email"
+
+
+p
+   strong Addres:&nbsp;
+
+   = beauty_string @contact_data, "addres"
+
+
+p
+   strong Cdata parent:&nbsp;
+
+   = uni_info @contact_data, "cdata_parent"
+
+
+
+= link_to 'Edit', uni_path(@parent, "contact_data", "edit_contact_data_path", @contact_data)
+'|
+= link_to 'Back', uni_path(@parent, "contact_data", "contact_data_index_path", @contact_data)
+>>>>>>> 5ab5a8da4ba00a34ea1da0744f2d7980a5694bda

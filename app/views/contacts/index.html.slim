@@ -1,3 +1,4 @@
+<<<<<<< HEAD
 - @table = "contacts"
 
 table class="table table-hover table-condensed"
@@ -116,3 +117,123 @@ table class="table table-hover table-condensed"
 br
 
 = link_to 'New Contact', uni_path(@parent, "contacts", "new_contact_path")
+=======
+- @table = "contacts"
+
+table class="table table-hover table-condensed"
+  thead
+    tr
+
+      th Name
+
+      th Contact data
+
+      th User
+
+      th Socnet links
+
+      th Organization
+
+      th Skills
+
+      th Workpost
+
+      th Industries
+
+      th Equips
+
+      th Resoursable
+
+      th Intellect properties
+
+      th Team projects
+
+      th Chief projects
+
+      th Expert projects
+
+      th Member events
+
+      th Project tasks
+
+      th
+
+  tbody
+    - @contacts.each do |contact|
+      tr
+
+
+
+        td = link_to contact.name, contact
+
+
+
+
+        td = uni_info contact, "contact_data"
+
+
+
+        td = uni_info contact, "user"
+
+
+
+        td = uni_info contact, "socnet_links"
+
+
+
+        td = uni_info contact, "organization"
+
+
+
+        td = uni_info contact, "skills"
+
+
+
+        td = uni_info contact, "workpost"
+
+
+
+        td = uni_info contact, "industries"
+
+
+
+        td = uni_info contact, "equips"
+
+
+
+        td = uni_info contact, "resoursable"
+
+
+
+        td = uni_info contact, "intellect_properties"
+
+
+
+        td = uni_info contact, "team_projects"
+
+
+
+        td = uni_info contact, "chief_projects"
+
+
+
+        td = uni_info contact, "expert_projects"
+
+
+
+        td = uni_info contact, "member_events"
+
+
+
+        td = uni_info contact, "project_tasks"
+
+
+        td
+          = link_to 'Edit', uni_path(@parent, "contacts", "edit_contact_path", contact)
+          br
+          = link_to 'Destroy', contact, data: {:confirm => 'Are you sure?'}, :method => :delete
+
+br
+
+= link_to 'New Contact', uni_path(@parent, "contacts", "new_contact_path")
+>>>>>>> 5ab5a8da4ba00a34ea1da0744f2d7980a5694bda

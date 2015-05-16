@@ -1,3 +1,4 @@
+<<<<<<< HEAD
 = simple_nested_form_for @organization, :url => organization_path(@organization) do |f|
   = f.error_notification
 
@@ -34,3 +35,41 @@
 
   .form-actions
     = f.button :submit
+=======
+= simple_nested_form_for @organization, :url => organization_path(@organization) do |f|
+  = f.error_notification
+
+  .form-inputs
+
+
+      = uni_input f, "name", "text_field"
+
+
+
+      = uni_input f, "requisites", "text_field"
+
+
+
+      = uni_ref_input f, "contact_data", @organization.contact_data || @organization.build_contact_data
+
+
+
+      = uni_ref_input f, "link", @organization.link || @organization.build_link
+
+
+
+      = uni_ref_input f, "contacts", @organization.contacts || @organization.build_contacts
+
+
+
+      = uni_ref_input f, "equips", @organization.equips || @organization.build_equips
+
+
+
+      = uni_ref_input f, "subunits", @organization.subunits || @organization.build_subunits
+
+
+
+  .form-actions
+    = f.button :submit
+>>>>>>> 5ab5a8da4ba00a34ea1da0744f2d7980a5694bda

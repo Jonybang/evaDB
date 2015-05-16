@@ -1,3 +1,4 @@
+<<<<<<< HEAD
 <div class="row">
     <div class="col-md-offset-1 col-md-10">
         <div class="row nav-container">
@@ -13,4 +14,21 @@
             {{outlet}}
         </div>
     </div>
+=======
+<div class="row">
+    <div class="col-md-offset-1 col-md-10">
+        <div class="row nav-container">
+            <ul class="nav nav-pills nav-justified">
+                {{#link-to "main" tagName="li" href=false role="presentation"}}
+                <a {{bind-attr href="view.href"}}>
+                Личный кабинет
+                </a>
+                {{/link-to}}
+            </ul>
+        </div>
+        <div class="row">
+            {{outlet}}
+        </div>
+    </div>
+>>>>>>> 5ab5a8da4ba00a34ea1da0744f2d7980a5694bda
 </div>

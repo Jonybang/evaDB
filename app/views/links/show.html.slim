@@ -1,3 +1,4 @@
+<<<<<<< HEAD
 p#notice = notice
 
 
@@ -23,3 +24,30 @@ p
 = link_to 'Edit', uni_path(@parent, "links", "edit_link_path", @link)
 '|
 = link_to 'Back', uni_path(@parent, "links", "links_path", @link)
+=======
+p#notice = notice
+
+
+p
+   strong Url:&nbsp;
+
+   = beauty_string @link, "url"
+
+
+p
+   strong Note:&nbsp;
+
+   = beauty_string @link, "note"
+
+
+p
+   strong Linkable:&nbsp;
+
+   = uni_info @link, "linkable"
+
+
+
+= link_to 'Edit', uni_path(@parent, "links", "edit_link_path", @link)
+'|
+= link_to 'Back', uni_path(@parent, "links", "links_path", @link)
+>>>>>>> 5ab5a8da4ba00a34ea1da0744f2d7980a5694bda

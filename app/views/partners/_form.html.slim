@@ -1,3 +1,4 @@
+<<<<<<< HEAD
 = simple_nested_form_for @partner, :url => partner_path(@partner) do |f|
   = f.error_notification
 
@@ -82,3 +83,89 @@
 
   .form-actions
     = f.button :submit
+=======
+= simple_nested_form_for @partner, :url => partner_path(@partner) do |f|
+  = f.error_notification
+
+  .form-inputs
+
+
+      = uni_input f, "name", "text_field"
+
+
+
+      = uni_ref_input f, "contact_data", @partner.contact_data || @partner.build_contact_data
+
+
+
+      = uni_ref_input f, "user", @partner.user || @partner.build_user
+
+
+
+      = uni_ref_input f, "socnet_links", @partner.socnet_links || @partner.build_socnet_links
+
+
+
+      = uni_ref_input f, "organization", @partner.organization || @partner.build_organization
+
+
+
+      = uni_ref_input f, "skills", @partner.skills || @partner.build_skills
+
+
+
+      = uni_ref_input f, "workpost", @partner.workpost || @partner.build_workpost
+
+
+
+      = uni_ref_input f, "industries", @partner.industries || @partner.build_industries
+
+
+
+      = uni_ref_input f, "equips", @partner.equips || @partner.build_equips
+
+
+
+      = uni_ref_input f, "resoursable", @partner.resoursable || @partner.build_resoursable
+
+
+
+      = uni_ref_input f, "intellect_properties", @partner.intellect_properties || @partner.build_intellect_properties
+
+
+
+      = uni_ref_input f, "team_projects", @partner.team_projects || @partner.build_team_projects
+
+
+
+      = uni_ref_input f, "chief_projects", @partner.chief_projects || @partner.build_chief_projects
+
+
+
+      = uni_ref_input f, "expert_projects", @partner.expert_projects || @partner.build_expert_projects
+
+
+
+      = uni_ref_input f, "member_events", @partner.member_events || @partner.build_member_events
+
+
+
+      = uni_ref_input f, "project_tasks", @partner.project_tasks || @partner.build_project_tasks
+
+
+
+      = uni_input f, "terms", "text_area"
+
+
+
+      = uni_ref_input f, "sponsor_events", @partner.sponsor_events || @partner.build_sponsor_events
+
+
+
+      = uni_ref_input f, "expert_events", @partner.expert_events || @partner.build_expert_events
+
+
+
+  .form-actions
+    = f.button :submit
+>>>>>>> 5ab5a8da4ba00a34ea1da0744f2d7980a5694bda

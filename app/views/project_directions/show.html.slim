@@ -1,3 +1,4 @@
+<<<<<<< HEAD
 p#notice = notice
 
 
@@ -23,3 +24,30 @@ p
 = link_to 'Edit', uni_path(@parent, "project_directions", "edit_project_direction_path", @project_direction)
 '|
 = link_to 'Back', uni_path(@parent, "project_directions", "project_directions_path", @project_direction)
+=======
+p#notice = notice
+
+
+p
+   strong Name:&nbsp;
+
+   = beauty_string @project_direction, "name"
+
+
+p
+   strong Projects:&nbsp;
+
+   = uni_info @project_direction, "projects"
+
+
+p
+   strong Finance sources:&nbsp;
+
+   = uni_info @project_direction, "finance_sources"
+
+
+
+= link_to 'Edit', uni_path(@parent, "project_directions", "edit_project_direction_path", @project_direction)
+'|
+= link_to 'Back', uni_path(@parent, "project_directions", "project_directions_path", @project_direction)
+>>>>>>> 5ab5a8da4ba00a34ea1da0744f2d7980a5694bda

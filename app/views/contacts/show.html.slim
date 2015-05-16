@@ -1,3 +1,4 @@
+<<<<<<< HEAD
 p#notice = notice
 
 
@@ -101,3 +102,108 @@ p
 = link_to 'Edit', uni_path(@parent, "contacts", "edit_contact_path", @contact)
 '|
 = link_to 'Back', uni_path(@parent, "contacts", "contacts_path", @contact)
+=======
+p#notice = notice
+
+
+p
+   strong Name:&nbsp;
+
+   = beauty_string @contact, "name"
+
+
+p
+   strong Contact data:&nbsp;
+
+   = uni_info @contact, "contact_data"
+
+
+p
+   strong User:&nbsp;
+
+   = uni_info @contact, "user"
+
+
+p
+   strong Socnet links:&nbsp;
+
+   = uni_info @contact, "socnet_links"
+
+
+p
+   strong Organization:&nbsp;
+
+   = uni_info @contact, "organization"
+
+
+p
+   strong Skills:&nbsp;
+
+   = uni_info @contact, "skills"
+
+
+p
+   strong Workpost:&nbsp;
+
+   = uni_info @contact, "workpost"
+
+
+p
+   strong Industries:&nbsp;
+
+   = uni_info @contact, "industries"
+
+
+p
+   strong Equips:&nbsp;
+
+   = uni_info @contact, "equips"
+
+
+p
+   strong Resoursable:&nbsp;
+
+   = uni_info @contact, "resoursable"
+
+
+p
+   strong Intellect properties:&nbsp;
+
+   = uni_info @contact, "intellect_properties"
+
+
+p
+   strong Team projects:&nbsp;
+
+   = uni_info @contact, "team_projects"
+
+
+p
+   strong Chief projects:&nbsp;
+
+   = uni_info @contact, "chief_projects"
+
+
+p
+   strong Expert projects:&nbsp;
+
+   = uni_info @contact, "expert_projects"
+
+
+p
+   strong Member events:&nbsp;
+
+   = uni_info @contact, "member_events"
+
+
+p
+   strong Project tasks:&nbsp;
+
+   = uni_info @contact, "project_tasks"
+
+
+
+= link_to 'Edit', uni_path(@parent, "contacts", "edit_contact_path", @contact)
+'|
+= link_to 'Back', uni_path(@parent, "contacts", "contacts_path", @contact)
+>>>>>>> 5ab5a8da4ba00a34ea1da0744f2d7980a5694bda

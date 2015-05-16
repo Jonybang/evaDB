@@ -1,3 +1,4 @@
+<<<<<<< HEAD
 - @table = "papers"
 
 table class="table table-hover table-condensed"
@@ -32,3 +33,39 @@ table class="table table-hover table-condensed"
 br
 
 = link_to 'New Paper', uni_path(@parent, "papers", "new_paper_path")
+=======
+- @table = "papers"
+
+table class="table table-hover table-condensed"
+  thead
+    tr
+
+      th Name
+
+      th Scientist
+
+      th
+
+  tbody
+    - @papers.each do |paper|
+      tr
+
+
+
+        td = link_to paper.name, paper
+
+
+
+
+        td = uni_info paper, "scientist"
+
+
+        td
+          = link_to 'Edit', uni_path(@parent, "papers", "edit_paper_path", paper)
+          br
+          = link_to 'Destroy', paper, data: {:confirm => 'Are you sure?'}, :method => :delete
+
+br
+
+= link_to 'New Paper', uni_path(@parent, "papers", "new_paper_path")
+>>>>>>> 5ab5a8da4ba00a34ea1da0744f2d7980a5694bda

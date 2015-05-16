@@ -1,3 +1,4 @@
+<<<<<<< HEAD
 - @table = "resource_types"
 
 table class="table table-hover table-condensed"
@@ -32,3 +33,39 @@ table class="table table-hover table-condensed"
 br
 
 = link_to 'New Resource type', uni_path(@parent, "resource_types", "new_resource_type_path")
+=======
+- @table = "resource_types"
+
+table class="table table-hover table-condensed"
+  thead
+    tr
+
+      th Name
+
+      th Resources
+
+      th
+
+  tbody
+    - @resource_types.each do |resource_type|
+      tr
+
+
+
+        td = link_to resource_type.name, resource_type
+
+
+
+
+        td = uni_info resource_type, "resources"
+
+
+        td
+          = link_to 'Edit', uni_path(@parent, "resource_types", "edit_resource_type_path", resource_type)
+          br
+          = link_to 'Destroy', resource_type, data: {:confirm => 'Are you sure?'}, :method => :delete
+
+br
+
+= link_to 'New Resource type', uni_path(@parent, "resource_types", "new_resource_type_path")
+>>>>>>> 5ab5a8da4ba00a34ea1da0744f2d7980a5694bda

@@ -1,3 +1,4 @@
+<<<<<<< HEAD
 - @table = "project_tasks"
 
 table class="table table-hover table-condensed"
@@ -82,3 +83,89 @@ table class="table table-hover table-condensed"
 br
 
 = link_to 'New Project task', uni_path(@parent, "project_tasks", "new_project_task_path")
+=======
+- @table = "project_tasks"
+
+table class="table table-hover table-condensed"
+  thead
+    tr
+
+      th Name
+
+      th Number
+
+      th Begin date
+
+      th End date
+
+      th Project status
+
+      th Tehnical task
+
+      th Project
+
+      th Responsible
+
+      th Equips
+
+      th
+
+  tbody
+    - @project_tasks.each do |project_task|
+      tr
+
+
+
+        td = link_to project_task.name, project_task
+
+
+
+
+
+        td = beauty_string project_task, "number", "min"
+
+
+
+
+
+        td = beauty_string project_task, "begin_date", "min"
+
+
+
+
+
+        td = beauty_string project_task, "end_date", "min"
+
+
+
+
+        td = uni_info project_task, "project_status"
+
+
+
+
+        td = beauty_string project_task, "tehnical_task", "min"
+
+
+
+
+        td = uni_info project_task, "project"
+
+
+
+        td = uni_info project_task, "responsible"
+
+
+
+        td = uni_info project_task, "equips"
+
+
+        td
+          = link_to 'Edit', uni_path(@parent, "project_tasks", "edit_project_task_path", project_task)
+          br
+          = link_to 'Destroy', project_task, data: {:confirm => 'Are you sure?'}, :method => :delete
+
+br
+
+= link_to 'New Project task', uni_path(@parent, "project_tasks", "new_project_task_path")
+>>>>>>> 5ab5a8da4ba00a34ea1da0744f2d7980a5694bda

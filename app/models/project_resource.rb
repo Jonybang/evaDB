@@ -1,3 +1,4 @@
+<<<<<<< HEAD
 class ProjectResource
   include Mongoid::Document
 
@@ -14,3 +15,21 @@ class ProjectResource
 
   belongs_to :resoursable, polymorphic: true, :dependent => :destroy
 end
+=======
+class ProjectResource
+  include Mongoid::Document
+
+  def name
+    self.value
+  end
+  def owner_name
+    self.owner.name
+  end
+  belongs_to :resource_type
+  field :value, type: String
+
+  belongs_to :project
+
+  belongs_to :resoursable, polymorphic: true, :dependent => :destroy
+end
+>>>>>>> 5ab5a8da4ba00a34ea1da0744f2d7980a5694bda

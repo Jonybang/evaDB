@@ -1,3 +1,4 @@
+<<<<<<< HEAD
 p#notice = notice
 
 
@@ -35,3 +36,42 @@ p
 = link_to 'Edit', uni_path(@parent, "universities", "edit_university_path", @university)
 '|
 = link_to 'Back', uni_path(@parent, "universities", "universities_path", @university)
+=======
+p#notice = notice
+
+
+p
+   strong Name:&nbsp;
+
+   = beauty_string @university, "name"
+
+
+p
+   strong Contact data:&nbsp;
+
+   = uni_info @university, "contact_data"
+
+
+p
+   strong Link:&nbsp;
+
+   = uni_info @university, "link"
+
+
+p
+   strong Faculties:&nbsp;
+
+   = uni_info @university, "faculties"
+
+
+p
+   strong Students:&nbsp;
+
+   = uni_info @university, "students"
+
+
+
+= link_to 'Edit', uni_path(@parent, "universities", "edit_university_path", @university)
+'|
+= link_to 'Back', uni_path(@parent, "universities", "universities_path", @university)
+>>>>>>> 5ab5a8da4ba00a34ea1da0744f2d7980a5694bda

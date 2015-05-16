@@ -1,3 +1,4 @@
+<<<<<<< HEAD
 p#notice = notice
 
 
@@ -17,3 +18,24 @@ p
 = link_to 'Edit', uni_path(@parent, "ranks", "edit_rank_path", @rank)
 '|
 = link_to 'Back', uni_path(@parent, "ranks", "ranks_path", @rank)
+=======
+p#notice = notice
+
+
+p
+   strong Name:&nbsp;
+
+   = beauty_string @rank, "name"
+
+
+p
+   strong Scientists:&nbsp;
+
+   = uni_info @rank, "scientists"
+
+
+
+= link_to 'Edit', uni_path(@parent, "ranks", "edit_rank_path", @rank)
+'|
+= link_to 'Back', uni_path(@parent, "ranks", "ranks_path", @rank)
+>>>>>>> 5ab5a8da4ba00a34ea1da0744f2d7980a5694bda
