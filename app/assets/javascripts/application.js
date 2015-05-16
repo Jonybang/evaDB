@@ -36,18 +36,3 @@ $(document).on("ready page:load", function(){
         }
     });
 });
-
-//function toggleLeftMenu (el){
-//    var $glyph = $(el).find('span.glyphicon');
-//    var $leftHide = $('.left-hide');
-//    var $rightContainer = $('.right-container');
-//    if($leftHide.css('display') != "none"){
-//        $glyph.removeClass('glyphicon-chevron-left').addClass('glyphicon-chevron-right');
-//        $leftHide.hide();
-//        $rightContainer.removeClass('col-md-7').addClass('col-md-11');
-//    } else {
-//        $glyph.removeClass('glyphicon-chevron-right').addClass('glyphicon-chevron-left');
-//        $leftHide.show();
-//        $rightContainer.removeClass('col-md-11').addClass('col-md-7');
-//    }
-//}
