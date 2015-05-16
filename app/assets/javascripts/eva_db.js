@@ -10,6 +10,7 @@
 //= require ./router
 //= require_self
 
+
 var api_url = "http://192.168.153.132:3000/";
 
 EvaDB.Router.map(function() {
