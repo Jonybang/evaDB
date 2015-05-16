@@ -1,9 +1,16 @@
-= simple_nested_form_for(@workpost) do |f|
+= simple_nested_form_for @workpost, :url => workpost_path(@workpost) do |f|
   = f.error_notification
 
   .form-inputs
-      = uni_input f, "name"
+
+
+      = uni_input f, "name", "text_field"
+
+
+
       = uni_ref_input f, "contacts", @workpost.contacts || @workpost.build_contacts
+
+
 
   .form-actions
     = f.button :submit

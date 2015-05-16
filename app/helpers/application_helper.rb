@@ -44,7 +44,7 @@ module ApplicationHelper
    end
 
    def uni_ref_input(form, name, obj = {})
-      @nesteded = ['faculties', 'specialties', 'project_tasks', 'socnet_links']
+      @nesteded = ['faculties', 'specialties', 'project_tasks', 'socnet_links', 'resources']
 
       @refference = form.object.class.reflect_on_association(name.to_sym).macro.to_s
       if (@refference  == 'embeds_one' || @refference  == 'has_one')
@@ -52,7 +52,7 @@ module ApplicationHelper
       elsif (@refference  == 'embeds_many' || @nesteded.detect {|i| i == name } )
          return ('<div class="well well-sm">' + form.fields_for(name.to_sym, obj) + form.link_to_add("Add a " + name, name.to_sym) + '</div>').html_safe
       else
-         return form.association(name.to_sym, include_blank: true)
+         return form.association(name.to_sym, include_blank: true, input_html: {class: "eva-select"})
       end
    end
 
@@ -77,7 +77,7 @@ module ApplicationHelper
       end
    end
 
-   def uni_input(form, name)
+   def uni_input(form, name, type="input")
 
       if (name == "phone")
          return form.input(name.to_sym, input_html: {class: 'bfh-phone', minlength: 16, type: 'tel', data: {format: '8 (ddd) ddd-dddd'}})
@@ -87,6 +87,11 @@ module ApplicationHelper
          return form.input(name.to_sym, input_html: {class: 'droplist date', type: 'date'})
       elsif (name == "url" || name == "doclink" )
          return form.input(name.to_sym, input_html: {type: 'url'})
+      elsif (type == "text_area")
+         return form.input(name.to_sym, as: "text")
+      elsif (name == "color")
+         #return select form.object.name.downcase, name.to_sym, enum_option_pairs(form.object.class, name.to_sym)
+         return form.input(name.to_sym,:collection => enum_option_pairs(form.object.class, name.to_sym),:include_blank => true)
       else
          return form.input(name.to_sym)
       end
@@ -144,6 +149,17 @@ module ApplicationHelper
 
    def project_task_path(project_task)
       return project_project_task_path(project_task.project, project_task)
+   end
+   def contact_path(contact)
+     if contact.is_a?(Student)
+       return student_path(contact)
+     elsif contact.is_a?(Partner)
+       return partner_path(contact)
+     elsif contact.is_a?(Scientist)
+       return scientist_path(contact)
+     else
+       return contact_url(contact)
+     end
    end
    def uni_path(employer, name, method_name, obj = {})
       action = nil

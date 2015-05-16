@@ -10,10 +10,11 @@ development:
       # of host:port pairs. (required)
       hosts:
       #  - 88.198.18.179:27017
-        - 192.168.153.132:27017
-      username: jonybang
+      #  - 192.168.153.132:27017
+        - localhost:27017
+      #username: jonybang
       #password: sAKJPP4FNpNGRvSXWeZsaDjk83SX4s
-      password: Jb192837
+      #password: Jb192837
       options:
         # Change the default write concern. (default = { w: 1 })
         # write:
@@ -69,5 +70,13 @@ test:
         read: primary
         # In the test environment we lower the retries and retry interval to
         # low amounts for fast failures.
+        max_retries: 1
+        retry_interval: 0
+production:
+  sessions:
+    default:
+      uri: <%= ENV['MONGOHQ_URL'] %>
+      options:
+        consistency: :strong
         max_retries: 1
         retry_interval: 0

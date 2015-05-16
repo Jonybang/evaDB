@@ -1,4 +1,4 @@
-class WorkpostsController < InheritedResources::Base
+class WorkpostsController < ApplicationController
 
   private
 

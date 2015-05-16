@@ -1,4 +1,4 @@
-class FinanceSourcesController < InheritedResources::Base
+class FinanceSourcesController < ApplicationController
 
   private
 

@@ -1,11 +1,18 @@
 p#notice = notice
 
+
 p
    strong Name:&nbsp;
+
    = beauty_string @industry, "name"
+
+
 p
    strong Contacts:&nbsp;
+
    = uni_info @industry, "contacts"
+
+
 
 = link_to 'Edit', uni_path(@parent, "industries", "edit_industry_path", @industry)
 '|

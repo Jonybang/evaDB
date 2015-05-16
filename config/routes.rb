@@ -1,6 +1,21 @@
 Rails.application.routes.draw do
 
-  get 'manager/Projects'
+  resources :resource_types
+
+  get "log_out" => "sessions#destroy", :as => "log_out"
+  get "log_in" => "sessions#new", :as => "log_in"
+  get "sign_up" => "users#new", :as => "sign_up"
+  root :to => "users#new"
+  resources :users
+  resources :sessions
+
+  resources :project_resources
+
+  resources :resources
+
+  get '/manager/' => 'manager#index'
+  get 'manager/projects'
+  get 'manager/cabinet', :as => "cabinet"
 
   resources :partners
 

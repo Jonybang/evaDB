@@ -3,6 +3,8 @@ class Contact
   include Mongoid::Timestamps
   field :name, type: String
 
+  belongs_to :user
+
   embeds_one :contact_data, as: :cdata_parent
   accepts_nested_attributes_for :contact_data
 
@@ -11,6 +13,8 @@ class Contact
 
   belongs_to :organization, inverse_of: :contacts, class_name: "Organization"
   belongs_to :workpost
+
+  belongs_to :resoursable, class_name: "ProjectResource", polymorphic: true, :dependent => :destroy
 
   has_many :equips, class_name: "Equip"
   accepts_nested_attributes_for :equips

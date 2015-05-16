@@ -1,9 +1,16 @@
-= simple_nested_form_for(@intellect_type) do |f|
+= simple_nested_form_for @intellect_type, :url => intellect_type_path(@intellect_type) do |f|
   = f.error_notification
 
   .form-inputs
-      = uni_input f, "name"
+
+
+      = uni_input f, "name", "text_field"
+
+
+
       = uni_ref_input f, "intellect_properties", @intellect_type.intellect_properties || @intellect_type.build_intellect_properties
+
+
 
   .form-actions
     = f.button :submit

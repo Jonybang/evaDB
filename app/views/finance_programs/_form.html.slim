@@ -1,10 +1,20 @@
-= simple_nested_form_for(@finance_program) do |f|
+= simple_nested_form_for @finance_program, :url => finance_program_path(@finance_program) do |f|
   = f.error_notification
 
   .form-inputs
-      = uni_input f, "name"
-      = uni_input f, "terms"
+
+
+      = uni_input f, "name", "text_field"
+
+
+
+      = uni_input f, "terms", "text_area"
+
+
+
       = uni_ref_input f, "finance_source", @finance_program.finance_source || @finance_program.build_finance_source
+
+
 
   .form-actions
     = f.button :submit

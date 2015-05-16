@@ -1,4 +1,4 @@
-class ProjectDirectionsController < InheritedResources::Base
+class ProjectDirectionsController < ApplicationController
 
   private
 

@@ -1,4 +1,4 @@
-class ScientistsController < InheritedResources::Base
+class ScientistsController < ApplicationController
 
   private
 

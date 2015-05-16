@@ -1,10 +1,20 @@
-= simple_nested_form_for(@socnet) do |f|
+= simple_nested_form_for @socnet, :url => socnet_path(@socnet) do |f|
   = f.error_notification
 
   .form-inputs
-      = uni_input f, "name"
-      = uni_input f, "url"
+
+
+      = uni_input f, "name", "text_field"
+
+
+
+      = uni_input f, "url", "text_field"
+
+
+
       = uni_ref_input f, "socnet_links", @socnet.socnet_links || @socnet.build_socnet_links
+
+
 
   .form-actions
     = f.button :submit

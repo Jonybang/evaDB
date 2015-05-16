@@ -1,12 +1,28 @@
-= simple_nested_form_for(@event_document) do |f|
+= simple_nested_form_for @event_document, :url => event_document_path(@event_document) do |f|
   = f.error_notification
 
   .form-inputs
-      = uni_input f, "name"
-      = uni_input f, "comments"
-      = uni_input f, "to_do"
-      = uni_input f, "url"
+
+
+      = uni_input f, "name", "text_field"
+
+
+
+      = uni_input f, "comments", "text_area"
+
+
+
+      = uni_input f, "to_do", "text_area"
+
+
+
+      = uni_input f, "url", "text_field"
+
+
+
       = uni_ref_input f, "event", @event_document.event || @event_document.build_event
+
+
 
   .form-actions
     = f.button :submit

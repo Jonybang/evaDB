@@ -1,4 +1,4 @@
-class DegreesController < InheritedResources::Base
+class DegreesController < ApplicationController
 
   private
 

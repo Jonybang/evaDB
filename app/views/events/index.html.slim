@@ -3,23 +3,53 @@
 table class="table table-hover table-condensed"
   thead
     tr
+
       th Name
+
       th Date
+
       th Members
+
       th Sponsors
+
       th Experts
+
       th Documents
+
       th
 
   tbody
     - @events.each do |event|
       tr
+
+
+
         td = link_to event.name, event
+
+
+
+
+
         td = beauty_string event, "date", "min"
+
+
+
+
         td = uni_info event, "members"
+
+
+
         td = uni_info event, "sponsors"
+
+
+
         td = uni_info event, "experts"
+
+
+
         td = uni_info event, "documents"
+
+
         td
           = link_to 'Edit', uni_path(@parent, "events", "edit_event_path", event)
           br

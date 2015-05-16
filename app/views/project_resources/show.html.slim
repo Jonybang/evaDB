@@ -1,0 +1,37 @@
+p#notice = notice
+
+
+p
+   strong Name:&nbsp;
+
+   = beauty_string @project_resource, "name"
+
+
+p
+   strong Value:&nbsp;
+
+   = beauty_string @project_resource, "value"
+
+
+p
+   strong Project:&nbsp;
+
+   = uni_info @project_resource, "project"
+
+
+p
+   strong Resoursable:&nbsp;
+
+   = uni_info @project_resource, "resoursable"
+
+
+p
+   strong Resource type:&nbsp;
+
+   = uni_info @project_resource, "resource_type"
+
+
+
+= link_to 'Edit', uni_path(@parent, "project_resources", "edit_project_resource_path", @project_resource)
+'|
+= link_to 'Back', uni_path(@parent, "project_resources", "project_resources_path", @project_resource)

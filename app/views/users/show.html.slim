@@ -1,0 +1,19 @@
+p#notice = notice
+
+
+p
+   strong Email:&nbsp;
+
+   = beauty_string @user, "email"
+
+
+p
+   strong Encrypt password:&nbsp;
+
+   = beauty_string @user, "encrypt_password"
+
+
+
+= link_to 'Edit', uni_path(@parent, "users", "edit_user_path", @user)
+'|
+= link_to 'Back', uni_path(@parent, "users", "users_path", @user)

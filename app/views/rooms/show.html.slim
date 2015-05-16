@@ -1,14 +1,24 @@
 p#notice = notice
 
+
 p
    strong Name:&nbsp;
+
    = beauty_string @room, "name"
+
+
 p
    strong Subunit:&nbsp;
+
    = uni_info @room, "subunit"
+
+
 p
    strong Equips:&nbsp;
-   = uni_info @room, "equips"
+
+   = beauty_string @room, "equips"
+
+
 
 = link_to 'Edit', uni_path(@parent, "rooms", "edit_room_path", @room)
 '|

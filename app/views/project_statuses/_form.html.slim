@@ -1,10 +1,24 @@
-= simple_nested_form_for(@project_status) do |f|
+= simple_nested_form_for @project_status, :url => project_status_path(@project_status) do |f|
   = f.error_notification
 
   .form-inputs
-      = uni_input f, "name"
+
+
+      = uni_input f, "name", "text_field"
+
+
+
+      = uni_input f, "color", "text_field"
+
+
+
       = uni_ref_input f, "projects", @project_status.projects || @project_status.build_projects
+
+
+
       = uni_ref_input f, "project_tasks", @project_status.project_tasks || @project_status.build_project_tasks
+
+
 
   .form-actions
     = f.button :submit

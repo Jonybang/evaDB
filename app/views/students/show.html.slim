@@ -1,56 +1,126 @@
 p#notice = notice
 
+
 p
    strong Name:&nbsp;
+
    = beauty_string @student, "name"
+
+
 p
    strong Contact data:&nbsp;
+
    = uni_info @student, "contact_data"
+
+
+p
+   strong User:&nbsp;
+
+   = uni_info @student, "user"
+
+
 p
    strong Socnet links:&nbsp;
+
    = uni_info @student, "socnet_links"
+
+
 p
    strong Organization:&nbsp;
+
    = uni_info @student, "organization"
+
+
 p
    strong Skills:&nbsp;
+
    = uni_info @student, "skills"
+
+
 p
    strong Workpost:&nbsp;
+
    = uni_info @student, "workpost"
+
+
 p
    strong Industries:&nbsp;
+
    = uni_info @student, "industries"
+
+
 p
    strong Equips:&nbsp;
+
    = uni_info @student, "equips"
+
+
+p
+   strong Resoursable:&nbsp;
+
+   = uni_info @student, "resoursable"
+
+
 p
    strong Enter year:&nbsp;
+
    = beauty_string @student, "enter_year"
+
+
 p
    strong University:&nbsp;
+
    = uni_info @student, "university"
+
+
 p
    strong Faculty:&nbsp;
+
    = uni_info @student, "faculty"
+
+
 p
    strong Specialty:&nbsp;
+
    = uni_info @student, "specialty"
+
+
+p
+   strong Intellect properties:&nbsp;
+
+   = uni_info @student, "intellect_properties"
+
+
 p
    strong Team projects:&nbsp;
+
    = uni_info @student, "team_projects"
+
+
 p
    strong Chief projects:&nbsp;
+
    = uni_info @student, "chief_projects"
+
+
 p
    strong Expert projects:&nbsp;
+
    = uni_info @student, "expert_projects"
+
+
 p
    strong Member events:&nbsp;
+
    = uni_info @student, "member_events"
+
+
 p
    strong Project tasks:&nbsp;
+
    = uni_info @student, "project_tasks"
+
+
 
 = link_to 'Edit', uni_path(@parent, "students", "edit_student_path", @student)
 '|

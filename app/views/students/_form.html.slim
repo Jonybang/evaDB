@@ -1,24 +1,88 @@
-= simple_nested_form_for(@student) do |f|
+= simple_nested_form_for @student, :url => student_path(@student) do |f|
   = f.error_notification
 
   .form-inputs
-      = uni_input f, "name"
+
+
+      = uni_input f, "name", "text_field"
+
+
+
       = uni_ref_input f, "contact_data", @student.contact_data || @student.build_contact_data
+
+
+
+      = uni_ref_input f, "user", @student.user || @student.build_user
+
+
+
       = uni_ref_input f, "socnet_links", @student.socnet_links || @student.build_socnet_links
+
+
+
       = uni_ref_input f, "organization", @student.organization || @student.build_organization
+
+
+
       = uni_ref_input f, "skills", @student.skills || @student.build_skills
+
+
+
       = uni_ref_input f, "workpost", @student.workpost || @student.build_workpost
+
+
+
       = uni_ref_input f, "industries", @student.industries || @student.build_industries
+
+
+
       = uni_ref_input f, "equips", @student.equips || @student.build_equips
-      = uni_input f, "enter_year"
+
+
+
+      = uni_ref_input f, "resoursable", @student.resoursable || @student.build_resoursable
+
+
+
+      = uni_input f, "enter_year", "date_select"
+
+
+
       = uni_ref_input f, "university", @student.university || @student.build_university
+
+
+
       = uni_ref_input f, "faculty", @student.faculty || @student.build_faculty
+
+
+
       = uni_ref_input f, "specialty", @student.specialty || @student.build_specialty
+
+
+
+      = uni_ref_input f, "intellect_properties", @student.intellect_properties || @student.build_intellect_properties
+
+
+
       = uni_ref_input f, "team_projects", @student.team_projects || @student.build_team_projects
+
+
+
       = uni_ref_input f, "chief_projects", @student.chief_projects || @student.build_chief_projects
+
+
+
       = uni_ref_input f, "expert_projects", @student.expert_projects || @student.build_expert_projects
+
+
+
       = uni_ref_input f, "member_events", @student.member_events || @student.build_member_events
+
+
+
       = uni_ref_input f, "project_tasks", @student.project_tasks || @student.build_project_tasks
+
+
 
   .form-actions
     = f.button :submit

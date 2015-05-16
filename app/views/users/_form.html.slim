@@ -1,0 +1,16 @@
+= simple_nested_form_for(@user) do |f|
+  = f.error_notification
+
+  .form-inputs
+
+
+      = uni_input f, "email"
+
+
+
+      = uni_input f, "encrypt_password"
+
+
+
+  .form-actions
+    = f.button :submit

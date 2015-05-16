@@ -1,9 +1,16 @@
-= simple_nested_form_for(@rank) do |f|
+= simple_nested_form_for @rank, :url => rank_path(@rank) do |f|
   = f.error_notification
 
   .form-inputs
-      = uni_input f, "name"
+
+
+      = uni_input f, "name", "text_field"
+
+
+
       = uni_ref_input f, "scientists", @rank.scientists || @rank.build_scientists
+
+
 
   .form-actions
     = f.button :submit

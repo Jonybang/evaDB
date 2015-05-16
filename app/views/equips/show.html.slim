@@ -1,35 +1,72 @@
 p#notice = notice
 
+
 p
    strong Name:&nbsp;
+
    = beauty_string @equip, "name"
+
+
 p
    strong Model:&nbsp;
+
    = beauty_string @equip, "model"
+
+
 p
    strong Description:&nbsp;
+
    = beauty_string @equip, "description"
+
+
 p
    strong Parametres:&nbsp;
+
    = beauty_string @equip, "parametres"
+
+
 p
    strong Responsible:&nbsp;
+
    = uni_info @equip, "responsible"
+
+
 p
    strong Organization:&nbsp;
+
    = uni_info @equip, "organization"
+
+
 p
    strong Subunit:&nbsp;
+
    = uni_info @equip, "subunit"
+
+
 p
    strong Room:&nbsp;
+
    = uni_info @equip, "room"
+
+
 p
    strong Equip status:&nbsp;
+
    = uni_info @equip, "equip_status"
+
+
 p
    strong Project tasks:&nbsp;
+
    = uni_info @equip, "project_tasks"
+
+
+p
+   strong Project resources:&nbsp;
+
+   = uni_info @equip, "project_resources"
+
+
 
 = link_to 'Edit', uni_path(@parent, "equips", "edit_equip_path", @equip)
 '|

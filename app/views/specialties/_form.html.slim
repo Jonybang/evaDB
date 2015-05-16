@@ -1,12 +1,28 @@
-= simple_nested_form_for(@specialty) do |f|
+= simple_nested_form_for @specialty, :url => specialty_path(@specialty) do |f|
   = f.error_notification
 
   .form-inputs
-      = uni_input f, "name"
+
+
+      = uni_input f, "name", "text_field"
+
+
+
       = uni_ref_input f, "contact_data", @specialty.contact_data || @specialty.build_contact_data
+
+
+
       = uni_ref_input f, "link", @specialty.link || @specialty.build_link
+
+
+
       = uni_ref_input f, "faculty", @specialty.faculty || @specialty.build_faculty
+
+
+
       = uni_ref_input f, "students", @specialty.students || @specialty.build_students
+
+
 
   .form-actions
     = f.button :submit

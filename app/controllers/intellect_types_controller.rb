@@ -1,4 +1,4 @@
-class IntellectTypesController < InheritedResources::Base
+class IntellectTypesController < ApplicationController
 
   private
 

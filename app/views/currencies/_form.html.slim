@@ -1,9 +1,16 @@
-= simple_nested_form_for(@currency) do |f|
+= simple_nested_form_for @currency, :url => currency_path(@currency) do |f|
   = f.error_notification
 
   .form-inputs
-      = uni_input f, "name"
+
+
+      = uni_input f, "name", "text_field"
+
+
+
       = uni_ref_input f, "finance_sources", @currency.finance_sources || @currency.build_finance_sources
+
+
 
   .form-actions
     = f.button :submit

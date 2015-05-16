@@ -7,6 +7,8 @@ require "action_controller/railtie"
 require "action_mailer/railtie"
 require "action_view/railtie"
 require "sprockets/railtie"
+require 'rabl'
+require 'simple_enum/mongoid'
 # require "rails/test_unit/railtie"
 
 # Require the gems listed in Gemfile, including any gems
@@ -17,6 +19,13 @@ module EvaDB
   class Application < Rails::Application
     config.generators do |g|
       g.scaffold_controller "scaffold_controller"
+      g.jbuilder false
+    end
+    config.middleware.use ActionDispatch::Flash
+
+    Rabl.configure do |config|
+      config.include_json_root = false
+      config.include_child_root = false
     end
     # Settings in config/environments/* take precedence over those specified here.
     # Application configuration should go into files in config/initializers

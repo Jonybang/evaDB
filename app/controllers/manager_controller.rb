@@ -1,4 +1,8 @@
 class ManagerController < ApplicationController
-  def Projects
+  def index
+    render layout: "application"
+  end
+  def cabinet
+    render layout: "application"
   end
 end

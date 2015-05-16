@@ -1,4 +1,4 @@
-class StudentsController < InheritedResources::Base
+class StudentsController < ApplicationController
 
   private
 

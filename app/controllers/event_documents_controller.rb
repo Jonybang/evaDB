@@ -1,4 +1,4 @@
-class EventDocumentsController < InheritedResources::Base
+class EventDocumentsController < ApplicationController
 
   private
 

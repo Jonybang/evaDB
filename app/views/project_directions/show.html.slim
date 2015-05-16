@@ -1,14 +1,24 @@
 p#notice = notice
 
+
 p
    strong Name:&nbsp;
+
    = beauty_string @project_direction, "name"
+
+
 p
    strong Projects:&nbsp;
+
    = uni_info @project_direction, "projects"
+
+
 p
    strong Finance sources:&nbsp;
+
    = uni_info @project_direction, "finance_sources"
+
+
 
 = link_to 'Edit', uni_path(@parent, "project_directions", "edit_project_direction_path", @project_direction)
 '|

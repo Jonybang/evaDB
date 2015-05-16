@@ -1,9 +1,16 @@
-= simple_nested_form_for(@thesis) do |f|
+= simple_nested_form_for @thesis, :url => thesis_path(@thesis) do |f|
   = f.error_notification
 
   .form-inputs
-      = uni_input f, "name"
+
+
+      = uni_input f, "name", "text_field"
+
+
+
       = uni_ref_input f, "scientist", @thesis.scientist || @thesis.build_scientist
+
+
 
   .form-actions
     = f.button :submit

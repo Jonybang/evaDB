@@ -3,33 +3,91 @@
 table class="table table-hover table-condensed"
   thead
     tr
+
       th Name
+
       th Project status
+
       th Description
+
       th Result
+
       th Project direction
+
       th Chief
+
       th Intellect properties
+
       th Team
+
       th Experts
+
       th Project tasks
+
       th Finance sources
+
+      th Resources
+
       th
 
   tbody
     - @projects.each do |project|
       tr
+
+
+
         td = link_to project.name, project
+
+
+
+
         td = uni_info project, "project_status"
+
+
+
+
         td = beauty_string project, "description", "min"
+
+
+
+
+
         td = beauty_string project, "result", "min"
+
+
+
+
         td = uni_info project, "project_direction"
+
+
+
         td = uni_info project, "chief"
+
+
+
         td = uni_info project, "intellect_properties"
+
+
+
         td = uni_info project, "team"
+
+
+
         td = uni_info project, "experts"
+
+
+
         td = uni_info project, "project_tasks"
+
+
+
         td = uni_info project, "finance_sources"
+
+
+
+        td = uni_info project, "resources"
+
+
         td
           = link_to 'Edit', uni_path(@parent, "projects", "edit_project_path", project)
           br

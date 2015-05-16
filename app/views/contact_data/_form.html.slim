@@ -1,11 +1,24 @@
-= simple_nested_form_for(@contact_data) do |f|
+= simple_nested_form_for @contact_data, :url => contact_data_path(@contact_data) do |f|
   = f.error_notification
 
   .form-inputs
-      = uni_input f, "phone"
-      = uni_input f, "email"
-      = uni_input f, "addres"
+
+
+      = uni_input f, "phone", "text_field"
+
+
+
+      = uni_input f, "email", "text_field"
+
+
+
+      = uni_input f, "addres", "text_field"
+
+
+
       = uni_ref_input f, "cdata_parent", @contact_data.cdata_parent || @contact_data.build_cdata_parent
+
+
 
   .form-actions
     = f.button :submit

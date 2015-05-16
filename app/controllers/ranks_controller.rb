@@ -1,4 +1,4 @@
-class RanksController < InheritedResources::Base
+class RanksController < ApplicationController
 
   private
 

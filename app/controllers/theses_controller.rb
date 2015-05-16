@@ -1,4 +1,4 @@
-class ThesesController < InheritedResources::Base
+class ThesesController < ApplicationController
 
   private
 

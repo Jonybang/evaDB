@@ -1,11 +1,18 @@
 p#notice = notice
 
+
 p
    strong Name:&nbsp;
+
    = beauty_string @equip_status, "name"
+
+
 p
    strong Equips:&nbsp;
+
    = uni_info @equip_status, "equips"
+
+
 
 = link_to 'Edit', uni_path(@parent, "equip_statuses", "edit_equip_status_path", @equip_status)
 '|
