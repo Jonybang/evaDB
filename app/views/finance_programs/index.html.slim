@@ -1,4 +1,3 @@
-<<<<<<< HEAD
 - @table = "finance_programs"
 
 table class="table table-hover table-condensed"
@@ -41,47 +40,3 @@ table class="table table-hover table-condensed"
 br
 
 = link_to 'New Finance program', uni_path(@parent, "finance_programs", "new_finance_program_path")
-=======
-- @table = "finance_programs"
-
-table class="table table-hover table-condensed"
-  thead
-    tr
-
-      th Name
-
-      th Terms
-
-      th Finance source
-
-      th
-
-  tbody
-    - @finance_programs.each do |finance_program|
-      tr
-
-
-
-        td = link_to finance_program.name, finance_program
-
-
-
-
-
-        td = beauty_string finance_program, "terms", "min"
-
-
-
-
-        td = uni_info finance_program, "finance_source"
-
-
-        td
-          = link_to 'Edit', uni_path(@parent, "finance_programs", "edit_finance_program_path", finance_program)
-          br
-          = link_to 'Destroy', finance_program, data: {:confirm => 'Are you sure?'}, :method => :delete
-
-br
-
-= link_to 'New Finance program', uni_path(@parent, "finance_programs", "new_finance_program_path")
->>>>>>> 5ab5a8da4ba00a34ea1da0744f2d7980a5694bda

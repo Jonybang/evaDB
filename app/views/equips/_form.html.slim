@@ -1,4 +1,3 @@
-<<<<<<< HEAD
 = simple_nested_form_for @equip, :url => equip_path(@equip) do |f|
   = f.error_notification
 
@@ -51,57 +50,3 @@
 
   .form-actions
     = f.button :submit
-=======
-= simple_nested_form_for @equip, :url => equip_path(@equip) do |f|
-  = f.error_notification
-
-  .form-inputs
-
-
-      = uni_input f, "name", "text_field"
-
-
-
-      = uni_input f, "model", "text_field"
-
-
-
-      = uni_input f, "description", "text_area"
-
-
-
-      = uni_input f, "parametres", "text_area"
-
-
-
-      = uni_ref_input f, "responsible", @equip.responsible || @equip.build_responsible
-
-
-
-      = uni_ref_input f, "organization", @equip.organization || @equip.build_organization
-
-
-
-      = uni_ref_input f, "subunit", @equip.subunit || @equip.build_subunit
-
-
-
-      = uni_ref_input f, "room", @equip.room || @equip.build_room
-
-
-
-      = uni_ref_input f, "equip_status", @equip.equip_status || @equip.build_equip_status
-
-
-
-      = uni_ref_input f, "project_tasks", @equip.project_tasks || @equip.build_project_tasks
-
-
-
-      = uni_ref_input f, "project_resources", @equip.project_resources || @equip.build_project_resources
-
-
-
-  .form-actions
-    = f.button :submit
->>>>>>> 5ab5a8da4ba00a34ea1da0744f2d7980a5694bda

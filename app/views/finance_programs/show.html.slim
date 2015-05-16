@@ -1,4 +1,3 @@
-<<<<<<< HEAD
 p#notice = notice
 
 
@@ -24,30 +23,3 @@ p
 = link_to 'Edit', uni_path(@parent, "finance_programs", "edit_finance_program_path", @finance_program)
 '|
 = link_to 'Back', uni_path(@parent, "finance_programs", "finance_programs_path", @finance_program)
-=======
-p#notice = notice
-
-
-p
-   strong Name:&nbsp;
-
-   = beauty_string @finance_program, "name"
-
-
-p
-   strong Terms:&nbsp;
-
-   = beauty_string @finance_program, "terms"
-
-
-p
-   strong Finance source:&nbsp;
-
-   = uni_info @finance_program, "finance_source"
-
-
-
-= link_to 'Edit', uni_path(@parent, "finance_programs", "edit_finance_program_path", @finance_program)
-'|
-= link_to 'Back', uni_path(@parent, "finance_programs", "finance_programs_path", @finance_program)
->>>>>>> 5ab5a8da4ba00a34ea1da0744f2d7980a5694bda

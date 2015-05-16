@@ -1,4 +1,3 @@
-<<<<<<< HEAD
 p#notice = notice
 
 
@@ -60,66 +59,3 @@ p
 = link_to 'Edit', uni_path(@parent, "project_tasks", "edit_project_task_path", @project_task)
 '|
 = link_to 'Back', uni_path(@parent, "project_tasks", "project_tasks_path", @project_task)
-=======
-p#notice = notice
-
-
-p
-   strong Name:&nbsp;
-
-   = beauty_string @project_task, "name"
-
-
-p
-   strong Number:&nbsp;
-
-   = beauty_string @project_task, "number"
-
-
-p
-   strong Begin date:&nbsp;
-
-   = beauty_string @project_task, "begin_date"
-
-
-p
-   strong End date:&nbsp;
-
-   = beauty_string @project_task, "end_date"
-
-
-p
-   strong Project status:&nbsp;
-
-   = uni_info @project_task, "project_status"
-
-
-p
-   strong Tehnical task:&nbsp;
-
-   = beauty_string @project_task, "tehnical_task"
-
-
-p
-   strong Project:&nbsp;
-
-   = uni_info @project_task, "project"
-
-
-p
-   strong Responsible:&nbsp;
-
-   = uni_info @project_task, "responsible"
-
-
-p
-   strong Equips:&nbsp;
-
-   = uni_info @project_task, "equips"
-
-
-
-= link_to 'Edit', uni_path(@parent, "project_tasks", "edit_project_task_path", @project_task)
-'|
-= link_to 'Back', uni_path(@parent, "project_tasks", "project_tasks_path", @project_task)
->>>>>>> 5ab5a8da4ba00a34ea1da0744f2d7980a5694bda

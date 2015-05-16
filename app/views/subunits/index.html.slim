@@ -1,4 +1,3 @@
-<<<<<<< HEAD
 - @table = "subunits"
 
 table class="table table-hover table-condensed"
@@ -57,63 +56,3 @@ table class="table table-hover table-condensed"
 br
 
 = link_to 'New Subunit', uni_path(@parent, "subunits", "new_subunit_path")
-=======
-- @table = "subunits"
-
-table class="table table-hover table-condensed"
-  thead
-    tr
-
-      th Name
-
-      th Contact data
-
-      th Link
-
-      th Organization
-
-      th Rooms
-
-      th Equips
-
-      th
-
-  tbody
-    - @subunits.each do |subunit|
-      tr
-
-
-
-        td = link_to subunit.name, subunit
-
-
-
-
-        td = uni_info subunit, "contact_data"
-
-
-
-        td = uni_info subunit, "link"
-
-
-
-        td = uni_info subunit, "organization"
-
-
-
-        td = uni_info subunit, "rooms"
-
-
-
-        td = uni_info subunit, "equips"
-
-
-        td
-          = link_to 'Edit', uni_path(@parent, "subunits", "edit_subunit_path", subunit)
-          br
-          = link_to 'Destroy', subunit, data: {:confirm => 'Are you sure?'}, :method => :delete
-
-br
-
-= link_to 'New Subunit', uni_path(@parent, "subunits", "new_subunit_path")
->>>>>>> 5ab5a8da4ba00a34ea1da0744f2d7980a5694bda

@@ -1,4 +1,3 @@
-<<<<<<< HEAD
 = simple_nested_form_for @link, :url => link_path(@link) do |f|
   = f.error_notification
 
@@ -19,25 +18,3 @@
 
   .form-actions
     = f.button :submit
-=======
-= simple_nested_form_for @link, :url => link_path(@link) do |f|
-  = f.error_notification
-
-  .form-inputs
-
-
-      = uni_input f, "url", "text_field"
-
-
-
-      = uni_input f, "note", "text_area"
-
-
-
-      = uni_ref_input f, "linkable", @link.linkable || @link.build_linkable
-
-
-
-  .form-actions
-    = f.button :submit
->>>>>>> 5ab5a8da4ba00a34ea1da0744f2d7980a5694bda

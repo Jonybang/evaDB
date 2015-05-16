@@ -1,4 +1,3 @@
-<<<<<<< HEAD
 = simple_nested_form_for @intellect_property, :url => intellect_property_path(@intellect_property) do |f|
   = f.error_notification
 
@@ -47,53 +46,3 @@
 
   .form-actions
     = f.button :submit
-=======
-= simple_nested_form_for @intellect_property, :url => intellect_property_path(@intellect_property) do |f|
-  = f.error_notification
-
-  .form-inputs
-
-
-      = uni_input f, "name", "text_field"
-
-
-
-      = uni_input f, "indnumber", "text_field"
-
-
-
-      = uni_input f, "description", "text_area"
-
-
-
-      = uni_input f, "formula", "text_field"
-
-
-
-      = uni_input f, "regdate", "date_select"
-
-
-
-      = uni_input f, "enddate", "date_select"
-
-
-
-      = uni_input f, "doclink", "text_field"
-
-
-
-      = uni_ref_input f, "intellect_type", @intellect_property.intellect_type || @intellect_property.build_intellect_type
-
-
-
-      = uni_ref_input f, "authors", @intellect_property.authors || @intellect_property.build_authors
-
-
-
-      = uni_ref_input f, "projects", @intellect_property.projects || @intellect_property.build_projects
-
-
-
-  .form-actions
-    = f.button :submit
->>>>>>> 5ab5a8da4ba00a34ea1da0744f2d7980a5694bda

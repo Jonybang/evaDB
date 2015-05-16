@@ -1,4 +1,3 @@
-<<<<<<< HEAD
 = simple_nested_form_for @<%= singular_table_name %>, :url => <%= singular_table_name %>_path(@<%= singular_table_name %>) do |f|
   = f.error_notification
 
@@ -13,19 +12,3 @@
 
   .form-actions
     = f.button :submit
-=======
-= simple_nested_form_for @<%= singular_table_name %>, :url => <%= singular_table_name %>_path(@<%= singular_table_name %>) do |f|
-  = f.error_notification
-
-  .form-inputs
-<%- attributes.each do |attribute| -%>
-   <%- if attribute.reference? -%>
-      = uni_ref_input f, "<%= attribute.name %>", @<%= singular_table_name %>.<%= attribute.name %> || @<%= singular_table_name %>.build_<%= attribute.name %>
-   <%- else -%>
-      = uni_input f, "<%= attribute.name %>", "<%= attribute.field_type %>"
-   <%- end -%>
-<%- end -%>
-
-  .form-actions
-    = f.button :submit
->>>>>>> 5ab5a8da4ba00a34ea1da0744f2d7980a5694bda

@@ -1,4 +1,3 @@
-<<<<<<< HEAD
 - @table = "socnets"
 
 table class="table table-hover table-condensed"
@@ -41,47 +40,3 @@ table class="table table-hover table-condensed"
 br
 
 = link_to 'New Socnet', uni_path(@parent, "socnets", "new_socnet_path")
-=======
-- @table = "socnets"
-
-table class="table table-hover table-condensed"
-  thead
-    tr
-
-      th Name
-
-      th Url
-
-      th Socnet links
-
-      th
-
-  tbody
-    - @socnets.each do |socnet|
-      tr
-
-
-
-        td = link_to socnet.name, socnet
-
-
-
-
-
-        td = beauty_string socnet, "url", "min"
-
-
-
-
-        td = uni_info socnet, "socnet_links"
-
-
-        td
-          = link_to 'Edit', uni_path(@parent, "socnets", "edit_socnet_path", socnet)
-          br
-          = link_to 'Destroy', socnet, data: {:confirm => 'Are you sure?'}, :method => :delete
-
-br
-
-= link_to 'New Socnet', uni_path(@parent, "socnets", "new_socnet_path")
->>>>>>> 5ab5a8da4ba00a34ea1da0744f2d7980a5694bda

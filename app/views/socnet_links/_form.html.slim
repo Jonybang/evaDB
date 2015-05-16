@@ -1,4 +1,3 @@
-<<<<<<< HEAD
 = simple_nested_form_for @socnet_link, :url => socnet_link_path(@socnet_link) do |f|
   = f.error_notification
 
@@ -23,29 +22,3 @@
 
   .form-actions
     = f.button :submit
-=======
-= simple_nested_form_for @socnet_link, :url => socnet_link_path(@socnet_link) do |f|
-  = f.error_notification
-
-  .form-inputs
-
-
-      = uni_input f, "url", "text_field"
-
-
-
-      = uni_input f, "note", "text_area"
-
-
-
-      = uni_ref_input f, "linkable", @socnet_link.linkable || @socnet_link.build_linkable
-
-
-
-      = uni_ref_input f, "socnet", @socnet_link.socnet || @socnet_link.build_socnet
-
-
-
-  .form-actions
-    = f.button :submit
->>>>>>> 5ab5a8da4ba00a34ea1da0744f2d7980a5694bda

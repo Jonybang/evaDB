@@ -1,4 +1,3 @@
-<<<<<<< HEAD
 p#notice = notice
 
 
@@ -60,66 +59,3 @@ p
 = link_to 'Edit', uni_path(@parent, "finance_sources", "edit_finance_source_path", @finance_source)
 '|
 = link_to 'Back', uni_path(@parent, "finance_sources", "finance_sources_path", @finance_source)
-=======
-p#notice = notice
-
-
-p
-   strong Name:&nbsp;
-
-   = beauty_string @finance_source, "name"
-
-
-p
-   strong Contact data:&nbsp;
-
-   = uni_info @finance_source, "contact_data"
-
-
-p
-   strong Link:&nbsp;
-
-   = uni_info @finance_source, "link"
-
-
-p
-   strong Volume from:&nbsp;
-
-   = beauty_string @finance_source, "volume_from"
-
-
-p
-   strong Volume to:&nbsp;
-
-   = beauty_string @finance_source, "volume_to"
-
-
-p
-   strong Currency:&nbsp;
-
-   = uni_info @finance_source, "currency"
-
-
-p
-   strong Projects:&nbsp;
-
-   = uni_info @finance_source, "projects"
-
-
-p
-   strong Project directions:&nbsp;
-
-   = uni_info @finance_source, "project_directions"
-
-
-p
-   strong Finance programs:&nbsp;
-
-   = uni_info @finance_source, "finance_programs"
-
-
-
-= link_to 'Edit', uni_path(@parent, "finance_sources", "edit_finance_source_path", @finance_source)
-'|
-= link_to 'Back', uni_path(@parent, "finance_sources", "finance_sources_path", @finance_source)
->>>>>>> 5ab5a8da4ba00a34ea1da0744f2d7980a5694bda

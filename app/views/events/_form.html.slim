@@ -1,4 +1,3 @@
-<<<<<<< HEAD
 = simple_nested_form_for @event, :url => event_path(@event) do |f|
   = f.error_notification
 
@@ -31,37 +30,3 @@
 
   .form-actions
     = f.button :submit
-=======
-= simple_nested_form_for @event, :url => event_path(@event) do |f|
-  = f.error_notification
-
-  .form-inputs
-
-
-      = uni_input f, "name", "text_field"
-
-
-
-      = uni_input f, "date", "datetime_select"
-
-
-
-      = uni_ref_input f, "members", @event.members || @event.build_members
-
-
-
-      = uni_ref_input f, "sponsors", @event.sponsors || @event.build_sponsors
-
-
-
-      = uni_ref_input f, "experts", @event.experts || @event.build_experts
-
-
-
-      = uni_ref_input f, "documents", @event.documents || @event.build_documents
-
-
-
-  .form-actions
-    = f.button :submit
->>>>>>> 5ab5a8da4ba00a34ea1da0744f2d7980a5694bda

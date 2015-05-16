@@ -1,4 +1,3 @@
-<<<<<<< HEAD
 = simple_nested_form_for @project, :url => project_path(@project) do |f|
   = f.error_notification
 
@@ -55,61 +54,3 @@
 
   .form-actions
     = f.button :submit
-=======
-= simple_nested_form_for @project, :url => project_path(@project) do |f|
-  = f.error_notification
-
-  .form-inputs
-
-
-      = uni_input f, "name", "text_field"
-
-
-
-      = uni_ref_input f, "project_status", @project.project_status || @project.build_project_status
-
-
-
-      = uni_input f, "description", "text_area"
-
-
-
-      = uni_input f, "result", "text_area"
-
-
-
-      = uni_ref_input f, "project_direction", @project.project_direction || @project.build_project_direction
-
-
-
-      = uni_ref_input f, "chief", @project.chief || @project.build_chief
-
-
-
-      = uni_ref_input f, "intellect_properties", @project.intellect_properties || @project.build_intellect_properties
-
-
-
-      = uni_ref_input f, "team", @project.team || @project.build_team
-
-
-
-      = uni_ref_input f, "experts", @project.experts || @project.build_experts
-
-
-
-      = uni_ref_input f, "project_tasks", @project.project_tasks || @project.build_project_tasks
-
-
-
-      = uni_ref_input f, "finance_sources", @project.finance_sources || @project.build_finance_sources
-
-
-
-      = uni_ref_input f, "resources", @project.resources || @project.build_resources
-
-
-
-  .form-actions
-    = f.button :submit
->>>>>>> 5ab5a8da4ba00a34ea1da0744f2d7980a5694bda
